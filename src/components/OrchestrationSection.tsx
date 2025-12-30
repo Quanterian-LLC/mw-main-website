@@ -7,26 +7,26 @@ const OrchestrationSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="max-w-xl">
-            <span className="inline-block text-sm font-medium text-ai-cyan mb-4">INTELLIGENT ORCHESTRATION</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Models that{" "}
-              <span className="gradient-text">think together</span>
+          <span className="inline-block text-sm font-medium text-ai-cyan mb-4">KEY FEATURES</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
+              Why choose us
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Our orchestration layer intelligently routes tasks to the best model, enabling parallel processing and seamless collaboration between LLMs.
+              Empowering your business with AI-driven insights. Connect, process, and query documents from Google Drive, OneDrive, Dropbox, or local files—all in natural language.
             </p>
 
             <div className="space-y-6">
               {[
-                { title: "Smart Routing", description: "Auto-select the optimal model for each task based on capability, cost, and latency" },
-                { title: "Parallel Execution", description: "Run multiple models simultaneously for faster, more comprehensive results" },
-                { title: "Consensus Building", description: "Cross-validate responses across models for higher accuracy and reliability" },
+                { title: "Proactive Task Assistance", description: "A true digital teammate, proactively providing insights, reminders, and summaries to keep projects on track." },
+                { title: "Enterprise Workflow Integration", description: "Connects with Google Drive, Dropbox, OneDrive, slack and more embedding into workflows rather than staying isolated." },
+                { title: "Intelligent Context Awareness", description: "Understands history, roles, and organizational knowledge to deliver evolving, context-aware support tailored to teams." },
+                { title: "Secure, Scalable Collaboration", description: "With encryption, SSO, role-based access and audit logs, it scales securely across teams for efficient AI collaboration." },
               ].map((feature, index) => (
                 <div key={index} className="flex gap-4 group cursor-pointer">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-ai-blue to-ai-violet mt-3 group-hover:scale-150 transition-transform" />
                   <div>
-                    <h4 className="font-semibold mb-1 group-hover:text-ai-violet transition-colors">{feature.title}</h4>
-                    <p className="text-muted-foreground">{feature.description}</p>
+                  <h4 className="font-display font-semibold tracking-tight mb-1 group-hover:text-ai-violet transition-colors">{feature.title}</h4>
+                  <p className="text-muted-foreground font-body font-normal leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}

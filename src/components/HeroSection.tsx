@@ -25,9 +25,10 @@ const HeroSection = () => {
           {/* Headline */}
           {/* Headline */}
           <h1
-            className="font-display font-bold mb-6 opacity-0 animate-fade-in"
-            style={{ animationDelay: "0.2s" }}
-          >
+  className="font-display font-extrabold tracking-tight leading-tight mb-6 opacity-0 animate-fade-in"
+  style={{ animationDelay: "0.2s" }}
+>
+            {/* First line - "Smart AI for" */}
             <div
               className="text-foreground"
               style={{
@@ -37,10 +38,11 @@ const HeroSection = () => {
                 fontWeight: 600
               }}
             >
-              Your AI Ecosystem.
+              Smart AI for
             </div>
+            
+            {/* Second line - "your Enterprise" */}
             <div
-              className="gradient-text"
               style={{
                 fontSize: 'clamp(3rem, 9vw, 6rem)',
                 lineHeight: '1.1',
@@ -49,16 +51,31 @@ const HeroSection = () => {
                 marginTop: '-0.1em'
               }}
             >
-              Unified.
+              <span className="text-foreground">your </span>
+              <span className="gradient-text">Enterprise</span>
+            </div>
+            
+            {/* Third line - "Workforce" */}
+            <div
+              className="text-foreground"
+              style={{
+                fontSize: 'clamp(3rem, 9vw, 6rem)',
+                lineHeight: '1.1',
+                letterSpacing: '-0.02em',
+                fontWeight: 600,
+                marginTop: '-0.1em'
+              }}
+            >
+              Workforce
             </div>
           </h1>
-
           {/* Subheadline */}
           <p
             className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.4s" }}
           >
-            Multiple LLMs. One intelligent platform. Orchestrate, collaborate, and scale your AI workflows like never before.
+            Upload, ask, and get insights instantly—
+            built for busy enterprises
           </p>
 
           {/* CTAs */}
@@ -67,7 +84,7 @@ const HeroSection = () => {
             style={{ animationDelay: "0.6s" }}
           >
             <Button variant="hero" size="xl" className="group">
-              Launch Platform
+              Early Access
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button variant="glass" size="xl" className="group">

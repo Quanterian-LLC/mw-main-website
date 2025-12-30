@@ -3,33 +3,37 @@ import { Code2, Briefcase, Palette, Users } from "lucide-react";
 const useCases = [
   {
     icon: Code2,
-    title: "Developers",
-    description: "Build AI-native applications with our SDK. Integrate multiple LLMs without managing infrastructure.",
-    features: ["API-first design", "Type-safe SDKs", "Real-time streaming"],
+    title: "Starter",
+    description: "For small teams trying out AI-powered document Q&A",
+    features: ["File Uploads and Ingestion", "Core AI Chatbot Features Access", "Basic Search and Context Retention", "Multi-File Support"],
+    price: "$19/month",
     gradient: "from-ai-blue to-ai-cyan",
     image: "code",
   },
   {
     icon: Briefcase,
-    title: "Product Teams",
-    description: "Prototype and ship AI features faster. No ML expertise required.",
-    features: ["Visual workflow builder", "A/B testing built-in", "Usage analytics"],
+    title: "Professional",
+    description: "For growing companies that need collaboration and stronger retrieval",
+    features: ["Everything in Starter", "Scalable Data Storage and Queries", "Team Collaboration", "Smart Context Awareness"],
+    price: "$29/month",
     gradient: "from-ai-violet to-ai-peach",
     image: "product",
   },
   {
     icon: Palette,
-    title: "Creative Technologists",
-    description: "Push the boundaries of human-AI collaboration in creative workflows.",
-    features: ["Multimodal support", "Creative pipelines", "Real-time generation"],
+    title: "Enterprise",
+    description: "For larger enterprises requiring security, scalability, and customization",
+    features: ["Everything in Professional", "Flexible Storage Options", "Custom AI Models", "Personalized Support and Guidance"],
+    price: "$99/month",
     gradient: "from-ai-peach to-ai-mint",
     image: "creative",
   },
   {
     icon: Users,
-    title: "Enterprise",
-    description: "Scale AI across your organization with security and compliance built-in.",
-    features: ["SSO & RBAC", "Data residency", "SLA guarantees"],
+    title: "Custom Version",
+    description: "Tailored solutions for large enterprises with specific requirements",
+    features: ["Everything in Enterprise", "Customize version for large customers as per need", "Dedicated 24/7 resources", "Dedicated Infrastructure"],
+    price: "Custom",
     gradient: "from-ai-cyan to-ai-blue",
     image: "enterprise",
   },
@@ -40,13 +44,13 @@ const UseCasesSection = () => {
     <section id="usecases" className="py-32 relative">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-block text-sm font-medium text-ai-peach mb-4">USE CASES</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-            Built for{" "}
-            <span className="gradient-warm-text">every builder</span>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
+            Accelerate your{" "}
+            <span className="gradient-warm-text">business</span>{" "}
+            with AI-powered insights
           </h2>
           <p className="text-xl text-muted-foreground">
-            Whether you're a solo developer or an enterprise team, NeuralOS scales with your ambitions.
+            Flexible plans for individuals, teams, and enterprises to unlock value from your unstructured business data
           </p>
         </div>
 
@@ -60,8 +64,9 @@ const UseCasesSection = () => {
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${useCase.gradient} flex items-center justify-center mb-6`}>
                   <useCase.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-3xl font-display font-bold mb-4">{useCase.title}</h3>
-                <p className="text-xl text-muted-foreground mb-8">{useCase.description}</p>
+                <h3 className="text-3xl font-display font-bold tracking-tight mb-2">{useCase.title}</h3>
+                <div className="text-2xl font-display font-bold mb-4 text-ai-blue">{useCase.price}</div>
+                <p className="text-xl text-muted-foreground font-body font-normal leading-relaxed mb-8">{useCase.description}</p>
                 <div className="flex flex-wrap gap-3">
                   {useCase.features.map((feature, i) => (
                     <span 

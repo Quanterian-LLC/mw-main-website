@@ -54,7 +54,7 @@ const EnvironmentsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-block text-sm font-medium text-ai-violet mb-4">AI ENVIRONMENTS</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
             Every AI workflow.{" "}
             <span className="gradient-warm-text">One platform.</span>
           </h2>
@@ -80,8 +80,8 @@ const EnvironmentsSection = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-display font-semibold mb-3">{env.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{env.description}</p>
+              <h3 className="text-xl font-display font-semibold tracking-tight mb-3">{env.title}</h3>
+              <p className="text-muted-foreground font-body font-normal leading-relaxed">{env.description}</p>
 
               {/* Arrow indicator */}
               <div className="mt-6 flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
