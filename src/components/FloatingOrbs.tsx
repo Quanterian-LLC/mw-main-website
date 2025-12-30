@@ -5,7 +5,7 @@ const FloatingOrbs = () => {
       <div 
         className="absolute top-20 right-[15%] w-[500px] h-[500px] rounded-full animate-float opacity-40"
         style={{
-          background: "radial-gradient(circle at 30% 30%, hsl(220, 90%, 70%), hsl(270, 80%, 60%) 50%, transparent 70%)",
+          background: "radial-gradient(circle at 30% 30%, hsl(220, 90%, 70%), hsl(220, 80%, 60%) 50%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -32,7 +32,7 @@ const FloatingOrbs = () => {
       <div 
         className="absolute top-[60%] right-[40%] w-[200px] h-[200px] rounded-full animate-morph opacity-25"
         style={{
-          background: "radial-gradient(circle at 50% 50%, hsl(270, 80%, 70%), transparent 60%)",
+          background: "radial-gradient(circle at 50% 50%, hsl(220, 80%, 70%), transparent 60%)",
           filter: "blur(30px)",
         }}
       />
