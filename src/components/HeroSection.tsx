@@ -22,51 +22,105 @@ const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          {/* Headline */}
-          {/* Headline */}
-          <h1
-  className="font-display font-extrabold tracking-tight leading-tight mb-6 opacity-0 animate-fade-in"
-  style={{ animationDelay: "0.2s" }}
->
-            {/* First line - "Smart AI for" */}
-            <div
-              className="text-foreground"
-              style={{
-                fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                lineHeight: '1.1',
-                letterSpacing: '-0.02em',
-                fontWeight: 600
-              }}
-            >
-              Smart AI for
-            </div>
-            
-            {/* Second line - "your Enterprise" */}
-            <div
-              style={{
-                fontSize: 'clamp(3rem, 9vw, 6rem)',
-                lineHeight: '1.1',
-                letterSpacing: '-0.02em',
-                fontWeight: 600,
-                marginTop: '-0.1em'
-              }}
-            >
-              <span className="text-foreground">your </span>
-              <span className="gradient-text">Enterprise</span>
-            </div>
-            
-            {/* Third line - "Workforce" */}
-            <div
-              className="text-foreground"
-              style={{
-                fontSize: 'clamp(3rem, 9vw, 6rem)',
-                lineHeight: '1.1',
-                letterSpacing: '-0.02em',
-                fontWeight: 600,
-                marginTop: '-0.1em'
-              }}
-            >
-              Workforce
+          <h1 className="font-display font-extrabold tracking-tight leading-tight mb-6">
+            <div className="flex flex-wrap justify-center items-baseline gap-3 md:gap-4">
+              {/* "A" */}
+              <span
+                className="text-foreground inline-block opacity-0 animate-slide-in-then-float"
+                style={{
+                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.2s'
+                }}
+              >
+                A
+              </span>
+              
+              {/* "Single" */}
+              <span
+                className="text-foreground inline-block opacity-0 animate-slide-in-then-float-reverse"
+                style={{
+                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.3s'
+                }}
+              >
+                Single
+              </span>
+              
+              {/* "Interface" */}
+              <span
+                className="gradient-text inline-block opacity-0 animate-slide-in-then-float animate-gradient-flow animate-pulse-glow"
+                style={{
+                  fontSize: 'clamp(3rem, 9vw, 6rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.4s, 1.4s, 1.4s'
+                }}
+              >
+                Interface
+              </span>
+              
+              {/* "for" */}
+              <span
+                className="text-foreground inline-block opacity-0 animate-slide-in-then-float-reverse"
+                style={{
+                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.5s'
+                }}
+              >
+                for
+              </span>
+              
+              {/* "Every" */}
+              <span
+                className="text-foreground inline-block opacity-0 animate-slide-in-then-float"
+                style={{
+                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.6s'
+                }}
+              >
+                Every
+              </span>
+              
+              {/* "AI" */}
+              <span
+                className="gradient-text inline-block opacity-0 animate-slide-in-then-float-reverse animate-gradient-flow animate-pulse-glow"
+                style={{
+                  fontSize: 'clamp(3rem, 9vw, 6rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.7s, 2s, 2s'
+                }}
+              >
+                AI
+              </span>
+              
+              {/* "Model" */}
+              <span
+                className="text-foreground inline-block opacity-0 animate-slide-in-then-float"
+                style={{
+                  fontSize: 'clamp(3rem, 9vw, 6rem)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 600,
+                  animationDelay: '0.8s'
+                }}
+              >
+                Model
+              </span>
             </div>
           </h1>
           {/* Subheadline */}
@@ -83,10 +137,10 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            <Button variant="hero" size="xl" className="group">
+            {/* <Button variant="hero" size="xl" className="group">
               Early Access
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            </Button> */}
             <Button variant="glass" size="xl" className="group">
               <Play className="w-5 h-5" />
               Watch Demo
