@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { NavLink } from "./NavLink";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,27 +12,43 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-ai-blue via-ai-violet to-ai-peach flex items-center justify-center">
               <span className="text-primary-foreground font-display font-bold text-lg">N</span>
             </div>
             <span className="font-display font-bold text-xl">NeuralOS</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#environments" className="text-muted-foreground hover:text-foreground transition-colors">
-              Environments
-            </a>
-            <a href="#orchestration" className="text-muted-foreground hover:text-foreground transition-colors">
-              Orchestration
-            </a>
-            <a href="#usecases" className="text-muted-foreground hover:text-foreground transition-colors">
-              Use Cases
-            </a>
-            <a href="#dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
-              Dashboard
-            </a>
+            <NavLink 
+              to="/product" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              activeClassName="text-foreground"
+            >
+              Product
+            </NavLink>
+            <NavLink 
+              to="/about-us" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              activeClassName="text-foreground"
+            >
+              About Us
+            </NavLink>
+            <NavLink 
+              to="/blog" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              activeClassName="text-foreground"
+            >
+              Blog
+            </NavLink>
+            <NavLink 
+              to="/contact" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              activeClassName="text-foreground"
+            >
+              Contact
+            </NavLink>
           </div>
 
           {/* CTA Buttons */}
@@ -53,18 +71,38 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 p-6">
           <div className="flex flex-col gap-4">
-            <a href="#environments" className="text-muted-foreground hover:text-foreground transition-colors py-2">
-              Environments
-            </a>
-            <a href="#orchestration" className="text-muted-foreground hover:text-foreground transition-colors py-2">
-              Orchestration
-            </a>
-            <a href="#usecases" className="text-muted-foreground hover:text-foreground transition-colors py-2">
-              Use Cases
-            </a>
-            <a href="#dashboard" className="text-muted-foreground hover:text-foreground transition-colors py-2">
-              Dashboard
-            </a>
+            <NavLink 
+              to="/product" 
+              className="text-muted-foreground hover:text-foreground transition-colors py-2"
+              activeClassName="text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Product
+            </NavLink>
+            <NavLink 
+              to="/about-us" 
+              className="text-muted-foreground hover:text-foreground transition-colors py-2"
+              activeClassName="text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </NavLink>
+            <NavLink 
+              to="/blog" 
+              className="text-muted-foreground hover:text-foreground transition-colors py-2"
+              activeClassName="text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Blog
+            </NavLink>
+            <NavLink 
+              to="/contact" 
+              className="text-muted-foreground hover:text-foreground transition-colors py-2"
+              activeClassName="text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </NavLink>
             <div className="flex flex-col gap-3 pt-4 border-t border-border/50">
               <Button variant="ghost" className="w-full justify-center">Sign In</Button>
               <Button variant="gradient" className="w-full justify-center">Get Started</Button>
