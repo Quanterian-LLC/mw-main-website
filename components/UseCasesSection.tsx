@@ -1,5 +1,5 @@
-import { Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Sparkles, Check } from "lucide-react";
+import Link from "next/link";
 
 const pricingPlans = [
   {
@@ -95,16 +95,20 @@ const UseCasesSection = () => {
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-ai-violet mt-1">•</span>
+                    <Check className="w-4 h-4 text-ai-violet mt-0.5 flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
               
-              {plan.name === "Custom Version" ? (
-                <Button variant="outline" className="w-full">Contact Us</Button>
-              ) : (
-                <Button variant="gradient" className="w-full">Get Started</Button>
+              {plan.name === "Custom Version" && (
+                <Link href="/contact">
+                  <button className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium border border-border bg-transparent hover:bg-secondary transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full">
+                    <span className="relative z-10 font-semibold">
+                      Contact Us
+                    </span>
+                  </button>
+                </Link>
               )}
             </div>
           ))}

@@ -5,8 +5,9 @@ import Link from "next/link";
 import { blogPostsData } from "@/lib/blogPosts";
 import { notFound } from "next/navigation";
 
-export default function BlogPost({ params }: { params: { id: string } }) {
-  const post = blogPostsData[params.id];
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = blogPostsData[id];
 
   if (!post) {
     notFound();

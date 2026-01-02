@@ -5,63 +5,26 @@ import Footer from "@/components/Footer";
 import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   const pricingPlans = [
     {
-      name: "Free",
-      price: "$0",
-      originalPrice: null,
-      period: "/per month",
-      description: "Perfect for getting started",
-      buttonText: "Early Access",
-      buttonVariant: "outline" as const,
-      gradient: "from-ai-blue to-ai-cyan",
-      features: [
-        "Limited basic models",
-        "Available Models: GPT-5.2,GPT-5.1,GPT-4.1,Gemini 2.5 Flash +3 More",
-        "Bring your own API key(s) option",
-        "Up to 1,000 messages/month",
-        "No attachment",
-        "Solo use only (no team features)",
-        "No shared workspace",
-        "Community-driven support",
-      ],
-      details: {
-        availableModels: "Limited Basic (Gemini, Qwen, DeepSeek, Baidu)",
-        messages: "No Limits",
-        tokenLimit: "1M",
-        fileUpload: "5MB",
-        messageHistory: "No Limits",
-        teamMembers: "Solo use only",
-        sharedWorkspace: "No shared workspace",
-        bringOwnKey: "Yes",
-        liveWebSearch: "No",
-        speed: "Slow",
-        dailyTokenLimit: "1GB",
-        support: "Community",
-      },
-    },
-    {
       name: "Starter",
       price: isAnnual ? "$17" : "$19",
       originalPrice: isAnnual ? "$8" : "$8",
       period: "/per month",
-      description: "For individuals and small teams",
+      description: "For small teams trying out AI-powered document Q&A",
       buttonText: "Choose Plan",
       buttonVariant: "gradient" as const,
-      gradient: "from-ai-violet to-ai-peach",
+      gradient: "from-ai-blue to-ai-cyan",
       features: [
-        "Basic and plus level models",
-        "Available Models: O4 Mini, O3 Mini, GPT OSS 120B, +30 More",
-        "Bring your own API key(s) option",
-        "3,000 messages/month",
-        "Attachment support",
-        "Add up to 3 team members",
-        "No shared workspace",
-        "Email support",
+        "File Uploads and Ingestion",
+        "Core AI Chatbot Features Access",
+        "Basic Search and Context Retention",
+        "Multi-File Support",
       ],
       details: {
         availableModels: "Basic and Plus Models",
@@ -83,20 +46,16 @@ export default function Pricing() {
       price: isAnnual ? "$37" : "$39",
       originalPrice: isAnnual ? "$20" : "$20",
       period: "/per month",
-      description: "For growing teams",
+      description: "For growing companies that need collaboration and stronger retrieval",
       buttonText: "Choose Plan",
       buttonVariant: "gradient" as const,
-      gradient: "from-ai-cyan to-ai-mint",
+      gradient: "from-ai-violet to-ai-peach",
       popular: true,
       features: [
-        "All available models unlocked",
-        "Available Models: GPT-5.2, O3, GPT-5 Mini, +44 More",
-        "Bring your own API key(s) option",
-        "12,000 messages/month",
-        "Larger attachment support",
-        "Add up to 10 team members",
-        "3 Shared workspace",
-        "Priority email support",
+        "Everything in Starter",
+        "Scalable Data Storage and Queries",
+        "Team Collaboration",
+        "Smart Context Awareness",
       ],
       details: {
         availableModels: "Basic, Plus and Premium Models",
@@ -118,20 +77,16 @@ export default function Pricing() {
       price: isAnnual ? "$97" : "$99",
       originalPrice: isAnnual ? "$39" : "$39",
       period: "/per month",
-      description: "For large teams and enterprises",
+      description: "For larger enterprises requiring security, scalability, and customization",
       buttonText: "Choose Plan",
       buttonVariant: "gradient" as const,
-      gradient: "from-ai-peach to-ai-violet",
+      gradient: "from-ai-cyan to-ai-mint",
       bestValue: true,
       features: [
-        "All available models unlocked",
-        "Available Models: GPT-5.2, O3, GPT-5 Mini, +44 More",
-        "Bring your own API key(s) option",
-        "30,000 messages/month",
-        "Larger attachment support",
-        "Add up to 25 team members",
-        "Unlimited shared workspace",
-        "Priority email support",
+        "Everything in Professional",
+        "Flexible Storage Options",
+        "Custom AI Models",
+        "Personalized Support and Guidance",
       ],
       details: {
         availableModels: "Basic, Plus and Premium Models",
@@ -146,6 +101,36 @@ export default function Pricing() {
         speed: "Highest",
         dailyTokenLimit: "15GB",
         support: "Priority Email Support",
+      },
+    },
+    {
+      name: "Custom Version",
+      price: "Custom",
+      originalPrice: null,
+      period: "",
+      description: "Tailored solutions for large enterprises with specific requirements",
+      buttonText: "Contact Us",
+      buttonVariant: "outline" as const,
+      gradient: "from-ai-peach to-ai-violet",
+      features: [
+        "Everything in Enterprise",
+        "Customize version for large customers as per need",
+        "Dedicated 24/7 resources",
+        "Dedicated Infrastructure",
+      ],
+      details: {
+        availableModels: "All Models + Custom Models",
+        messages: "Unlimited",
+        tokenLimit: "Custom",
+        fileUpload: "Unlimited",
+        messageHistory: "Unlimited",
+        teamMembers: "Unlimited",
+        sharedWorkspace: "Unlimited",
+        bringOwnKey: "Yes",
+        liveWebSearch: "Yes",
+        speed: "Custom",
+        dailyTokenLimit: "Custom",
+        support: "Dedicated 24/7 Support",
       },
     },
   ];
@@ -277,27 +262,17 @@ export default function Pricing() {
                 <h3 className="text-2xl font-display font-semibold tracking-tight mb-2">{plan.name}</h3>
                 
                 <div className="mb-4">
-                  {plan.originalPrice && (
-                    <span className="text-lg text-muted-foreground line-through mr-2">
-                      {plan.originalPrice}
-                    </span>
-                  )}
                   <span className="text-4xl font-display font-bold">
                     {plan.price}
                   </span>
-                  <span className="text-muted-foreground">{plan.period}</span>
+                  {plan.period && (
+                    <span className="text-muted-foreground">{plan.period}</span>
+                  )}
                 </div>
                 
                 <p className="text-muted-foreground mb-6 text-sm">{plan.description}</p>
-                
-                <Button 
-                  variant={plan.buttonVariant} 
-                  className="w-full mb-8"
-                >
-                  {plan.buttonText}
-                </Button>
-                
-                <ul className="space-y-3">
+
+                <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <Check className="w-4 h-4 text-ai-violet mt-0.5 flex-shrink-0" />
@@ -305,6 +280,16 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                {plan.buttonVariant === "outline" && (
+                  <Link href="/contact">
+                    <button className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium border border-border bg-transparent hover:bg-secondary transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full">
+                      <span className="relative z-10 font-semibold">
+                        {plan.buttonText}
+                      </span>
+                    </button>
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -346,14 +331,6 @@ export default function Pricing() {
                     ))}
                   </tr>
                   <tr className="border-b border-border/30">
-                    <td className="p-6 font-medium">Messages</td>
-                    {pricingPlans.map((plan, index) => (
-                      <td key={index} className="p-6 text-center text-sm text-muted-foreground">
-                        {plan.details.messages}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-border/30">
                     <td className="p-6 font-medium">Token Limit</td>
                     {pricingPlans.map((plan, index) => (
                       <td key={index} className="p-6 text-center text-sm text-muted-foreground">
@@ -362,46 +339,10 @@ export default function Pricing() {
                     ))}
                   </tr>
                   <tr className="border-b border-border/30">
-                    <td className="p-6 font-medium">File Upload</td>
-                    {pricingPlans.map((plan, index) => (
-                      <td key={index} className="p-6 text-center text-sm text-muted-foreground">
-                        {plan.details.fileUpload}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-border/30">
                     <td className="p-6 font-medium">Message History</td>
                     {pricingPlans.map((plan, index) => (
                       <td key={index} className="p-6 text-center text-sm text-muted-foreground">
                         {plan.details.messageHistory}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-border/30">
-                    <td className="p-6 font-medium">Team Members</td>
-                    {pricingPlans.map((plan, index) => (
-                      <td key={index} className="p-6 text-center text-sm text-muted-foreground">
-                        {plan.details.teamMembers}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-border/30">
-                    <td className="p-6 font-medium">Shared Workspace</td>
-                    {pricingPlans.map((plan, index) => (
-                      <td key={index} className="p-6 text-center text-sm text-muted-foreground">
-                        {plan.details.sharedWorkspace}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-border/30">
-                    <td className="p-6 font-medium">Can Bring Own AI API Key(s)</td>
-                    {pricingPlans.map((plan, index) => (
-                      <td key={index} className="p-6 text-center">
-                        {plan.details.bringOwnKey === "Yes" ? (
-                          <Check className="w-5 h-5 text-ai-violet mx-auto" />
-                        ) : (
-                          <span className="text-muted-foreground">—</span>
-                        )}
                       </td>
                     ))}
                   </tr>
@@ -486,4 +427,3 @@ export default function Pricing() {
     </main>
   );
 }
-

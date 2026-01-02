@@ -1,7 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
 import FloatingOrbs from "./FloatingOrbs";
 import { useEffect, useRef } from "react";
 
@@ -183,8 +181,7 @@ const HeroSection = () => {
               />
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
               {/* Content */}
-              <span className="relative z-10 flex items-center gap-2 text-white font-semibold">
-                <Play className="w-5 h-5" />
+              <span className="relative z-10 text-white font-semibold">
                 Book a Demo
               </span>
             </button>
