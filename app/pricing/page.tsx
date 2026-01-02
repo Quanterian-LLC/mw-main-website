@@ -1,10 +1,12 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Check, Sparkles, Zap, Users, Database, Shield, FileText, Globe } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-const Pricing = () => {
+export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   const pricingPlans = [
@@ -483,7 +485,5 @@ const Pricing = () => {
       <Footer />
     </main>
   );
-};
-
-export default Pricing;
+}
 

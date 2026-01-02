@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Rocket, Users, Shield, TrendingUp } from "lucide-react";
 
-const AboutUs = () => {
+export default function AboutUs() {
   const coreValues = [
     {
       icon: Rocket,
@@ -229,7 +229,6 @@ const AboutUs = () => {
               We will be glad to hear from you!
             </h2>
             <button className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
-              {/* Gradient background using theme colors */}
               <div 
                 className="absolute inset-0 rounded-2xl transition-all duration-500"
                 style={{
@@ -237,7 +236,6 @@ const AboutUs = () => {
                 }}
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
-              {/* Content */}
               <span className="relative z-10 text-white font-semibold">
                 Contact Us
               </span>
@@ -249,6 +247,5 @@ const AboutUs = () => {
       <Footer />
     </main>
   );
-};
+}
 
-export default AboutUs;

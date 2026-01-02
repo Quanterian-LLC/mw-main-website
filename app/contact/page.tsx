@@ -1,8 +1,22 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useState, FormEvent } from "react";
+import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
+export default function Contact() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    terms: false,
+  });
+
   const contactMethods = [
     {
       icon: Mail,
@@ -26,6 +40,66 @@ const Contact = () => {
       gradient: "from-ai-cyan to-ai-mint",
     },
   ];
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.terms) {
+      toast({
+        title: "Terms Required",
+        description: "Please agree to the terms and conditions.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us. We'll get back to you soon.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          terms: false,
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-background">
@@ -105,7 +179,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <form className="space-y-6 p-8 rounded-3xl backdrop-blur-xl bg-card/60 border border-border/50">
+            <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-3xl backdrop-blur-xl bg-card/60 border border-border/50">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -116,6 +190,8 @@ const Contact = () => {
                     id="name"
                     name="name"
                     required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet transition-all"
                     placeholder="Your name"
                   />
@@ -129,6 +205,8 @@ const Contact = () => {
                     id="email"
                     name="email"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet transition-all"
                     placeholder="your.email@example.com"
                   />
@@ -144,6 +222,8 @@ const Contact = () => {
                   id="subject"
                   name="subject"
                   required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   className="w-full px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet transition-all"
                   placeholder="What's this about?"
                 />
@@ -158,6 +238,8 @@ const Contact = () => {
                   name="message"
                   required
                   rows={6}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet transition-all resize-none"
                   placeholder="Tell us more about your inquiry..."
                 />
@@ -169,6 +251,8 @@ const Contact = () => {
                   id="terms"
                   name="terms"
                   required
+                  checked={formData.terms}
+                  onChange={(e) => setFormData({ ...formData, terms: e.target.checked })}
                   className="w-4 h-4 rounded border-border/50"
                 />
                 <label htmlFor="terms" className="text-sm text-muted-foreground">
@@ -177,10 +261,10 @@ const Contact = () => {
               </div>
 
               <button 
-                type="submit" 
-                className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full"
+                type="submit"
+                disabled={isSubmitting}
+                className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {/* Gradient background using theme colors */}
                 <div 
                   className="absolute inset-0 rounded-2xl transition-all duration-500"
                   style={{
@@ -188,10 +272,9 @@ const Contact = () => {
                   }}
                 />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
-                {/* Content */}
                 <span className="relative z-10 flex items-center gap-2 text-white font-semibold">
                   <Send className="w-5 h-5" />
-                  Submit
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </span>
               </button>
             </form>
@@ -219,7 +302,6 @@ const Contact = () => {
               Request early access and we'll send you a magic link to create your account. The link will be active for 48 hours.
             </p>
             <button className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
-              {/* Gradient background using theme colors */}
               <div 
                 className="absolute inset-0 rounded-2xl transition-all duration-500"
                 style={{
@@ -227,7 +309,6 @@ const Contact = () => {
                 }}
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
-              {/* Content */}
               <span className="relative z-10 text-white font-semibold">
                 Request Early Access
               </span>
@@ -261,7 +342,6 @@ const Contact = () => {
                 className="flex-1 px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet"
               />
               <button className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
-                {/* Gradient background using theme colors */}
                 <div 
                   className="absolute inset-0 rounded-2xl transition-all duration-500"
                   style={{
@@ -269,7 +349,6 @@ const Contact = () => {
                   }}
                 />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
-                {/* Content */}
                 <span className="relative z-10 text-white font-semibold">
                   Sign Up
                 </span>
@@ -282,6 +361,5 @@ const Contact = () => {
       <Footer />
     </main>
   );
-};
+}
 
-export default Contact;

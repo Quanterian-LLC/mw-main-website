@@ -6,7 +6,7 @@ import UseCasesSection from "@/components/UseCasesSection";
 import DashboardPreview from "@/components/DashboardPreview";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -18,6 +18,5 @@ const Index = () => {
       <Footer />
     </main>
   );
-};
+}
 
-export default Index;

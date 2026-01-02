@@ -1,9 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { NavLink } from "./NavLink";
-import MetaWurksLogo from "@/MetaWurks Logo-11.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,47 +14,44 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img
-              src={MetaWurksLogo}
-              alt="MetaWurks"
-              className="h-60 w-auto"
-            />
-            
+          <Link href="/" className="flex items-center gap-3">
+            <div className="text-2xl font-display font-bold bg-gradient-to-r from-ai-blue via-ai-violet to-ai-peach bg-clip-text text-transparent">
+              MetaWurks
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <NavLink
-              to="/product"
+              href="/product"
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
               Product
             </NavLink>
             <NavLink
-              to="/pricing"
+              href="/pricing"
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
               Pricing
             </NavLink>
             <NavLink
-              to="/about-us"
+              href="/about-us"
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
               About Us
             </NavLink>
             <NavLink
-              to="/blog"
+              href="/blog"
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
               Blog
             </NavLink>
             <NavLink
-              to="/contact"
+              href="/contact"
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
             >
@@ -95,7 +93,7 @@ const Navbar = () => {
         <div className="md:hidden absolute top-20 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 p-6">
           <div className="flex flex-col gap-4">
             <NavLink
-              to="/product"
+              href="/product"
               className="text-muted-foreground hover:text-foreground transition-colors py-2"
               activeClassName="text-foreground"
               onClick={() => setIsOpen(false)}
@@ -103,7 +101,7 @@ const Navbar = () => {
               Product
             </NavLink>
             <NavLink
-              to="/pricing"
+              href="/pricing"
               className="text-muted-foreground hover:text-foreground transition-colors py-2"
               activeClassName="text-foreground"
               onClick={() => setIsOpen(false)}
@@ -111,7 +109,7 @@ const Navbar = () => {
               Pricing
             </NavLink>
             <NavLink
-              to="/about-us"
+              href="/about-us"
               className="text-muted-foreground hover:text-foreground transition-colors py-2"
               activeClassName="text-foreground"
               onClick={() => setIsOpen(false)}
@@ -119,7 +117,7 @@ const Navbar = () => {
               About Us
             </NavLink>
             <NavLink
-              to="/blog"
+              href="/blog"
               className="text-muted-foreground hover:text-foreground transition-colors py-2"
               activeClassName="text-foreground"
               onClick={() => setIsOpen(false)}
@@ -127,7 +125,7 @@ const Navbar = () => {
               Blog
             </NavLink>
             <NavLink
-              to="/contact"
+              href="/contact"
               className="text-muted-foreground hover:text-foreground transition-colors py-2"
               activeClassName="text-foreground"
               onClick={() => setIsOpen(false)}

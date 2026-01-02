@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
-const Blog = () => {
+export default function Blog() {
   const blogPosts = [
     {
       id: "metawurks-redefining-ai-collaboration",
@@ -82,7 +82,7 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <Link
                 key={index}
-                to={`/blog/${post.id}`}
+                href={`/blog/${post.id}`}
                 className="group relative p-6 rounded-3xl backdrop-blur-xl bg-card/60 border border-border/50 hover:scale-[1.02] transition-all duration-500 cursor-pointer overflow-hidden block"
               >
                 <div 
@@ -166,6 +166,5 @@ const Blog = () => {
       <Footer />
     </main>
   );
-};
+}
 
-export default Blog;
