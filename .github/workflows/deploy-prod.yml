@@ -1,0 +1,92 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: metawurks
+  REGION: us-central1
+  REPOSITORY: metawurks-landing-page
+  IMAGE_NAME: metawurks-landing-page
+  SERVICE_NAME: prod-metawurks-landing-page
+  SERVICE_ACCOUNT: prod-metawurks-landingpage@metawurks.iam.gserviceaccount.com
+  NODE_ENV: prod
+  NEXT_PUBLIC_LOGIN_URL: https://apps.metawurks.com/login
+  NEXT_PUBLIC_SIGNUP_URL: https://apps.metawurks.com/early-access
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Load Production Environment Variables
+      run: |
+        echo "📋 Loading environment variables from config/prod/.env"
+        if [ -f config/prod/.env ]; then
+          export $(cat config/prod/.env | grep -v '^#' | xargs)
+          echo "SENDGRID_API_KEY=${SENDGRID_API_KEY}" >> $GITHUB_ENV
+          echo "EMAIL_TO=${EMAIL_TO}" >> $GITHUB_ENV
+          echo "SENDGRID_FROM_EMAIL=${SENDGRID_FROM_EMAIL}" >> $GITHUB_ENV
+          echo "✅ Environment variables loaded"
+        else
+          echo "⚠️  config/prod/.env not found"
+        fi
+      
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v2
+      with:
+        credentials_json: ${{ secrets.GCP_SA_KEY_PROD }}
+        
+    - name: Setup Google Cloud CLI
+      uses: google-github-actions/setup-gcloud@v2
+        
+    - name: Configure Docker for Artifact Registry
+      run: |
+        gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+        
+    - name: Build and Push Docker Image
+      run: |
+        ARTIFACT_REGISTRY_URL="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE_NAME }}"
+        TAG="prod-$(date +%Y%m%d-%H%M%S)"
+        
+        echo "🔨 Building Docker image..."
+        docker build --platform linux/amd64 \
+          --build-arg NODE_ENV=${{ env.NODE_ENV }} \
+          --build-arg NEXT_PUBLIC_LOGIN_URL=${{ env.NEXT_PUBLIC_LOGIN_URL }} \
+          --build-arg NEXT_PUBLIC_SIGNUP_URL=${{ env.NEXT_PUBLIC_SIGNUP_URL }} \
+          -t ${ARTIFACT_REGISTRY_URL}:${TAG} \
+          -t ${ARTIFACT_REGISTRY_URL}:latest \
+          .
+          
+        echo "📤 Pushing image to Artifact Registry..."
+        docker push ${ARTIFACT_REGISTRY_URL}:${TAG}
+        docker push ${ARTIFACT_REGISTRY_URL}:latest
+        
+        echo "IMAGE_URL=${ARTIFACT_REGISTRY_URL}:${TAG}" >> $GITHUB_ENV
+        
+     - name: Deploy to Cloud Run
+       run: |
+         echo "🚀 Deploying to Cloud Run..."
+         echo "Project: ${{ env.PROJECT_ID }}"
+         echo "Service Account: prod-metawurks-landingpage@metawurks.iam.gserviceaccount.com"
+         echo "Image: ${{ env.IMAGE_URL }}"
+         echo "Environment: Production"
+         echo "----------------------------------------"
+         
+         gcloud run deploy ${{ env.SERVICE_NAME }} \
+           --image=${{ env.IMAGE_URL }} \
+           --region=${{ env.REGION }} \
+           --platform=managed \
+           --allow-unauthenticated \
+           --port=3000 \
+           --service-account=prod-metawurks-landingpage@metawurks.iam.gserviceaccount.com \
+           --set-env-vars="NODE_ENV=prod,NEXT_PUBLIC_LOGIN_URL=${{ env.NEXT_PUBLIC_LOGIN_URL }},NEXT_PUBLIC_SIGNUP_URL=${{ env.NEXT_PUBLIC_SIGNUP_URL }}" \
+           --update-secrets="SENDGRID_API_KEY=SENDGRID_API_KEY:latest,EMAIL_TO=EMAIL_TO:latest,SENDGRID_FROM_EMAIL=SENDGRID_FROM_EMAIL:latest" \
+           --quiet
+          
+        echo "✅ Deployment completed!"
+        SERVICE_URL=$(gcloud run services describe ${{ env.SERVICE_NAME }} --region=${{ env.REGION }} --format="value(status.url)")
+        echo "🌐 Service URL: $SERVICE_URL"
