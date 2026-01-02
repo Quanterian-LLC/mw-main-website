@@ -131,7 +131,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border/50 flex justify-center items-center">
           <p className="text-sm text-muted-foreground text-center">
-            © 2024 MetaWurks. All rights reserved.
+            © 2026 MetaWurks. All rights reserved.
           </p>
         </div>
       </div>
