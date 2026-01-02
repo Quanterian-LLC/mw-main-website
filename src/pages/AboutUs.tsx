@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Rocket, Users, Shield, TrendingUp, Upload, Search, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Rocket, Users, Shield, TrendingUp } from "lucide-react";
 
 const AboutUs = () => {
   const coreValues = [
@@ -229,7 +228,20 @@ const AboutUs = () => {
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
               We will be glad to hear from you!
             </h2>
-            <Button variant="gradient" size="lg">Contact Us</Button>
+            <button className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
+              {/* Gradient background using theme colors */}
+              <div 
+                className="absolute inset-0 rounded-2xl transition-all duration-500"
+                style={{
+                  background: 'linear-gradient(135deg, hsl(220, 70%, 55%), hsl(220, 70%, 50%), hsl(210, 50%, 70%))',
+                }}
+              />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
+              {/* Content */}
+              <span className="relative z-10 text-white font-semibold">
+                Contact Us
+              </span>
+            </button>
           </div>
         </div>
       </section>

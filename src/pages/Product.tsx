@@ -32,10 +32,10 @@ const Product = () => {
   ];
 
   const capabilities = [
-    { label: "Embeddings", value: "+ M" },
-    { label: "LLM", value: "+" },
-    { label: "Tokens Capacity", value: "+" },
-    { label: "File Types", value: "+" },
+    { label: "Embeddings", value: "+500M" },
+    { label: "LLM", value: "+5" },
+    { label: "Tokens Capacity", value: "+30000" },
+    { label: "File Types", value: "+10" },
   ];
 
   const processSteps = [
@@ -56,56 +56,56 @@ const Product = () => {
     },
   ];
 
-  const pricingPlans = [
-    {
-      name: "Starter",
-      price: "$19/month",
-      description: "For small teams trying out AI-powered document Q&A",
-      features: [
-        "File Uploads and Ingestion",
-        "Core AI Chatbot Features Access",
-        "Basic Search and Context Retention",
-        "Multi-File Support",
-      ],
-      gradient: "from-ai-blue to-ai-cyan",
-    },
-    {
-      name: "Professional",
-      price: "$29/month",
-      description: "For growing companies that need collaboration and stronger retrieval",
-      features: [
-        "Everything in Starter",
-        "Scalable Data Storage and Queries",
-        "Team Collaboration",
-        "Smart Context Awareness",
-      ],
-      gradient: "from-ai-violet to-ai-peach",
-    },
-    {
-      name: "Enterprise",
-      price: "$99/month",
-      description: "For larger enterprises requiring security, scalability, and customization",
-      features: [
-        "Everything in Professional",
-        "Flexible Storage Options",
-        "Custom AI Models",
-        "Personalized Support and Guidance",
-      ],
-      gradient: "from-ai-cyan to-ai-mint",
-    },
-    {
-      name: "Custom Version",
-      price: "Custom",
-      description: "Tailored solutions for large enterprises with specific requirements",
-      features: [
-        "Everything in Enterprise",
-        "Customize version for large customers as per need",
-        "Dedicated 24/7 resources",
-        "Dedicated Infrastructure",
-      ],
-      gradient: "from-ai-peach to-ai-violet",
-    },
-  ];
+  // const pricingPlans = [
+  //   {
+  //     name: "Starter",
+  //     price: "$19/month",
+  //     description: "For small teams trying out AI-powered document Q&A",
+  //     features: [
+  //       "File Uploads and Ingestion",
+  //       "Core AI Chatbot Features Access",
+  //       "Basic Search and Context Retention",
+  //       "Multi-File Support",
+  //     ],
+  //     gradient: "from-ai-blue to-ai-cyan",
+  //   },
+  //   {
+  //     name: "Professional",
+  //     price: "$29/month",
+  //     description: "For growing companies that need collaboration and stronger retrieval",
+  //     features: [
+  //       "Everything in Starter",
+  //       "Scalable Data Storage and Queries",
+  //       "Team Collaboration",
+  //       "Smart Context Awareness",
+  //     ],
+  //     gradient: "from-ai-violet to-ai-peach",
+  //   },
+  //   {
+  //     name: "Enterprise",
+  //     price: "$99/month",
+  //     description: "For larger enterprises requiring security, scalability, and customization",
+  //     features: [
+  //       "Everything in Professional",
+  //       "Flexible Storage Options",
+  //       "Custom AI Models",
+  //       "Personalized Support and Guidance",
+  //     ],
+  //     gradient: "from-ai-cyan to-ai-mint",
+  //   },
+  //   {
+  //     name: "Custom Version",
+  //     price: "Custom",
+  //     description: "Tailored solutions for large enterprises with specific requirements",
+  //     features: [
+  //       "Everything in Enterprise",
+  //       "Customize version for large customers as per need",
+  //       "Dedicated 24/7 resources",
+  //       "Dedicated Infrastructure",
+  //     ],
+  //     gradient: "from-ai-peach to-ai-violet",
+  //   },
+  // ];
 
   return (
     <main className="min-h-screen bg-background">
@@ -223,7 +223,7 @@ const Product = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section
       <section className="py-32 relative overflow-hidden">
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-20"
@@ -277,7 +277,7 @@ const Product = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Security Section */}
       <section className="py-32 relative overflow-hidden">
