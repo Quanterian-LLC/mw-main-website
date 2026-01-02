@@ -1,7 +1,8 @@
 "use client";
 
-import { Github, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { X, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   const links = {
@@ -15,8 +16,8 @@ const Footer = () => {
       { name: "Contact", path: "/contact" },
     ],
     Legal: [
-      { name: "Privacy Policy", path: "/privacy" },
-      { name: "Terms of Service", path: "/terms" },
+      { name: "Privacy Policy", path: "/privacy-policy" },
+      { name: "Terms of Service", path: "/terms-of-service" },
     ],
   };
 
@@ -40,18 +41,22 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col">
             <Link href="/" onClick={handleLinkClick} className="mb-6">
-              <div className="text-3xl font-display font-bold bg-gradient-to-r from-ai-blue via-ai-violet to-ai-peach bg-clip-text text-transparent">
-                MetaWurks
-              </div>
+              <Image
+                src="/MetaWurks Logo-11.svg"
+                alt="MetaWurks Logo"
+                width={220}
+                height={55}
+                className="h-14 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-xs">
               From Insight to Action — AI That Moves Your Business Forward
             </p>
             <div className="flex gap-4">
               {[
-                { icon: Twitter, href: "#" },
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
+                { icon: X, href: "https://x.com/Metawurks_ai" },
+                { icon: Instagram, href: "https://instagram.com/metawurks/" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/metawurks/about/" },
               ].map((social, i) => (
                 <a
                   key={i}

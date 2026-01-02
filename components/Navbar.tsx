@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { NavLink } from "./NavLink";
 
 const Navbar = () => {
@@ -14,10 +15,15 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="text-2xl font-display font-bold bg-gradient-to-r from-ai-blue via-ai-violet to-ai-peach bg-clip-text text-transparent">
-              MetaWurks
-            </div>
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/MetaWurks Logo-11.svg"
+              alt="MetaWurks Logo"
+              width={200}
+              height={50}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -61,14 +67,19 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link 
-              href={process.env.NEXT_PUBLIC_LOGIN_URL || "https://apps.metawurks.com/login"}
+            <Link
+              href={process.env.NEXT_PUBLIC_LOGIN_URL!}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Button variant="ghost">Sign In</Button>
             </Link>
-            <Link href="/contact#early-access" className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
+            <Link
+              href={process.env.NEXT_PUBLIC_SIGNUP_URL!}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+            >
               {/* Gradient background using theme colors */}
               <div
                 className="absolute inset-0 rounded-2xl transition-all duration-500"
@@ -79,7 +90,7 @@ const Navbar = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
               {/* Content */}
               <span className="relative z-10 text-white font-semibold">
-                Early Access
+                Get Started
               </span>
             </Link>
           </div>
@@ -139,8 +150,8 @@ const Navbar = () => {
               Contact
             </NavLink>
             <div className="flex flex-col gap-3 pt-4 border-t border-border/50">
-              <Link 
-                href={process.env.NEXT_PUBLIC_LOGIN_URL || "https://apps.metawurks.com/login"}
+              <Link
+                href={process.env.NEXT_PUBLIC_LOGIN_URL!}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
@@ -148,7 +159,13 @@ const Navbar = () => {
               >
                 <Button variant="ghost" className="w-full justify-center">Sign In</Button>
               </Link>
-              <Link href="/contact#early-access" onClick={() => setIsOpen(false)} className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full">
+              <Link
+                href={process.env.NEXT_PUBLIC_SIGNUP_URL!}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full"
+              >
                 {/* Gradient background using theme colors */}
                 <div
                   className="absolute inset-0 rounded-2xl transition-all duration-500"
@@ -159,7 +176,7 @@ const Navbar = () => {
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
                 {/* Content */}
                 <span className="relative z-10 text-white font-semibold">
-                  Early Access
+                  Get Started
                 </span>
               </Link>
             </div>
