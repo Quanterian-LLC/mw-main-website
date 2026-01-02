@@ -29,6 +29,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <NavLink
+              href="/"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              activeClassName="text-foreground"
+            >
+              Home
+            </NavLink>
+            <NavLink
               href="/product"
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeClassName="text-foreground"
@@ -107,6 +114,14 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-20 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 p-6">
           <div className="flex flex-col gap-4">
+            <NavLink
+              href="/"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2"
+              activeClassName="text-foreground"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </NavLink>
             <NavLink
               href="/product"
               className="text-muted-foreground hover:text-foreground transition-colors py-2"
