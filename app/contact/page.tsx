@@ -9,12 +9,17 @@ import { useToast } from "@/hooks/use-toast";
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isEarlyAccessSubmitting, setIsEarlyAccessSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
     terms: false,
+  });
+  const [earlyAccessData, setEarlyAccessData] = useState({
+    name: "",
+    email: "",
   });
 
   const contactMethods = [
@@ -98,6 +103,61 @@ export default function Contact() {
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleEarlyAccessSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    
+    if (!earlyAccessData.name || !earlyAccessData.email) {
+      toast({
+        title: "Required Fields",
+        description: "Please provide both name and email.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsEarlyAccessSubmitting(true);
+
+    try {
+      const response = await fetch("/api/early-access", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: earlyAccessData.name,
+          email: earlyAccessData.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Success! 🎉",
+          description: "Check your email for the early access link. It expires in 48 hours.",
+        });
+        setEarlyAccessData({
+          name: "",
+          email: "",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to process request. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsEarlyAccessSubmitting(false);
     }
   };
 
@@ -283,7 +343,7 @@ export default function Contact() {
       </section>
 
       {/* Early Access Section - Third */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-32 relative overflow-hidden" id="early-access">
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-20"
           style={{
@@ -293,26 +353,68 @@ export default function Contact() {
         />
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-2xl mx-auto text-center">
-            <span className="inline-block text-sm font-medium text-ai-violet mb-4">EARLY ACCESS</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
-              Get Early Access to MetaWurks
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Request early access and we'll send you a magic link to create your account. The link will be active for 48 hours.
-            </p>
-            <button className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
-              <div 
-                className="absolute inset-0 rounded-2xl transition-all duration-500"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(220, 70%, 55%), hsl(220, 70%, 50%), hsl(210, 50%, 70%))',
-                }}
-              />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
-              <span className="relative z-10 text-white font-semibold">
-                Request Early Access
-              </span>
-            </button>
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block text-sm font-medium text-ai-violet mb-4">EARLY ACCESS</span>
+              <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
+                Get Early Access to MetaWurks
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Request early access and we'll send you a magic link to create your account. The link will be active for 48 hours.
+              </p>
+            </div>
+
+            <form onSubmit={handleEarlyAccessSubmit} className="space-y-6 p-8 rounded-3xl backdrop-blur-xl bg-card/60 border border-border/50">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="ea-name" className="block text-sm font-medium mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="ea-name"
+                    name="ea-name"
+                    required
+                    value={earlyAccessData.name}
+                    onChange={(e) => setEarlyAccessData({ ...earlyAccessData, name: e.target.value })}
+                    className="w-full px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="ea-email" className="block text-sm font-medium mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="ea-email"
+                    name="ea-email"
+                    required
+                    value={earlyAccessData.email}
+                    onChange={(e) => setEarlyAccessData({ ...earlyAccessData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-2xl bg-background border border-border/50 focus:outline-none focus:ring-2 focus:ring-ai-violet transition-all"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+
+              <button 
+                type="submit"
+                disabled={isEarlyAccessSubmitting}
+                className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <div 
+                  className="absolute inset-0 rounded-2xl transition-all duration-500"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(220, 70%, 55%), hsl(220, 70%, 50%), hsl(210, 50%, 70%))',
+                  }}
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
+                <span className="relative z-10 text-white font-semibold">
+                  {isEarlyAccessSubmitting ? "Sending..." : "Request Early Access"}
+                </span>
+              </button>
+            </form>
           </div>
         </div>
       </section>

@@ -61,8 +61,14 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost">Sign In</Button>
-            <button className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
+            <Link 
+              href={process.env.NEXT_PUBLIC_LOGIN_URL || "https://apps.metawurks.com/login"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="ghost">Sign In</Button>
+            </Link>
+            <Link href="/contact#early-access" className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
               {/* Gradient background using theme colors */}
               <div
                 className="absolute inset-0 rounded-2xl transition-all duration-500"
@@ -73,9 +79,9 @@ const Navbar = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
               {/* Content */}
               <span className="relative z-10 text-white font-semibold">
-                Get Started
+                Early Access
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -133,8 +139,16 @@ const Navbar = () => {
               Contact
             </NavLink>
             <div className="flex flex-col gap-3 pt-4 border-t border-border/50">
-              <Button variant="ghost" className="w-full justify-center">Sign In</Button>
-              <button className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full">
+              <Link 
+                href={process.env.NEXT_PUBLIC_LOGIN_URL || "https://apps.metawurks.com/login"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="w-full"
+              >
+                <Button variant="ghost" className="w-full justify-center">Sign In</Button>
+              </Link>
+              <Link href="/contact#early-access" onClick={() => setIsOpen(false)} className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full">
                 {/* Gradient background using theme colors */}
                 <div
                   className="absolute inset-0 rounded-2xl transition-all duration-500"
@@ -147,7 +161,7 @@ const Navbar = () => {
                 <span className="relative z-10 text-white font-semibold">
                   Early Access
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
