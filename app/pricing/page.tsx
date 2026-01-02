@@ -16,7 +16,7 @@ export default function Pricing() {
       originalPrice: null,
       period: "/per month",
       description: "Perfect for getting started",
-      buttonText: "Get Started",
+      buttonText: "Early Access",
       buttonVariant: "outline" as const,
       gradient: "from-ai-blue to-ai-cyan",
       features: [

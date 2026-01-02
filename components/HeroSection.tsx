@@ -170,7 +170,10 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            <button className="group relative inline-flex items-center justify-center gap-2 h-16 px-12 rounded-3xl text-lg font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
+            <button 
+              onClick={() => window.location.href = 'https://calendly.com/gtm-metawurks/30min?utm_source=hero'}
+              className="group relative inline-flex items-center justify-center gap-2 h-16 px-12 rounded-3xl text-lg font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl"
+            >
               {/* Gradient background using theme colors - same as Get Started */}
               <div
                 className="absolute inset-0 rounded-3xl transition-all duration-500"

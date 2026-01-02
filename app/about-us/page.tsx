@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Rocket, Users, Shield, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutUs() {
   const coreValues = [
@@ -228,7 +229,7 @@ export default function AboutUs() {
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
               We will be glad to hear from you!
             </h2>
-            <button className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
+            <Link href="/contact" className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
               <div 
                 className="absolute inset-0 rounded-2xl transition-all duration-500"
                 style={{
@@ -239,7 +240,7 @@ export default function AboutUs() {
               <span className="relative z-10 text-white font-semibold">
                 Contact Us
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
