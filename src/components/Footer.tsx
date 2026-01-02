@@ -1,17 +1,32 @@
-import { Github, Twitter, Linkedin, Youtube } from "lucide-react";
+import { Github, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import MetaWurksLogo from "@/MetaWurks Logo-11.svg";
 
 const Footer = () => {
   const links = {
-    Product: ["Features", "Pricing", "Changelog", "Roadmap"],
-    Resources: ["Documentation", "API Reference", "Tutorials", "Blog"],
-    Company: ["About", "Careers", "Press", "Contact"],
-    Legal: ["Privacy", "Terms", "Security", "Cookies"],
+    Product: [
+      { name: "Features", path: "/product" },
+      { name: "Pricing", path: "/pricing" },
+    ],
+    Company: [
+      { name: "About Us", path: "/about-us" },
+      { name: "Blog", path: "/blog" },
+      { name: "Contact", path: "/contact" },
+    ],
+    Legal: [
+      { name: "Privacy Policy", path: "/privacy" },
+      { name: "Terms of Service", path: "/terms" },
+    ],
+  };
+
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <footer className="py-20 border-t border-border/50 relative overflow-hidden">
       {/* Background accent */}
-      <div 
+      <div
         className="absolute bottom-0 left-1/4 w-[600px] h-[400px] rounded-full opacity-10"
         style={{
           background: "radial-gradient(circle, hsl(220, 90%, 60%), transparent 60%)",
@@ -20,28 +35,30 @@ const Footer = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-12 mb-16 items-start">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-ai-blue via-ai-violet to-ai-peach flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-lg">N</span>
-              </div>
-              <span className="font-display font-bold text-xl">NeuralOS</span>
-            </div>
+          <div className="lg:col-span-2 flex flex-col">
+            <Link to="/" onClick={handleLinkClick} className="mb-6 -mt-2">
+              <img
+                src={MetaWurksLogo}
+                alt="MetaWurks"
+                className="h-60 w-auto"
+              />
+            </Link>
             <p className="text-muted-foreground mb-6 max-w-xs">
-              The unified platform for multi-LLM orchestration. Built for the future of AI collaboration.
+              From Insight to Action — AI That Moves Your Business Forward
             </p>
             <div className="flex gap-4">
               {[
                 { icon: Twitter, href: "#" },
                 { icon: Github, href: "#" },
                 { icon: Linkedin, href: "#" },
-                { icon: Youtube, href: "#" },
               ].map((social, i) => (
-                <a 
+                <a
                   key={i}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
                 >
                   <social.icon className="w-5 h-5 text-muted-foreground" />
@@ -52,32 +69,66 @@ const Footer = () => {
 
           {/* Links */}
           {Object.entries(links).map(([category, items]) => (
-            <div key={category}>
+            <div key={category} className="flex flex-col">
               <h4 className="font-semibold mb-4">{category}</h4>
               <ul className="space-y-3">
                 {items.map((item) => (
-                  <li key={item}>
-                    <a 
-                      href="#" 
+                  <li key={item.name}>
+                    <Link
+                      to={item.path}
+                      onClick={handleLinkClick}
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      {item}
-                    </a>
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+
+          {/* Contact Information */}
+          <div className="lg:col-span-2 flex flex-col">
+            <h4 className="font-semibold mb-4">Contact</h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://maps.google.com/?q=16192+Coastal+Hwy,+Lewes,+DE+19958"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                  <span>16192 Coastal Hwy, Lewes, DE 19958</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+19142655072"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <span>+1 914-265-5072</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:admin@metawurks.com"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <span>admin@metawurks.com</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2024 NeuralOS. All rights reserved.
+        <div className="pt-8 border-t border-border/50 flex justify-center items-center">
+          <p className="text-sm text-muted-foreground text-center">
+            © 2024 MetaWurks. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <span>Made with ✨ for the AI era</span>
-          </div>
         </div>
       </div>
     </footer>

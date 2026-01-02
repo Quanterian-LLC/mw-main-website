@@ -1,8 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import FloatingOrbs from "./FloatingOrbs";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
+  const headlineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Force a repaint to ensure smooth first animation
+    if (headlineRef.current) {
+      // Trigger a reflow to ensure browser is ready
+      void headlineRef.current.offsetHeight;
+      
+      // Small delay to ensure everything is rendered
+      requestAnimationFrame(() => {
+        if (headlineRef.current) {
+          headlineRef.current.style.visibility = 'visible';
+        }
+      });
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <FloatingOrbs />
@@ -18,105 +36,118 @@ const HeroSection = () => {
             style={{ animationDelay: "0.1s" }}
           >
             <span className="w-2 h-2 rounded-full bg-ai-cyan animate-pulse" />
-            <span className="text-sm text-muted-foreground">Now with GPT-5, Claude 4, and Gemini 2.0</span>
+            <span className="text-sm text-muted-foreground">GPT-5, Claude, Gemini, DeepSeek, Grok and more.</span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-display font-extrabold tracking-tight leading-tight mb-6">
+          <h1 
+            ref={headlineRef}
+            className="font-display font-extrabold tracking-tight leading-tight mb-6"
+            style={{ visibility: 'hidden' }}
+          >
             <div className="flex flex-wrap justify-center items-baseline gap-3 md:gap-4">
               {/* "A" */}
               <span
-                className="text-foreground inline-block opacity-0 animate-slide-in-then-float"
+                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
                 style={{
                   fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.2s'
+                  animationDelay: '0s',
+                  animationDuration: '6s'
                 }}
               >
                 A
               </span>
-              
+
               {/* "Single" */}
               <span
-                className="text-foreground inline-block opacity-0 animate-slide-in-then-float-reverse"
+                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
                 style={{
                   fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.3s'
+                  animationDelay: '0.3s',
+                  animationDuration: '6s'
                 }}
               >
                 Single
               </span>
-              
+
               {/* "Interface" */}
               <span
-                className="gradient-text inline-block opacity-0 animate-slide-in-then-float animate-gradient-flow animate-pulse-glow"
+                className="gradient-text inline-block animate-fade-in-fade-out-continuous animate-gradient-flow"
                 style={{
                   fontSize: 'clamp(3rem, 9vw, 6rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.4s, 1.4s, 1.4s'
+                  animationDelay: '0.6s',
+                  animationDuration: '6s',
+                  backgroundSize: '200% auto'
                 }}
               >
                 Interface
               </span>
-              
+
               {/* "for" */}
               <span
-                className="text-foreground inline-block opacity-0 animate-slide-in-then-float-reverse"
+                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
                 style={{
                   fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.5s'
+                  animationDelay: '0.9s',
+                  animationDuration: '6s'
                 }}
               >
                 for
               </span>
-              
+
               {/* "Every" */}
               <span
-                className="text-foreground inline-block opacity-0 animate-slide-in-then-float"
+                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
                 style={{
                   fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.6s'
+                  animationDelay: '1.2s',
+                  animationDuration: '6s'
                 }}
               >
                 Every
               </span>
-              
+
               {/* "AI" */}
               <span
-                className="gradient-text inline-block opacity-0 animate-slide-in-then-float-reverse animate-gradient-flow animate-pulse-glow"
+                className="gradient-text inline-block animate-fade-in-fade-out-continuous animate-gradient-flow"
                 style={{
                   fontSize: 'clamp(3rem, 9vw, 6rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.7s, 2s, 2s'
+                  animationDelay: '1.5s',
+                  animationDuration: '6s',
+                  backgroundSize: '200% auto'
                 }}
               >
                 AI
               </span>
-              
+
               {/* "Model" */}
               <span
-                className="text-foreground inline-block opacity-0 animate-slide-in-then-float"
+                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
                 style={{
                   fontSize: 'clamp(3rem, 9vw, 6rem)',
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                   fontWeight: 600,
-                  animationDelay: '0.8s'
+                  animationDelay: '1.8s',
+                  animationDuration: '6s'
                 }}
               >
                 Model
@@ -137,14 +168,21 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            {/* <Button variant="hero" size="xl" className="group">
-              Early Access
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button> */}
-            <Button variant="glass" size="xl" className="group">
-              <Play className="w-5 h-5" />
-              Watch Demo
-            </Button>
+            <button className="group relative inline-flex items-center justify-center gap-2 h-16 px-12 rounded-3xl text-lg font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
+              {/* Gradient background using theme colors - same as Get Started */}
+              <div
+                className="absolute inset-0 rounded-3xl transition-all duration-500"
+                style={{
+                  background: 'linear-gradient(135deg, hsl(220, 70%, 55%), hsl(220, 70%, 50%), hsl(210, 50%, 70%))',
+                }}
+              />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-ai-blue/0 via-ai-violet/0 to-ai-peach/0 group-hover:from-ai-blue/10 group-hover:via-ai-violet/10 group-hover:to-ai-peach/10 transition-all duration-300" />
+              {/* Content */}
+              <span className="relative z-10 flex items-center gap-2 text-white font-semibold">
+                <Play className="w-5 h-5" />
+                Book a Demo
+              </span>
+            </button>
           </div>
 
           {/* Abstract Visualization */}
