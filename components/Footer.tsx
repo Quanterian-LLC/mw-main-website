@@ -1,6 +1,7 @@
+"use client";
+
 import { Github, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
-import MetaWurksLogo from "@/MetaWurks Logo-11.svg";
+import Link from "next/link";
 
 const Footer = () => {
   const links = {
@@ -38,12 +39,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-12 mb-16 items-start">
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col">
-            <Link to="/" onClick={handleLinkClick} className="mb-6 -mt-2">
-              <img
-                src={MetaWurksLogo}
-                alt="MetaWurks"
-                className="h-60 w-auto"
-              />
+            <Link href="/" onClick={handleLinkClick} className="mb-6">
+              <div className="text-3xl font-display font-bold bg-gradient-to-r from-ai-blue via-ai-violet to-ai-peach bg-clip-text text-transparent">
+                MetaWurks
+              </div>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-xs">
               From Insight to Action — AI That Moves Your Business Forward
@@ -75,7 +74,7 @@ const Footer = () => {
                 {items.map((item) => (
                   <li key={item.name}>
                     <Link
-                      to={item.path}
+                      href={item.path}
                       onClick={handleLinkClick}
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >

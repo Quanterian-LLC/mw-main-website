@@ -1,73 +1,199 @@
-# Welcome to your Lovable project
+# MetaWurks Website
 
-## Project info
+A modern, AI-powered business insights platform built with Next.js, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Tech Stack
 
-## How can I edit this code?
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI, Radix UI
+- **Email**: SendGrid
+- **Animations**: Tailwind CSS Animations
 
-There are several ways of editing your application.
+## 📋 Features
 
-**Use Lovable**
+- 🎨 Modern, responsive design
+- 🌓 Dark mode support (via next-themes)
+- 📧 Contact form with SendGrid integration
+- 📝 Blog with dynamic routing
+- 🔒 Enterprise-grade security features
+- ⚡ Fast performance with Next.js App Router
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Setup
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18.x or higher
+- npm, yarn, pnpm, or bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+cd Metawurks_website
 ```
 
-**Edit a file directly in GitHub**
+2. **Install dependencies**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
 
-**Use GitHub Codespaces**
+3. **Configure Environment Variables**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Create a `.env.local` file in the root directory:
 
-## What technologies are used for this project?
+```env
+# SendGrid Configuration (Required for contact form)
+SENDGRID_API_KEY=SG.your_sendgrid_api_key_here
+EMAIL_TO=admin@metawurks.com
+SENDGRID_FROM_EMAIL=message@metawurks.com
+```
 
-This project is built with:
+**SendGrid Setup:**
+1. Create account at [SendGrid](https://sendgrid.com)
+2. Generate API key: Settings → API Keys → Create API Key
+3. Verify sender email: Settings → Sender Authentication
+4. Add credentials to `.env.local`
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+4. **Run Development Server**
 
-## How can I deploy this project?
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Can I connect a custom domain to my Lovable project?
+## 📁 Project Structure
 
-Yes, you can!
+```
+├── app/                      # Next.js App Router
+│   ├── api/                  # API routes
+│   │   └── send-email/       # Contact form email endpoint
+│   ├── about-us/             # About page
+│   ├── blog/                 # Blog pages
+│   │   └── [id]/             # Dynamic blog post pages
+│   ├── contact/              # Contact page
+│   ├── pricing/              # Pricing page
+│   ├── product/              # Product page
+│   ├── layout.tsx            # Root layout
+│   ├── page.tsx              # Home page
+│   ├── providers.tsx         # Client-side providers
+│   ├── globals.css           # Global styles
+│   └── not-found.tsx         # 404 page
+├── components/               # React components
+│   ├── ui/                   # Shadcn UI components
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── ...
+├── lib/                      # Utility functions
+│   ├── utils.ts
+│   └── blogPosts.tsx         # Blog post data
+├── hooks/                    # Custom React hooks
+├── public/                   # Static files
+├── next.config.mjs           # Next.js configuration
+├── tailwind.config.ts        # Tailwind CSS configuration
+└── tsconfig.json             # TypeScript configuration
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🏗️ Build & Deploy
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Start Production Server
+
+```bash
+npm start
+```
+
+### Deploy
+
+This project can be deployed to:
+- **Vercel** (recommended) - Zero configuration
+- **Netlify** - Add build command: `npm run build`
+- **GCP Cloud Run** - Containerize with Docker
+- Any platform supporting Next.js
+
+**Environment Variables for Production:**
+Make sure to set all environment variables in your deployment platform:
+- `SENDGRID_API_KEY`
+- `EMAIL_TO`
+- `SENDGRID_FROM_EMAIL`
+
+## 📧 Contact Form
+
+The contact form uses SendGrid to send emails. It includes:
+- Form validation
+- Terms & conditions checkbox
+- Loading states
+- Success/error toast notifications
+- Spam protection (terms agreement)
+
+**API Endpoint**: `/api/send-email`
+
+## 🎨 Customization
+
+### Colors
+
+Edit `tailwind.config.ts` to customize the color palette:
+
+```typescript
+colors: {
+  'ai-blue': 'hsl(220, 70%, 55%)',
+  'ai-violet': 'hsl(220, 70%, 50%)',
+  // ... more colors
+}
+```
+
+### Components
+
+All UI components are in `components/ui/` and can be customized using Tailwind classes.
+
+## 🐛 Troubleshooting
+
+### Contact Form Not Working
+
+1. Check SendGrid API key is valid and starts with `SG.`
+2. Verify sender email is verified in SendGrid
+3. Check `EMAIL_TO` is configured
+4. Check browser console for error messages
+
+### Build Errors
+
+```bash
+# Clear cache and reinstall
+rm -rf .next node_modules
+npm install
+npm run build
+```
+
+## 📝 License
+
+Private and confidential - All rights reserved
+
+## 🤝 Support
+
+For support, email admin@metawurks.com or open an issue in the repository.
+
+---
+
+Built with ❤️ by the MetaWurks team
