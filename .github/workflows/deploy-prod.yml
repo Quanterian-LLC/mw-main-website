@@ -22,19 +22,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Load Production Environment Variables
-      run: |
-        echo "📋 Loading environment variables from config/prod/.env"
-        if [ -f config/prod/.env ]; then
-          export $(cat config/prod/.env | grep -v '^#' | xargs)
-          echo "SENDGRID_API_KEY=${SENDGRID_API_KEY}" >> $GITHUB_ENV
-          echo "EMAIL_TO=${EMAIL_TO}" >> $GITHUB_ENV
-          echo "SENDGRID_FROM_EMAIL=${SENDGRID_FROM_EMAIL}" >> $GITHUB_ENV
-          echo "✅ Environment variables loaded"
-        else
-          echo "⚠️  config/prod/.env not found"
-        fi
-      
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
@@ -73,9 +60,8 @@ jobs:
         echo "Project: ${{ env.PROJECT_ID }}"
         echo "Service Account: prod-metawurks-landingpage@metawurks.iam.gserviceaccount.com"
         echo "Image: ${{ env.IMAGE_URL }}"
-        echo "Environment: Production"
         echo "----------------------------------------"
-
+        
         gcloud run deploy ${{ env.SERVICE_NAME }} \
           --image=${{ env.IMAGE_URL }} \
           --region=${{ env.REGION }} \
@@ -83,10 +69,8 @@ jobs:
           --allow-unauthenticated \
           --port=3000 \
           --service-account=prod-metawurks-landingpage@metawurks.iam.gserviceaccount.com \
-          --set-env-vars="NODE_ENV=prod,NEXT_PUBLIC_LOGIN_URL=${{ env.NEXT_PUBLIC_LOGIN_URL }},NEXT_PUBLIC_SIGNUP_URL=${{ env.NEXT_PUBLIC_SIGNUP_URL }}" \
-          --update-secrets="SENDGRID_API_KEY=SENDGRID_API_KEY:latest,EMAIL_TO=EMAIL_TO:latest,SENDGRID_FROM_EMAIL=SENDGRID_FROM_EMAIL:latest" \
           --quiet
-
+          
         echo "✅ Deployment completed!"
         SERVICE_URL=$(gcloud run services describe ${{ env.SERVICE_NAME }} --region=${{ env.REGION }} --format="value(status.url)")
         echo "🌐 Service URL: $SERVICE_URL"
