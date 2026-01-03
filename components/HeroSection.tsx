@@ -1,10 +1,44 @@
 "use client";
 
 import FloatingOrbs from "./FloatingOrbs";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
   const headlineRef = useRef<HTMLDivElement>(null);
+  const [currentHeadline, setCurrentHeadline] = useState(0);
+
+  const headlines = [
+    {
+      words: [
+        { text: "A", gradient: false },
+        { text: "Single", gradient: false },
+        { text: "Interface", gradient: true },
+        { text: "for", gradient: false },
+        { text: "Every", gradient: false },
+        { text: "AI", gradient: true },
+        { text: "Model", gradient: false }
+      ]
+    },
+    {
+      words: [
+        { text: "All-in-One", gradient: true },
+        { text: "Multi-Modal", gradient: false },
+        { text: "AI", gradient: true },
+        { text: "Orchestrator", gradient: false }
+      ]
+    },
+    {
+      words: [
+        { text: "Achieve", gradient: false },
+        { text: "Productivity", gradient: true },
+        { text: "Gains", gradient: false },
+        { text: "with", gradient: false },
+        { text: "an", gradient: false },
+        { text: "AI", gradient: true },
+        { text: "assistant", gradient: false }
+      ]
+    }
+  ];
 
   useEffect(() => {
     // Force a repaint to ensure smooth first animation
@@ -19,6 +53,13 @@ const HeroSection = () => {
         }
       });
     }
+
+    // Rotate headlines every 8 seconds
+    const interval = setInterval(() => {
+      setCurrentHeadline((prev) => (prev + 1) % headlines.length);
+    }, 8000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -42,116 +83,27 @@ const HeroSection = () => {
           {/* Headline */}
           <h1 
             ref={headlineRef}
-            className="font-display font-extrabold tracking-tight leading-tight mb-6"
+            className="font-display font-extrabold tracking-tight leading-tight mb-6 min-h-[200px] flex items-center justify-center"
             style={{ visibility: 'hidden' }}
           >
             <div className="flex flex-wrap justify-center items-baseline gap-3 md:gap-4">
-              {/* "A" */}
-              <span
-                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
-                style={{
-                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '0s',
-                  animationDuration: '6s'
-                }}
-              >
-                A
-              </span>
-
-              {/* "Single" */}
-              <span
-                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
-                style={{
-                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '0.3s',
-                  animationDuration: '6s'
-                }}
-              >
-                Single
-              </span>
-
-              {/* "Interface" */}
-              <span
-                className="gradient-text inline-block animate-fade-in-fade-out-continuous animate-gradient-flow"
-                style={{
-                  fontSize: 'clamp(3rem, 9vw, 6rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '0.6s',
-                  animationDuration: '6s',
-                  backgroundSize: '200% auto'
-                }}
-              >
-                Interface
-              </span>
-
-              {/* "for" */}
-              <span
-                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
-                style={{
-                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '0.9s',
-                  animationDuration: '6s'
-                }}
-              >
-                for
-              </span>
-
-              {/* "Every" */}
-              <span
-                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
-                style={{
-                  fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '1.2s',
-                  animationDuration: '6s'
-                }}
-              >
-                Every
-              </span>
-
-              {/* "AI" */}
-              <span
-                className="gradient-text inline-block animate-fade-in-fade-out-continuous animate-gradient-flow"
-                style={{
-                  fontSize: 'clamp(3rem, 9vw, 6rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '1.5s',
-                  animationDuration: '6s',
-                  backgroundSize: '200% auto'
-                }}
-              >
-                AI
-              </span>
-
-              {/* "Model" */}
-              <span
-                className="text-foreground inline-block animate-fade-in-fade-out-continuous"
-                style={{
-                  fontSize: 'clamp(3rem, 9vw, 6rem)',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.02em',
-                  fontWeight: 600,
-                  animationDelay: '1.8s',
-                  animationDuration: '6s'
-                }}
-              >
-                Model
-              </span>
+              {headlines[currentHeadline].words.map((word, index) => (
+                <span
+                  key={`${currentHeadline}-${index}`}
+                  className={`${word.gradient ? 'gradient-text animate-gradient-flow' : 'text-foreground'} inline-block animate-fade-in-fade-out-continuous`}
+                  style={{
+                    fontSize: word.gradient ? 'clamp(3rem, 9vw, 6rem)' : 'clamp(2.5rem, 8vw, 5rem)',
+                    lineHeight: '1.1',
+                    letterSpacing: '-0.02em',
+                    fontWeight: 600,
+                    animationDelay: `${index * 0.3}s`,
+                    animationDuration: '6s',
+                    backgroundSize: word.gradient ? '200% auto' : undefined
+                  }}
+                >
+                  {word.text}
+                </span>
+              ))}
             </div>
           </h1>
           {/* Subheadline */}
