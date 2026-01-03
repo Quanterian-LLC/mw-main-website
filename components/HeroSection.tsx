@@ -1,3 +1,4 @@
+
 "use client";
 
 import FloatingOrbs from "./FloatingOrbs";
@@ -17,7 +18,8 @@ const HeroSection = () => {
         { text: "Every", gradient: false },
         { text: "AI", gradient: true },
         { text: "Model", gradient: false }
-      ]
+      ],
+      subtitle: "Upload, ask, and get insights instantly—built for busy enterprises"
     },
     {
       words: [
@@ -25,18 +27,8 @@ const HeroSection = () => {
         { text: "Multi-Modal", gradient: false },
         { text: "AI", gradient: true },
         { text: "Orchestrator", gradient: false }
-      ]
-    },
-    {
-      words: [
-        { text: "Achieve", gradient: false },
-        { text: "Productivity", gradient: true },
-        { text: "Gains", gradient: false },
-        { text: "with", gradient: false },
-        { text: "an", gradient: false },
-        { text: "AI", gradient: true },
-        { text: "assistant", gradient: false }
-      ]
+      ],
+      subtitle: "Achieve Productivity Gains with an AI assistant"
     }
   ];
 
@@ -54,10 +46,10 @@ const HeroSection = () => {
       });
     }
 
-    // Rotate headlines every 8 seconds
+    // Rotate headlines every 12 seconds
     const interval = setInterval(() => {
       setCurrentHeadline((prev) => (prev + 1) % headlines.length);
-    }, 8000);
+    }, 12000);
 
     return () => clearInterval(interval);
   }, []);
@@ -108,11 +100,11 @@ const HeroSection = () => {
           </h1>
           {/* Subheadline */}
           <p
+            key={`subtitle-${currentHeadline}`}
             className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.4s" }}
           >
-            Upload, ask, and get insights instantly—
-            built for busy enterprises
+            {headlines[currentHeadline].subtitle}
           </p>
 
           {/* CTAs */}
