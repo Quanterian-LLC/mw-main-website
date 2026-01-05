@@ -6,9 +6,21 @@ import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
   const headlineRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const isMountedRef = useRef(false);
   const [currentHeadline, setCurrentHeadline] = useState(0);
 
   const headlines = [
+    {
+  words: [
+    { text: "All-in-One", gradient: false },
+    { text: "AI", gradient: true },
+    { text: "Hub", gradient: false },
+    { text: "for", gradient: false },
+    { text: "Business", gradient: true }
+  ],
+  subtitle: "Single AI for all your daily work"
+},
     {
       words: [
         { text: "A", gradient: false },
@@ -33,26 +45,21 @@ const HeroSection = () => {
   ];
 
   useEffect(() => {
-    // Force a repaint to ensure smooth first animation
-    if (headlineRef.current) {
-      // Trigger a reflow to ensure browser is ready
-      void headlineRef.current.offsetHeight;
-      
-      // Small delay to ensure everything is rendered
-      requestAnimationFrame(() => {
-        if (headlineRef.current) {
-          headlineRef.current.style.visibility = 'visible';
-        }
-      });
-    }
+    if (isMountedRef.current) return;
+    isMountedRef.current = true;
 
-    // Rotate headlines every 12 seconds
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setCurrentHeadline((prev) => (prev + 1) % headlines.length);
-    }, 12000);
+    }, 8000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      isMountedRef.current = false;
+    };
+  }, [headlines.length]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -76,20 +83,19 @@ const HeroSection = () => {
           <h1 
             ref={headlineRef}
             className="font-display font-extrabold tracking-tight leading-tight mb-6 min-h-[200px] flex items-center justify-center"
-            style={{ visibility: 'hidden' }}
           >
-            <div className="flex flex-wrap justify-center items-baseline gap-3 md:gap-4">
+            <div key={`headline-${currentHeadline}`} className="flex flex-wrap justify-center items-baseline gap-3 md:gap-4">
               {headlines[currentHeadline].words.map((word, index) => (
                 <span
                   key={`${currentHeadline}-${index}`}
-                  className={`${word.gradient ? 'gradient-text animate-gradient-flow' : 'text-foreground'} inline-block animate-fade-in-fade-out-continuous`}
+                  className={`${word.gradient ? 'gradient-text animate-gradient-flow' : 'text-foreground'} inline-block`}
                   style={{
                     fontSize: word.gradient ? 'clamp(3rem, 9vw, 6rem)' : 'clamp(2.5rem, 8vw, 5rem)',
                     lineHeight: '1.1',
                     letterSpacing: '-0.02em',
                     fontWeight: 600,
-                    animationDelay: `${index * 0.3}s`,
-                    animationDuration: '6s',
+                    animation: `fade-in 0.8s ease-out ${index * 0.2}s forwards`,
+                    opacity: 0,
                     backgroundSize: word.gradient ? '200% auto' : undefined
                   }}
                 >

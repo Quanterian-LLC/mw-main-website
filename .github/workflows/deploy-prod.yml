@@ -69,8 +69,6 @@ jobs:
           --allow-unauthenticated \
           --port=3000 \
           --service-account=prod-metawurks-landingpage@metawurks.iam.gserviceaccount.com \
-          --clear-secrets \
-          --set-env-vars="NODE_ENV=prod,NEXT_PUBLIC_LOGIN_URL=${{ env.NEXT_PUBLIC_LOGIN_URL }},NEXT_PUBLIC_SIGNUP_URL=${{ env.NEXT_PUBLIC_SIGNUP_URL }},SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }},EMAIL_TO=${{ secrets.EMAIL_TO }},SENDGRID_FROM_EMAIL=${{ secrets.SENDGRID_FROM_EMAIL }}" \
           --quiet
           
         echo "✅ Deployment completed!"
