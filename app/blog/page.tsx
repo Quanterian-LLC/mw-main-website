@@ -6,6 +6,15 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "real-world-use-cases-metawurks-industries",
+      title: "Real-World Use Cases for MetaWurks Across Industries — From Legal to HR to Finance",
+      excerpt: "Every organization is different — but many share common pain points: overflowing documents, repetitive manual tasks, slow approvals, and inefficient workflows. That's why a flexible AI automation platform like MetaWurks can deliver value across industries. Here are a few real-world use cases.",
+      date: "6 January, 2026",
+      readTime: "7 min read",
+      category: "Use Cases",
+      gradient: "from-ai-mint to-ai-blue",
+    },
+    {
       id: "metawurks-redefining-ai-collaboration",
       title: "MetaWurks — Redefining AI Collaboration for the Modern Enterprise",
       excerpt: "In today's digital-first world, teams manage huge amounts of scattered documents. The challenge isn't storage—it's turning that data into insights. MetaWurks, a next-gen AI agent platform, solves this by converting unstructured information into clear, actionable intelligence.",
