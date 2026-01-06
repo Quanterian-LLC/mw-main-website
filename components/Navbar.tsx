@@ -82,7 +82,9 @@ const Navbar = () => {
               <Button variant="ghost">Sign In</Button>
             </Link>
             <Link
-              href="/contact#early-access"
+              href={process.env.NEXT_PUBLIC_SIGNUP_URL || "/contact#early-access"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
             >
               {/* Gradient background using theme colors */}
@@ -173,7 +175,9 @@ const Navbar = () => {
                 <Button variant="ghost" className="w-full justify-center">Sign In</Button>
               </Link>
               <Link
-                href="/contact#early-access"
+                href={process.env.NEXT_PUBLIC_SIGNUP_URL || "/contact#early-access"}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg w-full"
               >

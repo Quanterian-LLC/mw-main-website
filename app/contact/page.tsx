@@ -352,7 +352,7 @@ export default function Contact() {
           }}
         />
         
-        <div className="container mx-auto px-6 relative z-10">
+        {/* <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <span className="inline-block text-sm font-medium text-ai-violet mb-4">EARLY ACCESS</span>
@@ -416,7 +416,7 @@ export default function Contact() {
               </button>
             </form>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Newsletter Section */}
