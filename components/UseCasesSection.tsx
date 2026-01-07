@@ -3,8 +3,24 @@ import Link from "next/link";
 
 const pricingPlans = [
   {
+    name: "Free",
+    price: "$0",
+    period: "/MONTH",
+    description: "Free plan for 1 month with limited access",
+    features: [
+      "Standard AI Models",
+      "1M Token Limit",
+      "Basic Chat Memory Across History",
+      "Fast Speed",
+      "Limited Storage",
+      "Community Support",
+    ],
+    gradient: "from-ai-mint to-ai-cyan",
+  },
+  {
     name: "Starter",
-    price: "$19/month",
+    price: "$19",
+    period: "/month",
     description: "For small teams trying out AI-powered document Q&A",
     features: [
       "Standard & Enhanced AI Models",
@@ -18,7 +34,8 @@ const pricingPlans = [
   },
   {
     name: "Professional",
-    price: "$39/month",
+    price: "$39",
+    period: "/month",
     description: "For growing companies that need collaboration and stronger retrieval",
     features: [
       "Core, Advanced & Premium AI Models",
@@ -32,7 +49,8 @@ const pricingPlans = [
   },
   {
     name: "Enterprise",
-    price: "$99/month",
+    price: "$99",
+    period: "/month",
     description: "For larger enterprises requiring security, scalability, and customization",
     features: [
       "Core, Advanced & Premium AI Models",
@@ -80,7 +98,7 @@ const UseCasesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <div 
               key={index}
@@ -96,7 +114,14 @@ const UseCasesSection = () => {
                 </div>
                 
                 <h3 className="text-2xl font-display font-semibold tracking-tight mb-2">{plan.name}</h3>
-                <div className="text-3xl font-display font-bold mb-4">{plan.price}</div>
+                <div className="mb-4">
+                  <span className="text-3xl font-display font-bold">
+                    {plan.price}
+                  </span>
+                  {'period' in plan && (plan as { period?: string }).period && (
+                    <span className="text-muted-foreground">{(plan as { period: string }).period}</span>
+                  )}
+                </div>
                 <p className="text-muted-foreground mb-6 text-sm">{plan.description}</p>
                 
                 <ul className="space-y-3 mb-8 flex-grow">

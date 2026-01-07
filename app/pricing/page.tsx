@@ -12,6 +12,38 @@ export default function Pricing() {
 
   const pricingPlans = [
     {
+      name: "Free",
+      price: "$0",
+      originalPrice: null,
+      period: "/MONTH",
+      description: "Free plan for 1 month with limited access",
+      buttonText: "Get Started",
+      buttonVariant: "gradient" as const,
+      gradient: "from-ai-mint to-ai-cyan",
+      features: [
+        "Standard AI Models",
+        "1M Token Limit",
+        "Basic Chat Memory Across History",
+        "Fast Speed",
+        "Limited Storage",
+        "Community Support",
+      ],
+      details: {
+        availableModels: "Standard Models",
+        messages: "Limited",
+        tokenLimit: "1M",
+        fileUpload: "Limited",
+        messageHistory: "Limited",
+        teamMembers: "1 Team Member",
+        sharedWorkspace: "No shared workspace",
+        bringOwnKey: "No",
+        liveWebSearch: "No",
+        speed: "Fast",
+        dailyTokenLimit: "Limited",
+        support: "Community Support",
+      },
+    },
+    {
       name: "Starter",
       price: isAnnual ? "$17" : "$19",
       originalPrice: isAnnual ? "$8" : "$8",
@@ -238,7 +270,7 @@ export default function Pricing() {
         />
         
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
