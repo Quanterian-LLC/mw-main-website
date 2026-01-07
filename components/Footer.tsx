@@ -42,7 +42,7 @@ const Footer = () => {
           <div className="lg:col-span-2 flex flex-col">
             <Link href="/" onClick={handleLinkClick} className="mb-6">
               <Image
-                src="/MetaWurks Logo-11.svg"
+                src="/Untitled design.svg"
                 alt="MetaWurks Logo"
                 width={220}
                 height={55}
