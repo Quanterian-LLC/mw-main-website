@@ -6,6 +6,15 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "creating-powerpoint-presentations-metawurks",
+      title: "How to Create Professional PowerPoint Presentations in Minutes with MetaWurks",
+      excerpt: "Creating a polished PowerPoint on a complex topic usually takes hours—researching, outlining, designing slides, and refining the narrative until it's presentation-ready. With MetaWurks, you can go from a blank page to a fully downloadable PPT file in minutes by prompting the platform to handle the heavy lifting.",
+      date: "12 January, 2026",
+      readTime: "8 min read",
+      category: "Productivity",
+      gradient: "from-ai-violet to-ai-peach",
+    },
+    {
       id: "real-world-use-cases-metawurks-industries",
       title: "Real-World Use Cases for MetaWurks Across Industries — From Legal to HR to Finance",
       excerpt: "Every organization is different — but many share common pain points: overflowing documents, repetitive manual tasks, slow approvals, and inefficient workflows. That's why a flexible AI automation platform like MetaWurks can deliver value across industries. Here are a few real-world use cases.",
@@ -106,7 +115,7 @@ export default function Blog() {
                   {post.title}
                 </h2>
                 
-                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm text-justify">
                   {post.excerpt}
                 </p>
 
