@@ -47,6 +47,7 @@ const Footer = () => {
                 width={220}
                 height={55}
                 className="h-14 w-auto"
+                unoptimized
               />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-xs">
