@@ -17,7 +17,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/Untitled design.svg"
+              src="/logo.png"
               alt="MetaWurks Logo"
               width={200}
               height={50}
