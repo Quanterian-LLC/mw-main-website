@@ -283,7 +283,7 @@ export default function Pricing() {
                 {/* Badge */}
                 {(plan.popular || plan.bestValue) && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="px-4 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-ai-blue to-ai-violet text-primary-foreground">
+                    <span className="px-4 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-ai-blue to-ai-violet text-primary-foreground whitespace-nowrap">
                       {plan.popular ? 'Popular Choice' : 'Best Value'}
                     </span>
                   </div>
