@@ -160,11 +160,11 @@ export default function HowToUsePage() {
               <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
                 MetaWurks is an{" "}
                 <strong className="text-[#111827] dark:text-white">
-                  AI-powered productivity platform
+                  All-in-One Multi-Modal AI Orchestrator
                 </strong>{" "}
-                that combines real-time AI conversations with document
-                intelligence, external service integrations, and background task
-                processing.
+                that unifies multiple AI models, document intelligence, external
+                service integrations, and background task processing into a
+                single powerful platform.
               </p>
               <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
                 Think of it as your AI assistant that can:
@@ -201,7 +201,7 @@ export default function HowToUsePage() {
                 {[
                   {
                     title: "Create an account",
-                    desc: "Visit app.metawurks.com and sign up with your email or Google account. You can also sign in with Microsoft.",
+                    desc: "Visit metawurks.com and sign up with your email or Google account. You can also sign in with Microsoft.",
                   },
                   {
                     title: "Choose your plan",

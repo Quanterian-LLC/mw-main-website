@@ -10,9 +10,6 @@ const sections = [
   { id: "how-connections-work", label: "How connections work" },
   { id: "connecting-a-service", label: "Connecting a service" },
   { id: "supported-services", label: "Supported services" },
-  { id: "multi-account", label: "Multi-account support" },
-  { id: "managing-connections", label: "Managing connections" },
-  { id: "custom-mcp", label: "Custom MCP servers" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "faq", label: "FAQ" },
 ];
@@ -21,17 +18,12 @@ const faqs = [
   {
     question: "Does MetaWurks store my passwords for connected services?",
     answer:
-      "No. MetaWurks uses OAuth for all connections. When you connect a service like Gmail or Slack, you sign in directly with that provider. MetaWurks only stores the OAuth access token — never your password.",
+      "No. MetaWurks uses OAuth for all connections. When you connect a service like Google Drive or OneDrive, you sign in directly with that provider. MetaWurks only stores the OAuth access token — never your password.",
   },
   {
     question: "What happens to my data when I disconnect a service?",
     answer:
       "When you disconnect a service, MetaWurks immediately deletes the stored OAuth tokens. The AI will no longer be able to access that service. Any data previously fetched during chat conversations remains in those chat histories, but no new data can be retrieved.",
-  },
-  {
-    question: "Can I connect multiple Gmail or Outlook accounts?",
-    answer:
-      "Yes. MetaWurks supports up to 5 accounts per service. For example, you can connect both your personal and work Gmail accounts. Each account gets a label so the AI knows which one to use when you ask.",
   },
   {
     question: "Why does my connection show an error status?",
@@ -41,17 +33,12 @@ const faqs = [
   {
     question: "Do connected services use my token quota?",
     answer:
-      "Yes. When the AI calls a connected service (e.g., searching your Gmail), the tokens used for the AI's request and response count toward your plan's token limit. The actual data transfer with the external service does not count.",
+      "Yes. When the AI processes files imported from a connected service (e.g., analyzing a document from Google Drive), the tokens used for the AI's request and response count toward your plan's token limit. The actual file transfer does not count.",
   },
   {
     question: "Can I use connected services in background tasks?",
     answer:
-      "Yes. Background tasks have access to all your connected services. For example, you can run a background research task that pulls data from your Gmail, Calendar, and Slack simultaneously.",
-  },
-  {
-    question: "What is a custom MCP server and do I need one?",
-    answer:
-      "Most users don't need a custom MCP server. The built-in integrations (Gmail, Slack, Figma, etc.) cover common use cases. Custom MCP servers are for advanced users or teams who want to connect proprietary tools or internal APIs to MetaWurks.",
+      "Yes. Background tasks have access to all your connected services. For example, you can run a background research task that analyzes documents imported from your Google Drive or OneDrive.",
   },
   {
     question: "Are my connected service interactions private?",
@@ -62,36 +49,12 @@ const faqs = [
 
 const supportedServices = [
   {
-    name: "Gmail",
-    description: "Read, search, and send emails directly from the chat.",
+    name: "Google Drive",
+    description: "Browse and import files and folders from your Google Drive. Supports documents, spreadsheets, presentations, images, and more.",
   },
   {
-    name: "Google Calendar",
-    description: "View, create, and manage calendar events.",
-  },
-  {
-    name: "Outlook",
-    description: "Access your Outlook email and calendar.",
-  },
-  {
-    name: "Microsoft Teams",
-    description: "Access team channels, conversations, and messages.",
-  },
-  {
-    name: "Slack",
-    description: "Search messages, access channels, and send messages.",
-  },
-  {
-    name: "Figma",
-    description: "Access design files, projects, and team resources.",
-  },
-  {
-    name: "LinkedIn",
-    description: "Access your professional network and profile information.",
-  },
-  {
-    name: "Fireflies.ai",
-    description: "Access meeting transcripts, summaries, and action items.",
+    name: "OneDrive",
+    description: "Connect your Microsoft OneDrive account to browse, select, and import files directly into MetaWurks.",
   },
 ];
 
@@ -168,9 +131,9 @@ export default function ConnectionsPage() {
               Connections
             </h1>
             <p className="text-lg text-[#4B5563] dark:text-[#9CA3AF] mb-10 leading-relaxed">
-              Connect your external tools and services to MetaWurks so the AI
-              can access your data, automate workflows, and provide richer
-              answers — all from within the chat.
+              Connect your cloud storage accounts to MetaWurks so you can
+              import documents, browse files, and use AI to search and analyze
+              your data — all from within the chat.
             </p>
 
             {/* Overview */}
@@ -179,14 +142,13 @@ export default function ConnectionsPage() {
                 Overview
               </h2>
               <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                MetaWurks uses the{" "}
+                MetaWurks allows you to connect your{" "}
                 <strong className="text-[#111827] dark:text-white">
-                  Model Context Protocol (MCP)
+                  cloud storage accounts
                 </strong>{" "}
-                to securely connect to external services. When you connect a
-                service like Gmail or Slack, MetaWurks can read, search, and
-                interact with that service on your behalf — all through natural
-                language in the chat.
+                so you can browse, import, and analyze files directly within the
+                platform. Connect Google Drive or OneDrive to bring your
+                documents into MetaWurks for AI-powered search and analysis.
               </p>
               <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed">
                 Connections are per-user, meaning your connected accounts are
@@ -206,11 +168,11 @@ export default function ConnectionsPage() {
               </p>
               <ol className="space-y-3">
                 {[
-                  "You click Connect on a service card and are redirected to the service's login page (e.g., Google, Microsoft).",
-                  "You sign in and grant MetaWurks permission to access specific data (read emails, view calendars, etc.).",
-                  "The service issues an OAuth token, which MetaWurks stores securely. Your password is never shared.",
-                  "MetaWurks registers the available tools (actions) for that service — like \"search emails\" or \"create event\".",
-                  "When you chat, the AI can call these tools to fetch real data and perform actions on your behalf.",
+                  "You click Connect on a storage service card and are redirected to the provider's login page (Google or Microsoft).",
+                  "You sign in and grant MetaWurks permission to access your files and folders.",
+                  "The provider issues an OAuth token, which MetaWurks stores securely. Your password is never shared.",
+                  "MetaWurks connects to your cloud storage and lets you browse and select files to import.",
+                  "Imported files are available for AI-powered search, analysis, and chat — just ask questions about your documents naturally.",
                 ].map((step, index) => (
                   <li
                     key={index}
@@ -236,11 +198,11 @@ export default function ConnectionsPage() {
               <ol className="space-y-3">
                 {[
                   'Open the Knowledge Sources panel by clicking the upload icon in the sidebar, then go to the "Integrations" tab.',
-                  "Find the service you want to connect (e.g., Gmail, Slack, Figma).",
+                  "Find the cloud storage service you want to connect (Google Drive or OneDrive).",
                   'Click the service card, then click "Connect" on the detail page.',
-                  "You will be redirected to the service's OAuth consent screen. Sign in and approve the requested permissions.",
+                  "You will be redirected to the provider's OAuth consent screen. Sign in and approve the requested permissions.",
                   "Once approved, you will be redirected back to MetaWurks. The service will show as connected.",
-                  "You can now use the service in any chat — just ask the AI naturally, like \"Show my unread emails\" or \"What meetings do I have today?\"",
+                  "You can now browse your cloud storage, import files, and ask the AI to search and analyze your documents.",
                 ].map((step, index) => (
                   <li
                     key={index}
@@ -261,7 +223,7 @@ export default function ConnectionsPage() {
                 Supported services
               </h2>
               <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                MetaWurks currently supports the following integrations:
+                MetaWurks currently supports the following cloud storage connections:
               </p>
               <div className="space-y-3">
                 {supportedServices.map((service) => (
@@ -280,7 +242,7 @@ export default function ConnectionsPage() {
                 ))}
               </div>
               <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mt-4">
-                For detailed setup instructions for each service, see the{" "}
+                Looking for service integrations like Gmail, Slack, or Figma? See the{" "}
                 <Link
                   href="/docs/integrations"
                   className="text-[#1D4ED8] dark:text-[#60A5FA] hover:underline"
@@ -289,103 +251,6 @@ export default function ConnectionsPage() {
                 </Link>
                 .
               </p>
-            </section>
-
-            {/* Multi-Account Support */}
-            <section id="multi-account" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-semibold text-[#111827] dark:text-white mb-4">
-                Multi-account support
-              </h2>
-              <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                MetaWurks supports connecting{" "}
-                <strong className="text-[#111827] dark:text-white">
-                  up to 5 accounts per service
-                </strong>
-                . This is useful if you have both personal and work accounts for
-                the same service (e.g., two Gmail accounts).
-              </p>
-              <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                When you have multiple accounts connected for the same service:
-              </p>
-              <ul className="space-y-2">
-                {[
-                  "Each account is labeled (e.g., \"Work Gmail\", \"Personal Gmail\") so the AI knows which one to use.",
-                  "You can specify which account to use in your message, like \"Search my work Gmail for invoices.\"",
-                  "If you don't specify, the AI will use the default (first connected) account.",
-                  "You can add labels to accounts from the Integrations panel to keep them organized.",
-                ].map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-[#374151] dark:text-[#D1D5DB]"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Managing Connections */}
-            <section id="managing-connections" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-semibold text-[#111827] dark:text-white mb-4">
-                Managing connections
-              </h2>
-              <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                You can manage your connected services at any time:
-              </p>
-              <ul className="space-y-2">
-                {[
-                  "View all connections: Open the Knowledge Sources panel and go to the Integrations tab to see all your connected services and their status.",
-                  "Disconnect a service: Click on a connected service and select \"Disconnect\" to revoke access. MetaWurks will delete the stored tokens.",
-                  "Reconnect: If a connection expires or breaks, you can reconnect by clicking \"Connect\" again. You will go through the OAuth flow once more.",
-                  "Connection status: Each connection shows its status — active, error, or disconnected. If you see an error, try reconnecting.",
-                ].map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-[#374151] dark:text-[#D1D5DB]"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] mt-2 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Custom MCP Servers */}
-            <section id="custom-mcp" className="mb-12 scroll-mt-24">
-              <h2 className="text-xl font-semibold text-[#111827] dark:text-white mb-4">
-                Custom MCP servers
-              </h2>
-              <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                In addition to the built-in integrations, MetaWurks supports
-                connecting to{" "}
-                <strong className="text-[#111827] dark:text-white">
-                  custom MCP servers
-                </strong>
-                . This allows you to bring your own tools and data sources into
-                the chat.
-              </p>
-              <p className="text-[#374151] dark:text-[#D1D5DB] leading-relaxed mb-4">
-                To connect a custom MCP server:
-              </p>
-              <ol className="space-y-3">
-                {[
-                  'Go to the Integrations tab and click "Custom" or "Add Custom MCP".',
-                  "Enter your MCP server URL. Supported transports include SSE (Server-Sent Events) and Streamable HTTP.",
-                  "If your server requires authentication, provide the necessary credentials.",
-                  "MetaWurks will discover the available tools from your server and make them available in chat.",
-                ].map((step, index) => (
-                  <li
-                    key={index}
-                    className="flex gap-3 text-[#374151] dark:text-[#D1D5DB]"
-                  >
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#DBEAFE] dark:bg-[#1E3A5F] text-[#1D4ED8] dark:text-[#60A5FA] text-sm font-medium flex items-center justify-center">
-                      {index + 1}
-                    </span>
-                    <span className="leading-relaxed pt-0.5">{step}</span>
-                  </li>
-                ))}
-              </ol>
             </section>
 
             {/* Troubleshooting */}
@@ -413,7 +278,7 @@ export default function ConnectionsPage() {
                   {
                     question: "I want to connect a service that isn't listed.",
                     answer:
-                      "You can use the Custom MCP server option to connect any MCP-compatible service. If you need a specific integration built in, contact us at admin@metawurks.com.",
+                      "Currently MetaWurks supports Google Drive and OneDrive for cloud storage connections. For other service integrations like Gmail, Slack, or Figma, check the Integration Guides. If you need a specific integration, contact us at admin@metawurks.com.",
                   },
                 ].map((item, index) => (
                   <li
