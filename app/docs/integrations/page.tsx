@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Mail, Calendar, MessageSquare, Users, Figma, Linkedin, Mic, ArrowRight } from "lucide-react";
+import { Mail, Calendar, MessageSquare, Users, Figma, Linkedin, Mic, ArrowRight, ChevronLeft } from "lucide-react";
 
 export default function IntegrationsPage() {
   const integrations = [
@@ -86,6 +86,13 @@ export default function IntegrationsPage() {
         />
 
         <div className="container mx-auto px-6 relative z-10">
+          <Link
+            href="/docs"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Back to Docs
+          </Link>
           <div className="text-center max-w-3xl mx-auto">
             <span className="inline-block text-sm font-medium text-ai-violet mb-4">DOCUMENTATION</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
