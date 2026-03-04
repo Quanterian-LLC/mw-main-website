@@ -40,7 +40,7 @@ export default function IntegrationDocsPage({ params }: { params: { id: string }
       <header className="sticky top-0 z-50 border-b border-[#E5E5E5] dark:border-[#2A2A2A] bg-white dark:bg-[#0D0D0D]">
         <div className="flex h-16 items-center justify-between px-8">
           <div className="flex items-center gap-8">
-            <Link href="/docs/integrations" className="flex items-center gap-2">
+            <Link href="/docs" className="flex items-center gap-2">
               <Image
                 src="/image.png"
                 alt="Metawurks"

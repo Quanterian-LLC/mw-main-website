@@ -9,7 +9,7 @@ const Footer = () => {
     Product: [
       { name: "Features", path: "/product" },
       { name: "Pricing", path: "/pricing" },
-      { name: "Docs", path: "/docs/integrations" },
+      { name: "Docs", path: "/docs" },
     ],
     Company: [
       { name: "About Us", path: "/about-us" },
