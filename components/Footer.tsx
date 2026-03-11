@@ -37,7 +37,7 @@ const Footer = () => {
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="w-full px-28 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-12 mb-16 items-start">
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col">

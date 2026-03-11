@@ -12,10 +12,10 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50">
-      <div className="container mx-auto px-6">
+      <div className="w-full px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               src="/Untitled design.svg"
               alt="MetaWurks Logo"
@@ -27,7 +27,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex flex-1 items-center justify-center gap-10">
             <NavLink
               href="/"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -51,7 +51,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               href="/about-us"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
               activeClassName="text-foreground"
             >
               About Us
@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex shrink-0 items-center gap-4">
             <Link
               href={process.env.NEXT_PUBLIC_LOGIN_URL!}
               target="_blank"
