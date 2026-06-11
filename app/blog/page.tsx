@@ -6,6 +6,24 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "custom-trained-private-llms",
+      title: "Custom Trained Private LLMs: Benefits of Domain-Specific Accuracy",
+      excerpt: "The enterprises winning with AI in 2025 share one trait: they stopped renting generic intelligence and started building their own. Custom-trained private LLMs are rapidly moving from luxury to competitive necessity—and for good reason. While general-purpose models like GPT-4 or Gemini handle broad tasks adequately, they lack the domain-specific precision that complex industries demand. A private LLM trained on your proprietary data delivers sharper accuracy, fewer hallucinations, and outputs that actually reflect your business context.",
+      date: "9 June, 2026",
+      readTime: "10 min read",
+      category: "AI",
+      gradient: "from-ai-cyan to-ai-violet",
+    },
+    {
+      id: "high-cost-running-ai-commercial-llms",
+      title: "High Cost of Running AI Applications Using Commercial LLMs",
+      excerpt: "AI promises transformation, but commercial LLM pricing can quietly devour your margins. Token-based costs from OpenAI, Anthropic, and Google scale unpredictably with usage—turning a $1,500 pilot into a multi-million-dollar enterprise expense. From margin compression and vendor lock-in to the hidden overhead of prompt engineering talent, the true cost of commercial AI demands the same financial scrutiny as any major capital investment.",
+      date: "8 June, 2026",
+      readTime: "9 min read",
+      category: "AI",
+      gradient: "from-ai-mint to-ai-violet",
+    },
+    {
       id: "creating-powerpoint-presentations-metawurks",
       title: "How to Create Professional PowerPoint Presentations in Minutes with MetaWurks",
       excerpt: "Creating a polished PowerPoint on a complex topic usually takes hours—researching, outlining, designing slides, and refining the narrative until it's presentation-ready. With MetaWurks, you can go from a blank page to a fully downloadable PPT file in minutes by prompting the platform to handle the heavy lifting.",
@@ -67,15 +85,6 @@ export default function Blog() {
       readTime: "6 min read",
       category: "Workflows",
       gradient: "from-ai-blue to-ai-violet",
-    },
-    {
-      id: "custom-trained-private-llms",
-      title: "Custom Trained Private LLMs: Benefits of Domain-Specific Accuracy",
-      excerpt: "The enterprises winning with AI in 2025 share one trait: they stopped renting generic intelligence and started building their own. Custom-trained private LLMs are rapidly moving from luxury to competitive necessity—and for good reason. While general-purpose models like GPT-4 or Gemini handle broad tasks adequately, they lack the domain-specific precision that complex industries demand. A private LLM trained on your proprietary data delivers sharper accuracy, fewer hallucinations, and outputs that actually reflect your business context.",
-      date: "9 June, 2026",
-      readTime: "10 min read",
-      category: "AI",
-      gradient: "from-ai-cyan to-ai-violet",
     },
   ];
 
