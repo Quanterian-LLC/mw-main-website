@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 export const blogPostsData: Record<
   string,
@@ -11,6 +12,814 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "ai-adoption-gap-in-finance": {
+    title: "The AI Adoption Gap Nobody in Finance Talks About",
+    category: "Finance",
+    date: "14 June, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-cyan to-ai-blue",
+    content: (
+      <>
+        <p className="text-xl text-foreground text-justify">
+          56% of finance teams say they&apos;ve &ldquo;adopted AI.&rdquo; Only 17% use it where the actual work happens. That gap isn&apos;t a hype problem. It&apos;s a trust problem.
+        </p>
+
+        <div className="my-12">
+          <Carousel className="w-full max-w-3xl mx-auto">
+            <CarouselContent>
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <CarouselItem key={num}>
+                  <Image
+                    src={`/blog/Finance-${num}.jpeg`}
+                    alt={`The AI adoption gap in finance — slide ${num} of 6 — MetaWurks`}
+                    width={1200}
+                    height={800}
+                    className="rounded-lg shadow-lg w-full h-auto"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Why Adoption Stalls Before It Reaches the Real Work
+          </h2>
+          <p className="text-justify">
+            Most finance leaders aren&apos;t slow—they&apos;re careful, and for good reason. You can&apos;t paste a client&apos;s bank statement, a signed contract, or a live P&amp;L into a public chatbot and hope for the best. The downside of getting that wrong is far larger than the upside of saving a few minutes, so teams hold back.
+          </p>
+          <p className="mt-4 text-justify">
+            The result is that &ldquo;AI adoption&rdquo; stalls at the safe, low-stakes edges of the job: drafting emails, summarizing meeting notes, polishing a memo. It never reaches reconciliation, month-end close, or reporting—the workflows where the real hours actually live, and where the real savings would come from. So the adoption numbers look healthy on paper, while the workload on the team barely changes.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The Fix Isn&apos;t Another Chatbot
+          </h2>
+          <p className="text-justify">
+            The fix isn&apos;t another general-purpose chatbot bolted onto the same workflow. It&apos;s AI that reads your real documents, answers in plain English, and keeps every file secured and under your control—with the freedom to switch between leading models depending on the task in front of you. That combination is what lets a finance team move AI from the edges of the job into the core of it, without asking anyone to take on a risk they can&apos;t justify.
+          </p>
+          <p className="mt-4 text-justify">
+            That&apos;s the difference between &ldquo;using AI&rdquo; and using it where it counts.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            So which is the real blocker on your team—adoption, or trust?
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "ai-tools-pointed-at-the-money": {
+    title: "Everyone Has AI Tools. Almost No One Has Them Pointed at the Money.",
+    category: "AI",
+    date: "14 June, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-blue",
+    content: (
+      <>
+        <p className="text-xl text-foreground text-justify">
+          Everyone has the AI tools now. Almost no one has them pointed at the money. That&apos;s not an adoption problem. It&apos;s an adaptation problem—and it&apos;s very fixable.
+        </p>
+
+        <div className="my-12">
+          <Carousel className="w-full max-w-3xl mx-auto">
+            <CarouselContent>
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <CarouselItem key={num}>
+                  <Image
+                    src={`/blog/AI-tools-${num}.jpeg`}
+                    alt={`AI tools pointed at the money — slide ${num} of 6 — MetaWurks`}
+                    width={1200}
+                    height={800}
+                    className="rounded-lg shadow-lg w-full h-auto"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The 2026 Adoption Gap
+          </h2>
+          <p className="text-justify">
+            The 2026 data on small business and AI is striking. 76% of small businesses are already using or exploring AI. But roughly 70% are stuck in the &ldquo;experimenting&rdquo; phase, while only around 8% have actually pulled ahead.
+          </p>
+          <p className="mt-4 text-justify">
+            The gap isn&apos;t who has the tools—almost everyone does. The average small business already runs around five of them. The gap is who adapted their business around AI instead of just bolting it on.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            How the 8% Do It
+          </h2>
+          <ul className="space-y-3 list-disc list-inside ml-4">
+            <li><strong>They point AI at revenue, not busywork.</strong> Fewer than 1 in 4 small businesses use AI for the work that actually makes money—pricing, finding customers, answering client questions. Start there.</li>
+            <li><strong>They go deep on one workflow.</strong> Pick your most expensive bottleneck. Automate that one thing. Measure for 90 days. Expand on evidence, not hype.</li>
+            <li><strong>They keep a human in the loop.</strong> AI amplifies judgment—it doesn&apos;t replace it. The owner who still reviews the output wins.</li>
+            <li><strong>They protect their data.</strong> Pasting client contracts, financials, and patient files into public AI is a risk most owners never priced in.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Depth Is the Edge
+          </h2>
+          <p className="text-justify">
+            Notice what&apos;s not on the list: &ldquo;buy more tools.&rdquo; If you&apos;re going to point AI at your business, point it at your actual documents—in plain English, kept private, with the freedom to switch to the right model for each task. That&apos;s depth. Depth is the edge.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            Which one are you right now—collecting tools, or going deep on one?
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "ai-took-6-finance-jobs-2026": {
+    title: "AI Quietly Took Over 6 Finance Jobs in 2026",
+    category: "Finance",
+    date: "13 June, 2026",
+    readTime: "5 min read",
+    gradient: "from-ai-violet to-ai-cyan",
+    content: (
+      <>
+        <p className="text-xl text-foreground text-justify">
+          Everyone is still debating whether AI will replace the CFO. Meanwhile in 2026, AI quietly took over six jobs underneath them. The finance teams who noticed are running 30-40% leaner this year. The ones still debating are about to learn the hard way.
+        </p>
+
+        <div className="my-12">
+          <Carousel className="w-full max-w-3xl mx-auto">
+            <CarouselContent>
+              {[1, 2, 3, 4, 5, 6].map((num) => (
+                <CarouselItem key={num}>
+                  <Image
+                    src={`/blog/CFO-${num}.jpeg`}
+                    alt={`AI in finance teams — slide ${num} of 6 — MetaWurks`}
+                    width={1200}
+                    height={800}
+                    className="rounded-lg shadow-lg w-full h-auto"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            What AI Is Actually Doing Inside Finance Teams Right Now
+          </h2>
+          <p className="text-justify">
+            <strong>Variance analysis</strong> is no longer a manual scramble at month-end. AI now explains &ldquo;why did actuals miss budget?&rdquo; in plain English, with the general ledger pull already attached—turning a task that once took an analyst hours of digging into a ready-made explanation the team can act on immediately.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Cash flow forecasting</strong> has moved from a static monthly spreadsheet to a living, 13-week rolling forecast that updates automatically every time a new invoice or bill hits the ledger—giving finance leaders a continuously current view of liquidity instead of a snapshot that&apos;s outdated within days.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Vendor contract review</strong> used to mean someone reading through pages of legal language hoping not to miss anything. Now AI surfaces auto-renewal clauses, price-escalator triggers, and termination windows before they bite—catching the fine print that quietly costs companies money every year.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Audit prep</strong> is similarly transformed: AI assembles PBC (provided-by-client) lists, ties balances back to source documents, and flags the gaps long before the auditors ask for them—compressing what used to be weeks of preparation into a fraction of the time.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Management reporting</strong> shifts from a blank-page exercise to a drafting exercise. AI writes the first pass of the board pack commentary directly from the numbers, so the team is editing and refining instead of starting from scratch every reporting cycle.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Close anomaly detection</strong> catches the duplicate journal entry, the mis-mapped account, and the round-dollar figure that doesn&apos;t belong—before review, rather than after, when it&apos;s far more expensive to unwind.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The Pattern Behind All Six
+          </h2>
+          <p className="text-justify">
+            AI didn&apos;t take the strategic seat. It took the time-tax that was eating the rest of the team&apos;s week—the repetitive, detail-heavy work that has to get done but adds little to anyone&apos;s judgment or career growth. That&apos;s exactly the kind of work AI is best suited to absorb, and exactly the kind of work that, once removed, frees a finance team to focus on analysis and strategy instead of assembly.
+          </p>
+          <p className="mt-4 text-justify">
+            The finance leaders winning in 2026 aren&apos;t asking &ldquo;will AI replace me?&rdquo; They&apos;re asking &ldquo;which six hours of my team&apos;s week are still happening for no reason?&rdquo;
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            Which of these six has the biggest hours-back potential for your team?
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "5-ai-tools-zero-rules": {
+    title: "5 AI Tools. Zero Rules.",
+    category: "AI",
+    date: "13 June, 2026",
+    readTime: "3 min read",
+    gradient: "from-ai-blue to-ai-mint",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/5_AI-Tools.jpeg"
+            alt="AI for small business — 5 AI tools, zero rules — MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          The average small business now runs about five AI tools. Most have zero rules for what those tools are allowed to see. That&apos;s the part of the 2026 AI rush nobody&apos;s auditing.
+        </p>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The Quiet Problem Underneath the AI Rush
+          </h2>
+          <p className="text-justify">
+            Everyone&apos;s racing to add AI—to email, to proposals, to customer questions, to the books. Good. But here&apos;s the quiet problem underneath it: most small businesses using AI still have no guardrails for it. One 2026 estimate puts that figure near 77%. And every time someone pastes a client contract, a patient form, or a financial statement into a free public chatbot, that information can leave the business—and it can&apos;t be pulled back.
+          </p>
+          <p className="mt-4 text-justify">
+            For a small company, that&apos;s not a tech risk. It&apos;s a trust risk. Your clients didn&apos;t agree to become someone else&apos;s training data, and most owners have no idea that&apos;s the trade they&apos;re making every time a team member reaches for a free AI tool.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The Real AI Question in 2026
+          </h2>
+          <p className="text-justify">
+            So the real AI question in 2026 isn&apos;t &ldquo;which tool is the smartest?&rdquo; It&apos;s &ldquo;does my data stay mine?&rdquo;
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            What That Looks Like in Practice
+          </h2>
+          <ul className="space-y-3 list-disc list-inside ml-4">
+            <li>Use AI that works on your documents without handing them over to be trained on.</li>
+            <li>Private by default—not &ldquo;private if you dig for the setting.&rdquo;</li>
+            <li>Stay flexible. The right model for each task beats locking your business—and your data—into one vendor.</li>
+          </ul>
+          <p className="mt-4 text-justify">
+            You don&apos;t have to slow your AI adoption down. You just have to make sure the information your business runs on stays yours.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            What&apos;s your rule for what AI tools are allowed to touch?
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "why-general-purpose-ai-no-longer-enough": {
+    title: "Why General-Purpose AI Is No Longer Enough",
+    category: "AI",
+    date: "13 June, 2026",
+    readTime: "3 min read",
+    gradient: "from-ai-peach to-ai-mint",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/General-Purpose_AI.jpeg"
+            alt="Why general-purpose AI is no longer enough — MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          Every query you send to a public AI is data you&apos;ve handed to someone else. For regulated industries, that&apos;s the whole problem.
+        </p>
+
+        <div>
+          <p className="text-justify">
+            The enterprises winning with AI stopped renting generic intelligence and started building their own—specialized, secure, and cost-controlled. Here&apos;s why private, domain-trained LLMs are moving from luxury to competitive necessity.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            From Renting to Owning Intelligence
+          </h2>
+          <p className="text-justify">
+            For two years, &ldquo;adopting AI&rdquo; meant plugging into someone else&apos;s general-purpose model. Fast, easy, and for broad tasks—good enough. But &ldquo;good enough&rdquo; is starting to cost people their edge. As more competitors plug into the exact same public models, the advantage shifts away from who has access to AI and toward who has built AI that actually understands their business.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Three Reasons Smart Teams Are Moving from Rented to Owned
+          </h2>
+          <ul className="space-y-3 list-disc list-inside ml-4">
+            <li><strong>Precision:</strong> General-purpose models are broad by design, so they rarely have the domain depth a complex business runs on. A model grounded in your data speaks your context—sharper answers, fewer hallucinations, and outputs that sound like your business, not the internet&apos;s average.</li>
+            <li><strong>Security:</strong> Every query to a public API is data handed to a third party. For healthcare, finance, and legal, that isn&apos;t a feature trade-off—it&apos;s a line you don&apos;t cross. Private, in-house AI keeps sensitive information where it belongs.</li>
+            <li><strong>Cost:</strong> Token pricing looks tiny in a pilot and balloons in production. Owning your infrastructure turns an unpredictable variable cost into a fixed one—and the savings compound as usage grows.</li>
+          </ul>
+          <p className="mt-4 text-justify">
+            Specialized. Secure. Cost-controlled. That&apos;s not a future roadmap—it&apos;s today&apos;s advantage. And the gap between the teams that move now and the ones that wait won&apos;t be easy to close later.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            You Don&apos;t Have to Start From Scratch
+          </h2>
+          <p className="text-justify">
+            You don&apos;t have to train a model from scratch to start. Even running AI privately on your own documents—with the freedom to pick the right model for each task—gets you most of the way to specialized and secure today.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            Still renting your AI—or starting to own it?
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "private-ai-by-contract-not-possession": {
+    title: "Private AI: Private by Contract, Not by Possession",
+    category: "AI",
+    date: "13 June, 2026",
+    readTime: "3 min read",
+    gradient: "from-ai-mint to-ai-peach",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/how_private.png"
+            alt="Anthropic calls it 'private.' How private is it, really? Private by contract, not by possession — MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          &ldquo;Private AI.&rdquo; You&apos;ve heard the word. You&apos;ve probably signed for it. I&apos;m not sure you&apos;ve verified it. Here&apos;s what made me look closer.
+        </p>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Anthropic Calls It &ldquo;Private&rdquo;
+          </h2>
+          <p className="text-justify">
+            Anthropic—like most major AI providers—markets certain deployment tiers as &ldquo;private.&rdquo; It&apos;s a reassuring word, and one that shows up in plenty of vendor contracts and sales decks. But look past the label and ask three simple questions: <strong>Do you host it?</strong> <strong>Do you own it?</strong> <strong>Can you see inside it?</strong> For most organizations using these &ldquo;private&rdquo; tiers, the honest answer to all three is no.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Private by Contract, Not by Possession
+          </h2>
+          <p className="text-justify">
+            There&apos;s a meaningful difference between a vendor <em>promising</em> privacy in a terms-of-service agreement, and an organization actually <em>possessing</em> the infrastructure, model, and data pipeline that determines what happens to its information. A contractual promise can change with the next terms-of-service update, the next acquisition, or the next subpoena—and you, the customer, have no visibility into the systems enforcing that promise in the meantime.
+          </p>
+          <p className="mt-4 text-justify">
+            &ldquo;Private by possession&rdquo; looks different: your documents, your encryption, your infrastructure boundaries—visible and verifiable, not taken on faith. That&apos;s the standard MetaWurks is built around, so that when you call something private, it actually is.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            Have you ever checked what &ldquo;private&rdquo; actually means in your AI vendor&apos;s contract? Let us know what you found.
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "ai-bookkeeping-client-data-confidentiality": {
+    title: "83% of Accounting Firms Have No Controls Over Client Data in AI Tools",
+    category: "Finance",
+    date: "13 June, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-cyan to-ai-peach",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/83-percent.jpeg"
+            alt="83% of accounting firms have no technical controls over client data in AI tools — MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          Every time you paste a client&apos;s financial statement into ChatGPT, that document leaves your control. This isn&apos;t a scare tactic—it&apos;s an operational reality that most accounting firms have not come to terms with.
+        </p>
+
+        <div>
+          <p className="text-justify">
+            <strong>83% of accounting firms have no technical controls preventing their team from uploading confidential client data to public AI tools.</strong> There is no policy enforcement, no blocked domains, no monitoring—just an open door between sensitive client files and whatever AI tool an employee happens to have open in another tab.
+          </p>
+          <p className="mt-4 text-justify">
+            For bookkeepers, that absence of controls isn&apos;t simply a cybersecurity gap. <strong>It&apos;s a fiduciary one.</strong> The data in question—P&amp;L statements, payroll records, bank statements, tax filings—belongs to the client, and the firm has a professional duty to safeguard it. Once that data is pasted into a public chatbot, the firm has effectively lost the ability to guarantee where it goes, how long it&apos;s kept, or who else might eventually see it.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The Use Case Is Legitimate—The Tool Is the Problem
+          </h2>
+          <p className="text-justify">
+            Here&apos;s the irony: the underlying reason bookkeepers reach for these tools in the first place is entirely legitimate. Clients ask questions that used to take twenty minutes of manual searching through statements and ledgers to answer. AI can answer the same questions in seconds, and that productivity gain is real and valuable to the practice.
+          </p>
+          <p className="mt-4 text-justify">
+            The mistake isn&apos;t the workflow—it&apos;s the tool. There is a meaningful difference between pasting a client&apos;s P&amp;L into a public chatbot, and running AI across your actual client documents inside a secure, encrypted environment built for exactly that purpose.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            What AI for Bookkeeping Should Look Like in 2026
+          </h2>
+          <p className="text-justify">
+            Consider a question like, &ldquo;What were all expenses over $5K in Q2 for this client?&rdquo; In a secure environment, that question gets answered in roughly eight seconds—pulled directly from the client&apos;s actual files, with no copy-pasting and no manual line-by-line search. Crucially, the client&apos;s data never touches a public training dataset, never gets retained on a third-party server beyond the firm&apos;s control, and never becomes part of a model that other users might inadvertently surface answers from.
+          </p>
+          <p className="mt-4 text-justify">
+            That combination—the speed and convenience of AI, paired with the confidentiality guarantees the accounting profession requires—is what AI for bookkeeping should look like going forward. Firms don&apos;t need to choose between productivity and professional responsibility; they need a tool that was built with both in mind from the start.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            Are you currently using AI on client financials? How are you handling the confidentiality piece? Let us know in the comments—we&apos;d like to hear how other firms are navigating this.
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "chatgpt-claude-training-client-financial-data": {
+    title: "ChatGPT and Claude Are Training on Your Clients' Confidential Financial Data",
+    category: "Finance",
+    date: "13 June, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-violet to-ai-mint",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/claude-metawurks.jpeg"
+            alt="ChatGPT and Claude are training on your clients' confidential financial data — MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          ChatGPT and Claude are training on your clients&apos; confidential financial data. Not &ldquo;maybe.&rdquo; Not &ldquo;only if you tick the wrong box.&rdquo; By default. Right now. Here&apos;s what nobody hands you a memo about.
+        </p>
+
+        <div>
+          <p className="text-justify">
+            <strong>Both OpenAI and Anthropic now use consumer chats to train their models by default.</strong> The off switch exists, but it&apos;s buried deep in account settings, and most users never find it—let alone toggle it before pasting in sensitive material.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Anthropic has quietly stretched how long it retains your conversations—from 30 days to five years.</strong> What used to be a short-lived exchange is now stored for half a decade, available for training, review, or disclosure long after you&apos;ve forgotten you ever sent it.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>In January 2026, a U.S. federal court ordered OpenAI to hand over 20 million &ldquo;private&rdquo; ChatGPT conversations to opposing lawyers.</strong> The users involved were never told, and they couldn&apos;t opt out. The court&apos;s reasoning was simple and unsettling: by typing those messages, users had &ldquo;voluntarily submitted&rdquo; them.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Sam Altman—OpenAI&apos;s own CEO—has admitted there is no legal privilege for what you type into ChatGPT.</strong> In his words, in a lawsuit, &ldquo;OpenAI would be legally required to produce those conversations today.&rdquo;
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>Stanford reviewed all six major AI providers</strong> and, when asked whether users should be concerned about their data, the lead researcher gave a one-line answer: &ldquo;Absolutely yes.&rdquo;
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Now Read That List Again—As an Accountant
+          </h2>
+          <p className="text-justify">
+            That quick reconciliation you pasted in. The client P&amp;L. The payroll run. The tax return. The bank statements. You don&apos;t own that data—your client does. And the moment it goes into one of these tools, it enters a system that trains on it, keeps it for years, and can be ordered by a court to hand it over.
+          </p>
+          <p className="mt-4 text-justify">
+            GDPR, GLBA, SEC, and FINRA don&apos;t carve out an exception because &ldquo;it was just a quick prompt.&rdquo; The compliance obligations that govern how your firm handles client financial data don&apos;t pause the moment that data is typed into a chat window.
+          </p>
+          <p className="mt-4 text-justify">
+            Here&apos;s the part that should actually concern you: nobody is hacking you. You are handing this data over yourself—by default, one paste at a time, every single day.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Why We Built MetaWurks
+          </h2>
+          <p className="text-justify">
+            That is the entire reason MetaWurks exists. You get the same frontier models—GPT-5, Claude, Gemini—but your documents sit behind a security layer, file by file. You query your financials in plain English, get the analysis you need, and your data stays yours. It doesn&apos;t become training data. It doesn&apos;t become Exhibit B.
+          </p>
+          <p className="mt-4 text-justify">
+            Accountants should not have to choose between AI that is genuinely useful and AI that respects client confidentiality.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            So here&apos;s a straight question for every accountant reading this: would you email a client&apos;s full tax file to a stranger and write &ldquo;please keep this for five years&rdquo;? Because that is the deal you accepted the last time you pasted it into ChatGPT. Tell us—how are you keeping client data out of these tools?
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "hidden-risk-finance-team-ai-workflow": {
+    title: "The Hidden Risk in Your Finance Team's AI Workflow",
+    category: "Finance",
+    date: "13 June, 2026",
+    readTime: "3 min read",
+    gradient: "from-ai-blue to-ai-peach",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/DoYouKnow.jpeg"
+            alt="Do you know exactly which client financials your team has pasted into ChatGPT this quarter? — MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          A question we keep asking finance leaders: <em>&ldquo;Do you know exactly which client financials your team has pasted into ChatGPT this quarter?&rdquo;</em>
+        </p>
+
+        <div>
+          <p className="text-justify">
+            The honest answer is almost always: <strong>no</strong>.
+          </p>
+          <p className="mt-4 text-justify">
+            And yet, the numbers tell a sobering story. <strong>64% of finance teams</strong> now use ChatGPT regularly for everything from drafting client communications to analyzing spreadsheets. Meanwhile, <strong>less than 20%</strong> have implemented any formal AI usage policy. That gap—between rapid adoption and governance—isn&apos;t just an operational blind spot. It&apos;s where the next audit finding lives.
+          </p>
+          <p className="mt-4 text-justify">
+            Every time a team member copies sensitive revenue figures, P&amp;L data, or client financial statements into a public AI tool, your organization faces exposure you can&apos;t track and can&apos;t reverse. For finance teams bound by confidentiality agreements, regulatory requirements, and fiduciary duty, that risk is unacceptable.
+          </p>
+          <p className="mt-4 text-justify">
+            <strong>MetaWurks gives finance teams the AI workflow they actually want</strong>—the ability to query real documents in plain English, extract insights, and accelerate analysis—<strong>without the data exposure.</strong> Our platform is built with a <strong>dedicated security layer per document</strong>, ensuring that sensitive financial information never leaves your controlled environment. With <strong>multi-LLM architecture</strong>, you&apos;re never locked into a single provider. And <strong>SSO and audit logs come standard by default</strong>, not as premium add-ons, so compliance and oversight are woven into every interaction.
+          </p>
+          <p className="mt-4 text-justify">
+            This isn&apos;t AI for the sake of innovation. It&apos;s AI designed for the finance team that takes <em>confidential</em> seriously.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Join the Conversation
+          </h2>
+          <p className="text-justify">
+            Have you encountered data security or AI governance challenges in your role? Let us know what specific issue you have faced as a finance professional in the comments—we&apos;d welcome the conversation.
+          </p>
+        </div>
+      </>
+    ),
+  },
+  "ai-tax-research-cpa-firms": {
+    title: "AI in Tax Research and Return Preparation for Small to Mid-Sized CPA Firms",
+    category: "AI",
+    date: "12 June, 2026",
+    readTime: "10 min read",
+    gradient: "from-ai-peach to-ai-cyan",
+    content: (
+      <>
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            The Evolving Landscape of AI-Powered Tax Operations
+          </h2>
+        </div>
+
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/Article_200.png"
+            alt="AI in Tax Research and Return Preparation cover by MetaWurks"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+
+        <p className="text-xl text-foreground text-justify">
+          The accounting profession stands at a pivotal inflection point as artificial intelligence transitions from experimental curiosity to operational necessity. For small to mid-sized CPA firms—traditionally constrained by limited technology budgets and lean staffing models—AI represents both an unprecedented opportunity to compete with larger rivals and a strategic imperative to address mounting complexity in tax compliance and advisory services. According to the Wolters Kluwer Future Ready Accountant Report, 27% of firms have already integrated AI tools into their workflows, with an additional 22% planning adoption within the next year. This rapid acceleration reflects a fundamental shift: AI is no longer merely automating routine data entry but evolving into intelligent systems capable of contextual understanding, complex decision support, and proactive client service.
+        </p>
+
+        <div>
+          <p className="text-justify mb-4">
+            The taxonomy of AI applications in tax practice has expanded dramatically beyond basic automation. Contemporary solutions encompass four distinct categories that firms must understand to make informed technology investments:
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-border/50">
+            <table className="w-full text-sm text-left">
+              <thead>
+                <tr className="bg-card/80 border-b border-border/50">
+                  <th className="px-4 py-3 font-semibold">AI Category</th>
+                  <th className="px-4 py-3 font-semibold">Core Function</th>
+                  <th className="px-4 py-3 font-semibold">Tax Application Example</th>
+                  <th className="px-4 py-3 font-semibold">Maturity Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-border/30">
+                  <td className="px-4 py-3 font-medium">Machine Learning</td>
+                  <td className="px-4 py-3 text-muted-foreground">Pattern recognition and predictive analytics</td>
+                  <td className="px-4 py-3 text-muted-foreground">Automated trial balance grouping, anomaly detection in client data</td>
+                  <td className="px-4 py-3 text-muted-foreground">Production-ready</td>
+                </tr>
+                <tr className="border-b border-border/30">
+                  <td className="px-4 py-3 font-medium">Generative AI</td>
+                  <td className="px-4 py-3 text-muted-foreground">Content creation and synthesis</td>
+                  <td className="px-4 py-3 text-muted-foreground">Drafting client communications, summarizing research findings</td>
+                  <td className="px-4 py-3 text-muted-foreground">Rapidly maturing</td>
+                </tr>
+                <tr className="border-b border-border/30">
+                  <td className="px-4 py-3 font-medium">Large Language Models (LLMs)</td>
+                  <td className="px-4 py-3 text-muted-foreground">Natural language understanding and generation</td>
+                  <td className="px-4 py-3 text-muted-foreground">Conversational tax research assistants, document analysis</td>
+                  <td className="px-4 py-3 text-muted-foreground">Production-ready with RAG enhancement</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-medium">Agentic AI</td>
+                  <td className="px-4 py-3 text-muted-foreground">Autonomous task execution with contextual reasoning</td>
+                  <td className="px-4 py-3 text-muted-foreground">End-to-end workflow orchestration, multi-step compliance monitoring</td>
+                  <td className="px-4 py-3 text-muted-foreground">Emerging, high potential</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-justify">
+            The progression toward agentic AI is particularly significant for smaller firms. Unlike robotic process automation (RPA), which executes rigid, pre-programmed sequences, agentic systems can interpret unstructured inputs, adapt to changing circumstances, and initiate appropriate actions without constant human direction. For example, an advanced AI agent might analyze a recorded client meeting transcript, extract relevant financial events, cross-reference current tax regulations, and automatically populate corresponding return schedules—transforming what previously required hours of manual work into a seamless, near-instantaneous process.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Critical Workflow Challenges Addressed by AI
+          </h2>
+          <p className="text-justify">
+            Small to mid-sized firms face distinctive operational pressures that AI is uniquely positioned to alleviate. Research from Thomson Reuters indicates that while large firms maintain dedicated technology leadership, midsize practices often lack strategic guidance for digital transformation, resulting in fragmented tool adoption and underutilized capabilities.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Document Intake and Data Extraction
+          </h2>
+          <p className="text-justify">
+            The traditional "shoebox" method of client document collection persists as a primary bottleneck. AI-powered document processing now enables firms to handle unstructured, low-quality source materials—including handwritten notes, scanned receipts, and smartphone photographs—with accuracy rates previously achievable only through manual review. Computer vision models have surpassed traditional optical character recognition (OCR) by understanding document context, identifying relevant data fields, and flagging items requiring human verification. This capability underpins the emerging "no-touch tax return" paradigm, where routine individual returns can proceed from document receipt to draft completion with minimal professional intervention.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Tax Research and Regulatory Monitoring
+          </h2>
+          <p className="text-justify">
+            The velocity of regulatory change has outpaced conventional research methodologies. The Internal Revenue Code, Treasury Regulations, and judicial interpretations create a dynamic compliance environment where yesterday's guidance may be obsolete tomorrow. AI-enhanced research platforms like Blue J, which has attracted $122 million in investment, demonstrate how retrieval-augmented generation (RAG) architectures can ground LLM outputs in authoritative, current sources rather than relying solely on training data. These systems provide verifiable citations, highlight relevant statutory passages, and generate draft memoranda tailored to specific client fact patterns—compressing research cycles from hours to minutes while improving analytical thoroughness.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Quality Assurance and Risk Management
+          </h2>
+          <p className="text-justify">
+            AI review capabilities represent perhaps the most transformative near-term development. Emerging solutions can analyze draft returns against source documentation, identify logical inconsistencies, detect omitted income or deduction opportunities, and assess compliance risk profiles. While current implementations require professional oversight, each improvement in underlying AI models directly enhances review effectiveness—a compounding advantage unavailable to traditional manual processes.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Strategic Considerations for Firm Implementation
+          </h2>
+          <p className="text-justify">
+            Successful AI adoption demands more than technology procurement; it requires deliberate organizational adaptation. Firms should prioritize:
+          </p>
+          <ul className="space-y-3 list-disc list-inside ml-4 mt-4">
+            <li><strong>Governance architecture:</strong> Establishing clear protocols for AI output validation, particularly for client-facing communications and filing positions.</li>
+            <li><strong>Competency development:</strong> Investing in structured training programs, as less than one-third of midsize firm professionals currently receive regular technology education.</li>
+            <li><strong>Change management:</strong> Cultivating internal champions who bridge technical and practice expertise, accelerating adoption and identifying implementation friction.</li>
+            <li><strong>Vendor evaluation rigor:</strong> Testing claimed integrations with existing tax software, as seamless data exchange remains technically challenging despite marketing assertions.</li>
+            <li><strong>Cybersecurity enhancement:</strong> Ensuring AI systems processing sensitive client data maintain SOC 2, SSAE 16, or equivalent compliance certifications.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            MetaWurks: The Optimal AI Platform for CPA Firm Orchestration
+          </h2>
+          <p className="text-justify">
+            Among the proliferating landscape of AI solutions, MetaWurks distinguishes itself as purpose-built for the orchestration demands of modern CPA practice. Where point solutions address discrete workflow fragments, MetaWurks provides unified command of interconnected processes—an essential capability as firms transition from experimental tool adoption to systematic operational transformation.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Comprehensive Task Orchestration
+          </h2>
+          <p className="text-justify">
+            MetaWurks transcends simple automation by implementing true workflow orchestration across the entire tax engagement lifecycle. The platform coordinates multi-step processes spanning document collection, data extraction, analysis, preparation, review, and client delivery—maintaining contextual awareness throughout. Rather than requiring professionals to manually transfer information between disparate systems, MetaWurks sequences operations intelligently, invoking appropriate AI capabilities at each stage and escalating exceptions for human resolution. This orchestration layer is particularly valuable for smaller firms where a single professional may simultaneously manage multiple engagements at varying completion stages; the platform maintains process state, prioritizes pending actions, and prevents items from falling through administrative cracks.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Native Integration with Accounting Data Ecosystems
+          </h2>
+          <p className="text-justify">
+            The platform's architectural commitment to integration distinguishes MetaWurks from competitors offering superficial connectivity. MetaWurks provides native synchronization with Google Drive and OneDrive for document management, direct file upload capabilities with intelligent vectorization for AI processing, and extensible APIs for connecting with practice management systems, tax preparation software, and client portals. This integration depth eliminates the manual rekeying and file format conversions that plague multi-system workflows, reducing both processing time and transcription error risk.
+          </p>
+          <p className="mt-4 text-justify">
+            The platform's implementation of retrieval-augmented generation further enhances integration value. By vectorizing firm-specific document repositories—prior-year returns, engagement letters, internal memoranda, and client communications—MetaWurks enables AI responses grounded in the firm's own institutional knowledge rather than generic training data. This capability transforms accumulated practice experience into searchable, actionable intelligence that newer professionals can leverage immediately.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Multi-Model Flexibility and Future-Proofing
+          </h2>
+          <p className="text-justify">
+            MetaWurks' support for multiple underlying AI models provides strategic flexibility as the technology landscape evolves. Rather than locking firms into a single provider's capabilities and pricing, the platform enables selection of optimal models for specific tasks—whether prioritizing reasoning depth, processing speed, or cost efficiency. This abstraction layer insulates firms from vendor concentration risk and ensures continuous access to advancing capabilities without disruptive platform migrations.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Security and Compliance Architecture
+          </h2>
+          <p className="text-justify">
+            For CPA firms, data protection is non-negotiable. MetaWurks maintains rigorous security protocols including encrypted data transmission and storage, access controls with comprehensive audit logging, and compliance frameworks appropriate for financial services applications. The platform's terms of service explicitly address professional use cases, with clear intellectual property provisions preserving firm ownership of uploaded content while enabling necessary processing for service delivery.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Scalable Economics for Growing Practices
+          </h2>
+          <p className="text-justify">
+            MetaWurks' tiered service model—with foundational capabilities available without cost and premium features accessible through subscription—aligns expenses with value realization. This structure enables smaller firms to initiate AI adoption with minimal financial exposure, expanding investment as operational benefits materialize and practice scale justifies advanced functionality.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-display font-bold tracking-tight mb-4 text-foreground">
+            Conclusion: The Competitive Imperative
+          </h2>
+          <p className="text-justify">
+            The divergence between AI-enabled and traditional CPA firms is accelerating. Research indicates that 60% of tax practices now employ AI-powered research tools—nearly double the prior year's adoption rate—while 86% of generative AI users integrate these capabilities into weekly workflows. For small to mid-sized firms, the question is no longer whether to adopt AI, but how to implement it coherently across fragmented existing systems and constrained implementation resources.
+          </p>
+          <p className="mt-4 text-justify">
+            MetaWurks addresses this implementation challenge directly through its orchestration-first architecture, deep integration capabilities, and professional-grade security framework. By unifying disparate workflow elements into coherent, AI-enhanced processes, the platform enables smaller practices to achieve operational efficiencies and service quality previously accessible only to substantially larger organizations. In an environment where client expectations for responsiveness and insight continue escalating, such technological leverage is not merely advantageous—it is essential for sustainable practice viability.
+          </p>
+        </div>
+      </>
+    ),
+  },
   "metawurks-redefining-ai-collaboration": {
     title: "MetaWurks — Redefining AI Collaboration for the Modern Enterprise",
     category: "AI & Technology",
@@ -555,7 +1364,7 @@ export const blogPostsData: Record<
 
         <div className="my-12 flex justify-center">
           <Image
-            src="/article_cover.png"
+            src="/blog/article_cover.png"
             alt="General-Purpose AI Isn't Enough Anymore — Enterprise AI 2025 cover by MetaWurks"
             width={1200}
             height={800}
@@ -820,7 +1629,7 @@ export const blogPostsData: Record<
 
         <div className="my-12 flex justify-center">
           <Image
-            src="/article_cover1.png"
+            src="/blog/article_cover1.png"
             alt="The Hidden Price Tag of Commercial AI cover by MetaWurks"
             width={1200}
             height={800}
