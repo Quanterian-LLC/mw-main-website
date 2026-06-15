@@ -15,7 +15,7 @@ export const blogPostsData: Record<
   "ai-adoption-gap-in-finance": {
     title: "The AI Adoption Gap Nobody in Finance Talks About",
     category: "Finance",
-    date: "14 June, 2026",
+    date: "11 June, 2026",
     readTime: "4 min read",
     gradient: "from-ai-cyan to-ai-blue",
     content: (
@@ -82,7 +82,7 @@ export const blogPostsData: Record<
   "ai-tools-pointed-at-the-money": {
     title: "Everyone Has AI Tools. Almost No One Has Them Pointed at the Money.",
     category: "AI",
-    date: "14 June, 2026",
+    date: "9 June, 2026",
     readTime: "4 min read",
     gradient: "from-ai-peach to-ai-blue",
     content: (
@@ -158,7 +158,7 @@ export const blogPostsData: Record<
   "ai-took-6-finance-jobs-2026": {
     title: "AI Quietly Took Over 6 Finance Jobs in 2026",
     category: "Finance",
-    date: "13 June, 2026",
+    date: "29 May, 2026",
     readTime: "5 min read",
     gradient: "from-ai-violet to-ai-cyan",
     content: (
@@ -237,7 +237,7 @@ export const blogPostsData: Record<
   "5-ai-tools-zero-rules": {
     title: "5 AI Tools. Zero Rules.",
     category: "AI",
-    date: "13 June, 2026",
+    date: "10 June, 2026",
     readTime: "3 min read",
     gradient: "from-ai-blue to-ai-mint",
     content: (
@@ -305,7 +305,7 @@ export const blogPostsData: Record<
   "why-general-purpose-ai-no-longer-enough": {
     title: "Why General-Purpose AI Is No Longer Enough",
     category: "AI",
-    date: "13 June, 2026",
+    date: "9 June, 2026",
     readTime: "3 min read",
     gradient: "from-ai-peach to-ai-mint",
     content: (
@@ -376,7 +376,7 @@ export const blogPostsData: Record<
   "private-ai-by-contract-not-possession": {
     title: "Private AI: Private by Contract, Not by Possession",
     category: "AI",
-    date: "13 June, 2026",
+    date: "3 June, 2026",
     readTime: "3 min read",
     gradient: "from-ai-mint to-ai-peach",
     content: (
@@ -430,7 +430,7 @@ export const blogPostsData: Record<
   "ai-bookkeeping-client-data-confidentiality": {
     title: "83% of Accounting Firms Have No Controls Over Client Data in AI Tools",
     category: "Finance",
-    date: "13 June, 2026",
+    date: "27 May, 2026",
     readTime: "4 min read",
     gradient: "from-ai-cyan to-ai-peach",
     content: (
@@ -496,7 +496,7 @@ export const blogPostsData: Record<
   "chatgpt-claude-training-client-financial-data": {
     title: "ChatGPT and Claude Are Training on Your Clients' Confidential Financial Data",
     category: "Finance",
-    date: "13 June, 2026",
+    date: "1 June, 2026",
     readTime: "4 min read",
     gradient: "from-ai-violet to-ai-mint",
     content: (
@@ -574,7 +574,7 @@ export const blogPostsData: Record<
   "hidden-risk-finance-team-ai-workflow": {
     title: "The Hidden Risk in Your Finance Team's AI Workflow",
     category: "Finance",
-    date: "13 June, 2026",
+    date: "27 May, 2026",
     readTime: "3 min read",
     gradient: "from-ai-blue to-ai-peach",
     content: (
