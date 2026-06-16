@@ -6,6 +6,15 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "how-tax-accounting-firms-use-ai",
+      title: "How Tax and Accounting Firms Are Actually Using AI — And What We've Learned",
+      excerpt: "Every accounting firm is talking about AI. Very few are using it in a way that changes how they actually work. The gap between firms that have added an AI tool and firms that have built their practice around AI is growing — and the difference shows up in turnaround times, client responsiveness, and margin.",
+      date: "16 June, 2026",
+      readTime: "5 min read",
+      category: "Finance",
+      gradient: "from-ai-blue to-ai-violet",
+    },
+    {
       id: "ai-tax-research-cpa-firms",
       title: "AI in Tax Research and Return Preparation for Small to Mid-Sized CPA Firms",
       excerpt: "AI adoption in tax practice is accelerating fast—27% of CPA firms have already integrated AI tools, with another 22% planning to within the year. From automated document intake and RAG-powered tax research to AI-driven quality assurance, the technology is reshaping how small and mid-sized firms compete. MetaWurks brings orchestration, native integrations, and multi-model flexibility together, helping smaller practices achieve the operational efficiency once reserved for larger firms.",
