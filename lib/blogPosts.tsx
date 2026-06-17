@@ -12,6 +12,110 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "how-tax-accounting-firms-use-ai": {
+    title: "How Tax and Accounting Firms Are Actually Using AI — And What We've Learned",
+    category: "Finance",
+    date: "16 June, 2026",
+    readTime: "5 min read",
+    gradient: "from-ai-blue to-ai-violet",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/the-ai-race.png"
+            alt="How Tax and Accounting Firms Are Actually Using AI"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Every accounting firm is talking about AI. Very few are using it in a way that changes how they actually work.
+          The gap between firms that have added an AI tool and firms that have built their practice around AI is growing —
+          and the difference shows up in turnaround times, client responsiveness, and margin.
+        </p>
+        <p className="mt-4 text-justify">
+          Over the past several months, tax and accounting teams using MetaWurks have made that shift. Not by layering
+          another tool on top of existing workflows, but by rebuilding how they operate from the inside out.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Where This Started</h2>
+        <p className="mt-4 text-justify">
+          Early 2026, the conversation in accounting changed. Firms stopped asking whether they should use AI and started
+          asking why it wasn&apos;t actually delivering results. The tools were there. The time savings weren&apos;t.
+        </p>
+        <p className="mt-4 text-justify">
+          The firms that pulled ahead made one decision differently: they stopped treating AI as an add-on and started
+          redesigning their workflows around it. MetaWurks was built to support exactly that — one platform that brings
+          every major AI model, document intelligence, integrations, and task automation together in one place, built for
+          the way accounting firms actually work.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Tax Season, Handled Differently</h2>
+        <p className="mt-4 text-justify">
+          During tax season, most firms are managing hundreds of open returns, missing documents, extension deadlines,
+          and client follow-ups at the same time. MetaWurks becomes a live command center for all of it.
+        </p>
+        <p className="mt-4 text-justify">
+          Client files, tax trackers, return statuses, and correspondence all get uploaded once. After that, the team
+          asks plain-language questions — which clients are still missing documents, how many extensions were filed,
+          what&apos;s due this week — and gets instant, source-backed answers. No digging through folders. No chasing
+          updates in email.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks uses RAG (Retrieval-Augmented Generation) to search uploaded documents and surface exactly what&apos;s
+          relevant. PDFs, Word docs, spreadsheets, and scanned images all work. Ask a question, get an answer with the
+          source attached.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Day-to-Day Client Work</h2>
+        <p className="mt-4 text-justify">The impact shows up across four areas of daily practice:</p>
+        <ul className="space-y-3 list-disc list-inside ml-4 mt-4">
+          <li className="text-justify">
+            <strong>Document processing</strong> — Client financial statements, P&amp;Ls, bank records, and tax documents
+            get processed in minutes, not hours. Multiple AI models are available in one interface: GPT, Claude, Gemini,
+            Grok, DeepSeek, and Perplexity — switchable mid-conversation based on the task.
+          </li>
+          <li className="text-justify">
+            <strong>Background tasks</strong> — Up to 5 research or processing tasks run concurrently behind the scenes,
+            each for up to 15 minutes. Staff keeps working while MetaWurks handles the heavy lifting.
+          </li>
+          <li className="text-justify">
+            <strong>Professional exports</strong> — AI-generated content, reports, and summaries export directly to PDF,
+            Word, Excel, PowerPoint, or CSV. Client-ready deliverables in a fraction of the time.
+          </li>
+          <li className="text-justify">
+            <strong>Integrations</strong> — MetaWurks connects to Gmail, Outlook, Slack, Microsoft Teams, Google
+            Calendar, and more via OAuth. No passwords stored. Client data stays in your control.
+          </li>
+        </ul>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What We&apos;ve Learned</h2>
+        <p className="mt-4 text-justify">
+          AI is only as good as the underlying data. Clean books, organized client files, and consistent processes
+          matter more than ever. When the inputs are clean, the output is genuinely useful — and fast.
+        </p>
+        <p className="mt-4 text-justify">
+          It also changes what being a good accountant means. It&apos;s not just knowing the tax code — it&apos;s knowing
+          how to ask the right questions and act on what the AI surfaces. MetaWurks gives accounting teams the
+          infrastructure to do that without needing a technical background.
+        </p>
+        <p className="mt-4 text-justify">
+          The biggest benefit hasn&apos;t been saving time. It&apos;s what firms do with that time — more client-facing
+          work, more advisory conversations, and less time buried in administrative tasks.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What This Means for Your Firm</h2>
+        <p className="mt-4 text-justify">
+          Your clients won&apos;t necessarily see the AI. What they&apos;ll see is faster response times,
+          better-organized deliverables, and more insight than they&apos;d expect from a firm your size.
+        </p>
+        <p className="mt-4 text-justify">
+          Chats and reports can be shared via secure links — clients get read-only access with no MetaWurks account
+          needed. Everything is encrypted and auditable, built for firms that handle sensitive financial data every day.
+        </p>
+        <p className="mt-4 text-justify">
+          If your firm is thinking about using AI in a way that actually changes how you work — not just how you talk
+          about it — MetaWurks is built for exactly that.
+        </p>
+      </>
+    ),
+  },
   "ai-adoption-gap-in-finance": {
     title: "The AI Adoption Gap Nobody in Finance Talks About",
     category: "Finance",
