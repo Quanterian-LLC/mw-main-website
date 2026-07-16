@@ -12,6 +12,102 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "capacity-problem-talent-shortage-cpa": {
+    title: "A Capacity Problem Wearing a Talent Shortage Costume",
+    category: "Finance",
+    date: "14 July, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-violet to-ai-cyan",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/capacity-problem.png"
+            alt="A Capacity Problem Wearing a Talent Shortage Costume"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Almost every small CPA firm owner has had to make the difficult decision to turn away valuable clients this year. It wasn’t because the clients were a bad fit or because the work wasn&apos;t lucrative. It was because the firm simply lacked the human capacity to do the work.
+        </p>
+        <p className="mt-4 text-justify">
+          The reality inside small to mid-sized firms has reached an inflection point. According to recent surveys, an staggering 99% of accountants report feeling exhausted, compared to 44% in the general U.S. workforce. This exhaustion translates directly into turnover: firms are losing between 15% and 25% of their staff to burnout every single year. Since 2020, more than 300,000 accountants and auditors have left the profession entirely. Most retired or burned out, and nobody replaced them.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Talent Drain Upward</h2>
+        <p className="mt-4 text-justify">
+          Compounding this issue is the talent drain to larger corporations. A senior associate making $85,000 at a small practice frequently receives offers of $110,000 or more from Big 4 firms. Because smaller firms cannot match these corporate budgets, their best professionals flow uphill, leaving the remaining staff even more overburdened. Meanwhile, the accounting graduate pipeline is down 17% over the last decade, and three out of four firms report they cannot find qualified candidates to hire.
+        </p>
+        <p className="mt-4 text-justify">
+          So the partner who used to review returns is now also doing data entry, chasing missing documents, and answering the same client question for the fifth time this week.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">A Capacity Problem in Disguise</h2>
+        <p className="mt-4 text-justify">
+          None of this is really a talent problem. It is a capacity problem wearing a talent shortage costume.
+        </p>
+        <p className="mt-4 text-justify">
+          The firms holding steady this year are not the ones who found more people. They are the ones who freed up the hours their existing team already has, by handing document digging and repetitive lookups to something that can do it in seconds instead of an afternoon.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Reclaiming Firm Hours</h2>
+        <p className="mt-4 text-justify">
+          Reclaiming capacity doesn&apos;t require complex engineering or months of onboarding. It requires pointing document intelligence tools at your firm’s primary bottlenecks. When your existing team doesn&apos;t have to spend half their week chasing PDFs, matching invoices, or looking up old tax returns, you effectively expand your team without needing to hire a single new person.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          What is the one task eating your team&apos;s week that has nothing to do with actual accounting?
+        </p>
+      </>
+    ),
+  },
+  "confidently-wrong-ai-trust-report": {
+    title: "Confidently Wrong: Why an AI Trust Firm Had to Pull Its Own Report",
+    category: "AI",
+    date: "13 July, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-blue to-ai-violet",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/confidently-wrong.png"
+            alt="Confidently Wrong: Why an AI Trust Firm Had to Pull Its Own Report"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A firm that sells AI trust to clients just had to pull its own AI report for being wrong. KPMG published a report on agentic AI, citing 45 sources on how firms should build trust into their systems. Someone finally checked the citations. Only 5 pointed to something real. The other 40 were invented by the model.
+        </p>
+        <p className="mt-4 text-justify">
+          Studies that never existed were cited with page numbers and author names that sounded completely legitimate. Nobody caught it before it went out. This is not really a story about KPMG. It is a preview of what happens at any firm that treats AI output the way it treats a first-year associate&apos;s first draft: assume it is basically right and move on.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Danger of Confident Mistakes</h2>
+        <p className="mt-4 text-justify">
+          Right now 46% of accountants use AI every day. 62% say they are worried it will get something wrong. One CPA who runs tax questions through Claude daily says it makes a mistake in almost every conversation, just confidently enough that you would not notice unless you already knew the answer.
+        </p>
+        <p className="mt-4 text-justify">
+          The models are designed to predict the next word, not to seek the truth. When asked for supporting evidence, they will fabricate professional-sounding journals, authors, and page numbers because that is what a legitimate bibliography looks like.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Moving from Guesswork to Verification</h2>
+        <p className="mt-4 text-justify">
+          The firms pulling ahead this year are not the ones using the most AI. They are the ones who built a habit of checking it before a number reaches a client.
+        </p>
+        <p className="mt-4 text-justify">
+          That habit gets a lot easier when the AI is actually working from your own engagement files and prior returns instead of guessing, and every answer can be traced back to the document it came from. Retrieval-Augmented Generation (RAG) grounds the LLM in real data, giving your team instant verification.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Gap to Close</h2>
+        <p className="mt-4 text-justify">
+          Ask about the last AI-generated number your firm sent to a client. If nobody can point to the source in five seconds, that is the gap to close first. Implementing a robust verification workflow is the only way to safely build AI into professional services.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          How does your firm currently verify that AI-generated numbers and references are completely accurate?
+        </p>
+      </>
+    ),
+  },
   "how-tax-accounting-firms-use-ai": {
     title: "How Tax and Accounting Firms Are Actually Using AI — And What We've Learned",
     category: "Finance",
