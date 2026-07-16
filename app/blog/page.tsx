@@ -6,6 +6,24 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "capacity-problem-talent-shortage-cpa",
+      title: "A Capacity Problem Wearing a Talent Shortage Costume",
+      excerpt: "Every small CPA firm owner has turned away valuable clients this year. Not because the work was wrong, but because there was nobody left to do it. Here's the reality inside small firms: 99% of accountants report exhaustion, and 300,000 have left the profession. The solution isn't finding more people—it's reclaiming hours.",
+      date: "14 July, 2026",
+      readTime: "4 min read",
+      category: "Finance",
+      gradient: "from-ai-violet to-ai-cyan",
+    },
+    {
+      id: "confidently-wrong-ai-trust-report",
+      title: "Confidently Wrong: Why an AI Trust Firm Had to Pull Its Own Report",
+      excerpt: "A major advisory firm published an agentic AI report with 45 sources guiding firms on building trust. When citations were checked, 40 of them were found to be completely fabricated by the model. This is a preview of what happens when firms treat AI output like a first-year associate's draft without verifying the sources.",
+      date: "13 July, 2026",
+      readTime: "4 min read",
+      category: "AI",
+      gradient: "from-ai-blue to-ai-violet",
+    },
+    {
       id: "question-exposed-blind-spot-cpa-roundtable",
       title: "The Question That Exposed a Blind Spot at a CPA Roundtable",
       excerpt: "At a roundtable, one question silenced a room of CPAs: 'How many hours did your team spend last season on work that added zero value for the client?' Silence. Turning this invisible number into visibility is how firms find capacity without hiring.",
