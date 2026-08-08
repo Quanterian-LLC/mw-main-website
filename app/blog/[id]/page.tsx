@@ -1,9 +1,72 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { blogPostsData } from "@/lib/blogPosts";
 import { notFound } from "next/navigation";
+
+const SITE = "https://metawurks.com";
+
+// Posts store dates as "14 July, 2026". article:published_time must be ISO 8601,
+// and a malformed value is worse than no tag, so an unparseable date is dropped.
+//
+// Emitted date-only (YYYY-MM-DD), which ISO 8601 allows: the post records carry
+// no time, and a full timestamp would shift the date by a day once serialised to
+// UTC from a machine east of Greenwich.
+function isoDate(date: string): string | undefined {
+  const parsed = Date.parse(date.replace(",", ""));
+  if (Number.isNaN(parsed)) return undefined;
+  const d = new Date(parsed);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+// Without this, every post inherits the site-wide tags from app/layout.tsx and
+// all 27 articles produce an identical, generic link preview.
+export async function generateMetadata(
+  { params }: { params: Promise<{ id: string }> }
+): Promise<Metadata> {
+  const { id } = await params;
+  const post = blogPostsData[id];
+
+  if (!post) {
+    return { title: "Post Not Found | MetaWurks" };
+  }
+
+  const url = `${SITE}/blog/${id}`;
+  // Seven of the oldest posts have no image in the body. Better no og:image
+  // than a wrong one - the title and description are still per-post.
+  const images = post.image
+    ? [{ url: post.image, width: 1200, height: 800, alt: post.title }]
+    : undefined;
+
+  return {
+    title: `${post.title} | MetaWurks`,
+    description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: "MetaWurks",
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: isoDate(post.date),
+      images,
+    },
+    twitter: {
+      card: images ? "summary_large_image" : "summary",
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : undefined,
+    },
+  };
+}
+
+// 27 posts, all static content. No reason to render them on demand.
+export function generateStaticParams() {
+  return Object.keys(blogPostsData).map((id) => ({ id }));
+}
 
 export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
