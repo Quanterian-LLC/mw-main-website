@@ -6,6 +6,33 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "ten-apps-five-hours",
+      title: "Ten Apps, Five Hours a Week, and the Advisory Work That Never Starts",
+      excerpt: "725 accounting and bookkeeping professionals were asked what is blocking advisory work at their firms. Staffing shortages came second at 24%. First, at 30%, was manual data cleanup. The same firms run about ten software tools, spend $21,000 a year on them, and lose five hours a week moving data between them.",
+      date: "11 August, 2026",
+      readTime: "4 min read",
+      category: "Accounting",
+      gradient: "from-ai-cyan to-ai-mint",
+    },
+    {
+      id: "defensible-not-just-accurate",
+      title: "Tax Professionals Were Asked What AI Needs to Earn Their Trust. Accuracy Was Not the Answer.",
+      excerpt: "When more than 600 tax professionals were asked what AI would need before they would trust it with client work, the top three answers were confidentiality at 96%, outputs grounded in authoritative content at 94%, and reasoning that is explainable and defensible at 90%. Not one of them is a question about whether the answer is right.",
+      date: "11 August, 2026",
+      readTime: "4 min read",
+      category: "Accounting",
+      gradient: "from-ai-blue to-ai-peach",
+    },
+    {
+      id: "close-gap-is-a-data-problem",
+      title: "The Difference Between a Five-Day Close and a Ten-Day Close Is Not Effort",
+      excerpt: "APQC benchmarked 2,300 organisations on how long it takes to close the books. The median is 6.4 calendar days. The fastest quarter finish in 4.8 or less; the slowest quarter take ten or more. The teams closing in ten days are not working less hard than the ones closing in five. They are paying interest on messy data, twelve times a year.",
+      date: "11 August, 2026",
+      readTime: "4 min read",
+      category: "Accounting",
+      gradient: "from-ai-blue to-ai-cyan",
+    },
+    {
       id: "small-firms-biggest-problem-not-hiring",
       title: "The AICPA Asked Small Firms Their Biggest Problem. It Wasn't Hiring.",
       excerpt: "629 firms answered the AICPA's 2026 Top Issues Survey. Solo practitioners and firms with two to ten professionals both put managing tax law complexity first. Hiring experienced staff topped the list only at firms with 11 to 30 employees. The smallest firms are not short of people so much as short of answers they already own.",
