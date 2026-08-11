@@ -6,6 +6,24 @@ import Link from "next/link";
 export default function Blog() {
   const blogPosts = [
     {
+      id: "small-firms-biggest-problem-not-hiring",
+      title: "The AICPA Asked Small Firms Their Biggest Problem. It Wasn't Hiring.",
+      excerpt: "629 firms answered the AICPA's 2026 Top Issues Survey. Solo practitioners and firms with two to ten professionals both put managing tax law complexity first. Hiring experienced staff topped the list only at firms with 11 to 30 employees. The smallest firms are not short of people so much as short of answers they already own.",
+      date: "10 August, 2026",
+      readTime: "5 min read",
+      category: "Accounting",
+      gradient: "from-ai-violet to-ai-blue",
+    },
+    {
+      id: "fixed-fee-priced-on-vanished-effort",
+      title: "Your Fixed Fee Was Priced on Effort That No Longer Exists",
+      excerpt: "At large accounting firms, 35% now report clients questioning their pricing model because of AI, and 73% responded by changing their messaging. But this was never a communications problem. A fixed fee is a bet on how much effort an engagement takes, and that estimate is now wrong.",
+      date: "8 August, 2026",
+      readTime: "5 min read",
+      category: "Accounting",
+      gradient: "from-ai-mint to-ai-cyan",
+    },
+    {
       id: "capacity-problem-talent-shortage-cpa",
       title: "A Capacity Problem Wearing a Talent Shortage Costume",
       excerpt: "Every small CPA firm owner has turned away valuable clients this year. Not because the work was wrong, but because there was nobody left to do it. Here's the reality inside small firms: 99% of accountants report exhaustion, and 300,000 have left the profession. The solution isn't finding more people—it's reclaiming hours.",

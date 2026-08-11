@@ -14,6 +14,182 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "small-firms-biggest-problem-not-hiring": {
+    title: "The AICPA Asked Small Firms Their Biggest Problem. It Wasn't Hiring.",
+    category: "Accounting",
+    date: "10 August, 2026",
+    readTime: "5 min read",
+    gradient: "from-ai-violet to-ai-blue",
+    excerpt: "629 firms answered the AICPA's 2026 Top Issues Survey. Solo practitioners and firms with two to ten professionals both put managing tax law complexity first. Hiring experienced staff topped the list only at firms with 11 to 30 employees. The smallest firms are not short of people so much as short of answers they already own.",
+    image: "/blog/biggest-problem-not-hiring.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/biggest-problem-not-hiring.png"
+            alt="The AICPA Asked Small Firms Their Biggest Problem. It Wasn&apos;t Hiring."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          629 accounting firms told the AICPA what their biggest current problem was this spring. At the smallest ones, it was not hiring.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What the Smallest Firms Actually Said</h2>
+        <p className="mt-4 text-justify">
+          The 2026 PCPS Top Issues Survey ran from 20 April to 22 May and drew 629 responses. Solo practitioners and firms with two to ten professionals both ranked managing tax law complexity as their number one current issue. Hiring experienced staff came first only for firms with 11 to 30 employees. At 31 to 100 it was developing next-generation leadership. At 101 to 500, technology adoption and integration.
+        </p>
+        <p className="mt-4 text-justify">
+          The profession discusses the accountant shortage as though every firm feels it the same way. The survey says otherwise. The shortage bites hardest in the middle of the size range. At the bottom, something else sits in front of it.
+        </p>
+        <p className="mt-4 text-justify">
+          That distinction matters, because a firm solving for the wrong constraint spends a year recruiting for a problem recruiting was never going to touch.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Complexity Is Not a Comprehension Problem</h2>
+        <p className="mt-4 text-justify">
+          A CPA with twenty years in practice is not confused by the rules. So it is worth being precise about what managing tax law complexity means when a firm owner ranks it first.
+        </p>
+        <p className="mt-4 text-justify">
+          It is rarely the difficulty of understanding a provision. It is the cost of locating the one that applies. The answer almost always exists already: in guidance, in last year&apos;s workpapers, in an engagement letter, in a memo somebody wrote in March, in the client&apos;s own documents. The work is retrieval.
+        </p>
+        <p className="mt-4 text-justify">
+          Retrieval does not scale with expertise. Every additional client, every additional year of files, every rule change multiplies the number of places an answer could be hiding without multiplying the number of people who know where to look. A firm of four has the same number of jurisdictions to track as a firm of forty and one fortieth of the search capacity.
+        </p>
+        <p className="mt-4 text-justify">
+          This is why the complaint sounds like a knowledge problem and behaves like an infrastructure one.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why Another Hire Would Not Fix It</h2>
+        <p className="mt-4 text-justify">
+          Suppose the hiring market cooperated tomorrow. A new senior arrives knowing tax law and knowing nothing about your firm: where the prior-year files sit, which client has the unusual state filing, what a partner decided in 2023 and the reasoning behind it.
+        </p>
+        <p className="mt-4 text-justify">
+          That knowledge lives in one person&apos;s memory and in folders nobody indexed. Onboarding is the process of transferring it one interruption at a time, and the person doing the transferring is the same person who was already the constraint. For the first several months, a hire subtracts capacity from the exact place the firm has least of it.
+        </p>
+        <p className="mt-4 text-justify">
+          There is also the question of whether the hire is available at all. CPA Practice Advisor argued in August that the profession has moved past a simple headcount shortage into a skills shortage, which is a harder thing to recruit your way out of. A vacancy you cannot fill is not a plan.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Firms With the Sharpest Version of This Are the Slowest to Address It</h2>
+        <p className="mt-4 text-justify">
+          Here is the part of the survey worth sitting with. Changes in technology and rising adoption of AI ranked in the top two among five of the six firm sizes. Among firms with two to ten professionals, it ranked third.
+        </p>
+        <p className="mt-4 text-justify">
+          The group whose number one problem is a retrieval problem is the group least likely to prioritise the category of tool that addresses retrieval. Some of that caution is well earned. Cybersecurity and data privacy also sit among the top issues for the smallest firms, and reasonably so: a four-person practice holds the same confidential client data as a national one, with none of the compliance staff to supervise where it goes.
+        </p>
+        <p className="mt-4 text-justify">
+          But the cost of waiting is not neutral. It shows up as hours spent locating something rather than billing it, as turnaround times that slip in March, and as advisory work that never gets started because compliance work expanded to fill the calendar. Advisory prices better than compliance. The firms that never reach it are usually the ones still looking for last year&apos;s file.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What the Fix Looks Like</h2>
+        <p className="mt-4 text-justify">
+          The principle is straightforward. Stop treating the firm&apos;s own documents as an archive that people search and start treating them as something the firm can ask questions of.
+        </p>
+        <p className="mt-4 text-justify">
+          That is the problem MetaWurks was built around. It ingests the files a practice already has, including PDFs, spreadsheets and scanned documents, and makes them answerable in plain English rather than through folder navigation. Retrieval runs across the whole knowledge base, so the question is what a client agreed to in 2023, not which drive that agreement might be on. A multi-model router picks the model for each query, so nobody on staff is choosing between AI tools.
+        </p>
+        <p className="mt-4 text-justify">
+          On the data question, the controls are the point: end-to-end encryption, single sign-on, role-based access so a staff member&apos;s reach matches their engagement, and audit logs showing what was asked and by whom. It is the kind of thing a firm of four can test against its own files in an afternoon, rather than commission a project to evaluate.
+        </p>
+        <p className="mt-4 text-justify">
+          None of that removes judgment from the work. It removes the part of the day spent reconstructing what the firm already decided.
+        </p>
+        <p className="mt-4 text-justify">
+          The smallest firms in the AICPA&apos;s sample are not confused about tax law and they are not primarily short of applicants. They are carrying a search cost that grows every year while the number of people available to absorb it stays at one or two.
+        </p>
+        <p className="mt-4 text-justify">
+          Hiring adds capacity to do the work. It does nothing about the hours that disappear before the work starts.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          When something takes too long at your firm, is it because nobody knows the answer, or because nobody can find where it was already written down?
+        </p>
+      </>
+    ),
+  },
+  "fixed-fee-priced-on-vanished-effort": {
+    title: "Your Fixed Fee Was Priced on Effort That No Longer Exists",
+    category: "Accounting",
+    date: "8 August, 2026",
+    readTime: "5 min read",
+    gradient: "from-ai-mint to-ai-cyan",
+    excerpt: "At large accounting firms, 35% now report clients questioning their pricing model because of AI, and 73% responded by changing their messaging. But this was never a communications problem. A fixed fee is a bet on how much effort an engagement takes, and that estimate is now wrong.",
+    image: "/blog/fixed-fee-effort.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/fixed-fee-effort.png"
+            alt="Your Fixed Fee Was Priced on Effort That No Longer Exists"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A client writes to a partner in March. One line: you mentioned the team is using AI now, and the invoice is the same as last year, so help me understand.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Question Nobody Prepared For</h2>
+        <p className="mt-4 text-justify">
+          At large accounting firms, 35% now report clients questioning their pricing model because of AI, and 73% are changing their messaging around pricing. Those figures come from a General Assembly survey of 258 director-level and above leaders, reported by Accounting Today, and the sample matters: every firm in it has at least 1,000 employees. This is not yet a small-firm statistic. It is a question arriving first where clients have procurement departments and the leverage to ask it.
+        </p>
+        <p className="mt-4 text-justify">
+          Changing what you say is not an answer to a question about what you charge.
+        </p>
+        <p className="mt-4 text-justify">
+          The reflex response is that AI is killing the billable hour. For most CPA work, the billable hour packed up years ago. Ignition&apos;s 2025 benchmark, drawn from 219 US accounting firms using its own platform, found that only 3% charge hourly for tax prep, and just 17% charge hourly for advisory services, down from 21% the year before.
+        </p>
+        <p className="mt-4 text-justify">
+          So the client is not questioning your rate. In most engagements there is no rate to question. They are questioning a fixed fee, and a fixed fee is a different kind of promise.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What a Fixed Fee Actually Contains</h2>
+        <p className="mt-4 text-justify">
+          A fixed fee is a bet on effort. It gets set by looking at what the engagement took last year, and the year before, then adding something for the parts that always go wrong. Nobody writes that down, but that is the arithmetic underneath almost every quoted number in the profession.
+        </p>
+        <p className="mt-4 text-justify">
+          That arithmetic has stopped holding. Sixty percent of tax professionals now use AI for tax research at least weekly, up from 33% a year earlier, according to a Blue J and CPA.com survey of more than 1,000 US tax professionals. In the same survey, 84% agreed AI saves them time.
+        </p>
+        <p className="mt-4 text-justify">
+          The effort moved. The price stayed where it was. The client noticed the gap before most firms got around to repricing it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Two Answers That Both Cost You</h2>
+        <p className="mt-4 text-justify">
+          The first is to absorb it quietly and hope nobody asks. This works until someone asks, and at the large end of the profession a third of firms are already past that point. It also means the first serious conversation about your fee happens on the client&apos;s timing, in a tone they chose, with you responding rather than explaining.
+        </p>
+        <p className="mt-4 text-justify">
+          The second is to cut the fee to match the new effort. This feels principled and it hands the entire benefit of a multi-year technology shift to the buyer. It also reprices your firm around its lowest-effort year, which is a difficult number to walk back from when a complicated return lands.
+        </p>
+        <p className="mt-4 text-justify">
+          Neither is a strategy. Both are what happens when the pricing model was never articulated in the first place.
+        </p>
+        <p className="mt-4 text-justify">
+          The pressure here is not theoretical. Sixty-seven percent of accounting firms in the General Assembly survey plan to keep headcount flat while relying on AI. That gain is real, and it is landing somewhere. Margin that nobody has explained is margin waiting to be argued about.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Price the Judgment, Not the Remembered Hours</h2>
+        <p className="mt-4 text-justify">
+          What survives automation in this profession is judgment. Which treatment to take. What got caught in review. What the firm carries if the position is wrong. None of that got faster, and none of it is what the fee was implicitly measuring.
+        </p>
+        <p className="mt-4 text-justify">
+          The honest answer to why the fee is the same is a description of what the engagement actually involved: the reconciliation that surfaced a misclassification, the position that needed a second look, the exception someone handled so quietly it never reached the client. That answer is available in almost every firm and provable in almost none.
+        </p>
+        <p className="mt-4 text-justify">
+          Which points at the real problem. The work that justifies the fee is the least documented work in the building. It lives in a reviewer&apos;s head, in a comment on a workpaper, in a message from a Tuesday in February. When a client asks what they are paying for, the firm reaches for that record and finds an anecdote.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Where This Leaves the File Room</h2>
+        <p className="mt-4 text-justify">
+          MetaWurks exists for the part of this that is a document problem rather than a pricing philosophy. It ingests a client&apos;s returns, statements, invoices and correspondence and lets an accountant query them in plain English, so that finding what a client spent on something in the third quarter stops being a twenty-minute hunt through folders. Role-based access controls and audit logs record who opened which file and when. And because documents ingested into the platform are not used to train models or exposed to other users, the client&apos;s tax file does not leave the firm&apos;s control to make any of that happen. That is a different proposition from pasting a client return into a consumer chat window, which is still how a good deal of this work quietly gets done.
+        </p>
+        <p className="mt-4 text-justify">
+          That does not, on its own, produce the record a partner needs in a fee conversation. No software writes down why a position was taken. What it does is remove the excuse: when the searching, retrieving and cross-referencing stop eating the week, the work that remains is the work worth describing, and there is time left to describe it. A firm that can account for what an engagement involved has something to say when a client asks why the number did not move. A firm that cannot is asking the client to take its word for it, in a year when 84% of the profession has just told a survey that the work got easier.
+        </p>
+        <p className="mt-4 text-justify">
+          The fee was never really for the hours. It was for the part of the job where someone decides. That part is still there, still expensive, and still yours. It is just no longer buried under enough visible effort to speak for itself.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If a client asked tomorrow what your fee actually covers, could you show them, or would you have to describe it from memory?
+        </p>
+      </>
+    ),
+  },
   "capacity-problem-talent-shortage-cpa": {
     title: "A Capacity Problem Wearing a Talent Shortage Costume",
     category: "Finance",
