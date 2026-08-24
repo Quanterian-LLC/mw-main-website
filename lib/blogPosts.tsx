@@ -14,10 +14,439 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "self-prepared-returns-grew-faster": {
+    title: "Self-Prepared Returns Grew Four Times Faster Than Yours",
+    category: "Accounting",
+    date: "21 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-peach",
+    excerpt: "By 17 April 2026 the IRS had received 72.8 million e-filed returns from tax professionals, up 0.4% on the prior year, and 64.8 million self-prepared returns, up 1.7%. Self-prepared grew more than four times faster, in a season when total returns fell and the free government filing option no longer existed. Firms are pointing AI at the half that is shrinking.",
+    image: "/blog/two-lanes.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/two-lanes.png"
+            alt="Self-Prepared Returns Grew Four Times Faster Than Yours"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Two numbers from the same IRS table, cumulative to 17 April 2026 against the equivalent week a year earlier.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Free Option Was Removed and They Still Did Not Come Back</h2>
+        <p className="mt-4 text-justify">
+          E-filed returns prepared by tax professionals: 72,821,000, up 0.4%. Self-prepared e-filed returns: 64,796,000, up 1.7%.
+        </p>
+        <p className="mt-4 text-justify">
+          Total individual returns received across the season fell 0.3%. So in a shrinking year, the self-prepared column grew more than four times faster than the professional column.
+        </p>
+        <p className="mt-4 text-justify">
+          That result is stranger than it first looks, because 2026 was the year the government&apos;s own free filing product disappeared.
+        </p>
+        <p className="mt-4 text-justify">
+          Direct File went from 140,803 returns in its 2024 pilot to 296,531 in 2025, then the IRS told partner states it would not be available for filing season 2026, citing cost and administrative burden. Those are small numbers against 140 million returns, and it would be silly to claim they moved the market on their own.
+        </p>
+        <p className="mt-4 text-justify">
+          The point is directional. A free federal option was taken off the table, and the self-prepared column still grew faster than the professional one. Those filers did not read the news and decide to call an accountant. They went to commercial software.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Firms Are Aiming AI at the Half That Is Shrinking</h2>
+        <p className="mt-4 text-justify">
+          Now put that beside how AI is being sold into tax practices. The pitch is preparation speed. Faster data extraction from source documents, faster first drafts of the return, faster review. Every vendor demo in the profession this year runs the same beat.
+        </p>
+        <p className="mt-4 text-justify">
+          Take that at face value and assume it works exactly as promised. What a firm ends up with is a lower cost of producing the deliverable that is losing volume, in a market where the buyer&apos;s alternative is getting cheaper and better at the same time. That is not nothing, but it is a defensive gain, and it gets competed away.
+        </p>
+        <p className="mt-4 text-justify">
+          The returns leaving are not complex ones. Nobody with a K-1 stack, three state filings and equity compensation is quietly moving to a consumer product. What leaves at the bottom is the straightforward 1040 that was often the entry point for a relationship, and sometimes the loss leader that a firm accepted because the client&apos;s business return was worth having.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Does Not Show Up in the Filing Statistics</h2>
+        <p className="mt-4 text-justify">
+          The filing table counts a return. It cannot count the thing a firm actually sells, which is continuity.
+        </p>
+        <p className="mt-4 text-justify">
+          A self-preparer with good software can produce a correct return in an evening. What that software cannot do is remember. It does not know what position was taken on the vehicle in 2023, or which of the two entities holds the lease, or why the prior accountant treated a distribution the way they did. It has no view of the client&apos;s file in August, when the real question arrives and there is no return to prepare.
+        </p>
+        <p className="mt-4 text-justify">
+          That is the asset a firm holds and a consumer product does not: a document history and the judgment attached to it. It is also, in most firms, the least organised asset in the building. It sits in a portal, a shared drive, an email archive and a filing cabinet, and it takes twenty minutes to establish what a client did two years ago.
+        </p>
+        <p className="mt-4 text-justify">
+          The consequence is uncomfortable. Firms are automating the deliverable that is commoditising, while the thing that cannot be commoditised stays manual, slow and undocumented.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Point the Automation at the Part That Is Not Leaving</h2>
+        <p className="mt-4 text-justify">
+          The principle is simple enough to state. Get faster at the work the market is paying more for, not the work it is buying less of. Complexity, multi entity structures, planning conversations, and the year round responsiveness that makes a client stop shopping.
+        </p>
+        <p className="mt-4 text-justify">
+          Every one of those runs on documents rather than on the return. MetaWurks ingests a client&apos;s returns, statements, contracts, invoices and correspondence and lets an accountant query the whole set in plain English, so what happened in 2023 is a question rather than an excavation. Role based access controls decide who can open which client&apos;s file, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not prepare returns faster. It makes the years of context around them retrievable, which is the part a consumer product has no version of.
+        </p>
+        <p className="mt-4 text-justify">
+          The filing statistics will look similar next April. The question is which column a firm has spent the year getting better at.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If a client asked today what position your firm took on something three years ago, how long would it take to answer without calling the person who did the work?
+        </p>
+      </>
+    ),
+  },
+  "reviewers-on-day-one": {
+    title: "Reviewers on Day One: The Part of the AI Plan Nobody Costed",
+    category: "Accounting",
+    date: "20 August, 2026",
+    readTime: "5 min read",
+    gradient: "from-ai-mint to-ai-cyan",
+    excerpt: "PwC plans to take junior associate hiring from 3,242 to 2,197 by fiscal 2028, a 32% cut, citing technological change. Its own AI assurance leader says new joiners will become reviewers almost instantly. Reviewing is a skill people acquired by doing the work that is being automated, and no plan yet explains where the replacement comes from.",
+    image: "/blog/empty-chair-review.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/empty-chair-review.png"
+            alt="Reviewers on Day One: The Part of the AI Plan Nobody Costed"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          PwC&apos;s internal numbers, reported by Business Insider in August 2025 and confirmed by the firm: junior associate hiring falls from 3,242 in the fiscal year ending June 2025 to a planned 2,197 by fiscal 2028. A 32% reduction across three years. The reasons given were technological change and unusually low attrition.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Ladder Loses Its Bottom Rung</h2>
+        <p className="mt-4 text-justify">
+          The more revealing line came from PwC&apos;s AI assurance leader, Jennifer Kosar, describing what the remaining hires will do. People will walk in the door and almost instantaneously become reviewers and supervisors.
+        </p>
+        <p className="mt-4 text-justify">
+          That is a coherent plan for staffing. It is not yet a plan for training.
+        </p>
+        <p className="mt-4 text-justify">
+          The work that AI removes first is the work that used to be handed to the newest person in the building. Tie out the schedule. Pull the support. Draft the first pass. Chase the missing document. It was tedious, it was cheap to supervise, and it was also the entire curriculum.
+        </p>
+        <p className="mt-4 text-justify">
+          Most small and mid sized firms will never hire at Big Four scale, but they will inherit the shape of the change, because they buy the same software. When the workpaper prep and the first draft come out of a tool, the same rung disappears from a twelve person firm as from a firm of forty thousand.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Pipeline Is Not Actually the Constraint</h2>
+        <p className="mt-4 text-justify">
+          It is tempting to fold this into the talent shortage story, and the numbers do not quite support that.
+        </p>
+        <p className="mt-4 text-justify">
+          Spring 2025 enrolment in two and four year accounting programmes reached 266,506 students, a 12.4% increase and the highest since 2020, according to figures reported by the Journal of Accountancy. Degrees awarded went the other way, 55,152 bachelor&apos;s and master&apos;s in 2023 to 2024, down 6.6%, with master&apos;s down about 15%. New CPA Exam candidates fell from 42,626 in 2023 to 28,082 in 2024, with 16,448 in the first six months of 2025. And 75% of participating public accounting firms expected to hire at least as many new graduates in 2025 as they had in 2024.
+        </p>
+        <p className="mt-4 text-justify">
+          That is a mixed picture, not an empty one. There are people arriving. The question is what happens to them in year one and year two, and that question is about the firm, not the pipeline.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Review Is a Skill and It Was Learned by Repetition</h2>
+        <p className="mt-4 text-justify">
+          Ask a partner how they learned to spot the thing that is wrong in a file and the answer is almost never a training course. It is some version of: I did four hundred of these and my manager marked up the first fifty.
+        </p>
+        <p className="mt-4 text-justify">
+          That mechanism has two parts, and firms tend to remember only the first. The repetition mattered. So did the mark up, the moment where somebody senior showed their reasoning on a specific file: this is why that treatment is wrong, this is what I looked at first, this is the question you should have asked the client.
+        </p>
+        <p className="mt-4 text-justify">
+          Remove the four hundred and the mechanism does not survive on the mark ups alone, because there is nothing left to mark up. A junior reviewing a machine&apos;s output is being asked to have the judgment before doing the thing that produced it.
+        </p>
+        <p className="mt-4 text-justify">
+          The cost of getting this wrong is not felt for two or three years, which is exactly why it does not appear in anyone&apos;s business case. It shows up later as a group of five year qualifieds who are fast, competent and oddly unwilling to overrule the software.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Actually Taught Judgment</h2>
+        <p className="mt-4 text-justify">
+          Here is the part worth arguing about. The repetition was never the teacher. It was the delivery mechanism.
+        </p>
+        <p className="mt-4 text-justify">
+          What a junior absorbed over four hundred files was a library of worked examples: what the firm did last time, why, what the reviewer caught, what the client came back with. Volume was simply how that library got transmitted, one file at a time, at enormous cost.
+        </p>
+        <p className="mt-4 text-justify">
+          Most firms never built the library as an actual thing. The reasoning lived in a review note somebody deleted, a comment in the margin of a workpaper, a conversation in February. Volume worked as a substitute for documentation for a long time, and firms could afford not to notice.
+        </p>
+        <p className="mt-4 text-justify">
+          Automation removes the substitute. A firm that can show a new hire what it did on a comparable client three years ago, and why, can train a reviewer without four hundred files. A firm that cannot is relying on a transmission mechanism it has just switched off.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Shape of the Fix</h2>
+        <p className="mt-4 text-justify">
+          Treat the client file as the teaching material, and make it findable in the time a curious person is willing to spend looking.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built for that half of it. It ingests a client&apos;s returns, statements, contracts, workpapers and correspondence and lets anyone in the firm query the whole history in plain English, so a second year can ask what the firm did on a comparable matter and read the actual documents rather than interrupting a partner. Role based access controls govern who can open which client&apos;s records, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not write down why a position was taken. People still have to do that. What it changes is whether the writing down is ever found again, which decides whether it was worth doing.
+        </p>
+        <p className="mt-4 text-justify">
+          The staffing plan is easy to model. The training plan it quietly assumes has not been written.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If a second year in your firm wanted to see how you handled a similar client three years ago, could they find it without asking a partner?
+        </p>
+      </>
+    ),
+  },
+  "job-bookkeepers-want-automated": {
+    title: "The Job Bookkeepers Want Automated Is Not Bookkeeping",
+    category: "Accounting",
+    date: "19 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-blue",
+    excerpt: "Asked which task they would most like to hand to an AI agent, 68% of accounting firms picked chasing clients for missing documents. It was the number one answer. Categorising transactions was not on the list, and only 24% currently use AI for data entry and reconciliation at all. The bottleneck in bookkeeping was never the bookkeeping.",
+    image: "/blog/exception-queue.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/exception-queue.png"
+            alt="The Job Bookkeepers Want Automated Is Not Bookkeeping"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A bookkeeper opens the file on a Tuesday. The overnight categorisation ran, and it did fine. Forty transactions are sitting in the exception queue, and thirty four of them she can clear herself in under an hour.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Firms Actually Use AI For</h2>
+        <p className="mt-4 text-justify">
+          The other six need the client. A payment to a name nobody recognises. An invoice with no backup. A transfer that could be an owner draw or could be equipment.
+        </p>
+        <p className="mt-4 text-justify">
+          Those six will take nine days.
+        </p>
+        <p className="mt-4 text-justify">
+          Uku surveyed accounting firms across eight countries in May and June 2026. It is a small sample, dozens of firms rather than thousands, weighted toward small practices of one to ten people, with roughly six in ten respondents being partners, owners or managers. Treat the exact percentages as directional. The ordering is what matters, and the ordering is not subtle.
+        </p>
+        <p className="mt-4 text-justify">
+          Seventy six percent use AI for writing and client communication. Fifty nine percent for research and problem solving. Twenty nine percent for meeting notes and documentation. Twenty four percent for data entry and reconciliation. Fifteen percent for reporting and analysis.
+        </p>
+        <p className="mt-4 text-justify">
+          Read that list from the top and one pattern falls out: the further a task sits from the ledger, the more AI is being used on it. The actual bookkeeping is close to the bottom.
+        </p>
+        <p className="mt-4 text-justify">
+          That is the opposite of how the category has been sold for three years.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Task They Most Want Handed Over</h2>
+        <p className="mt-4 text-justify">
+          The same survey asked which tasks firms would delegate to an autonomous agent. The number one answer, at 68%, was chasing clients for missing documents. Preparing client emails and updates came second at 59%. Flagging unprofitable clients or jobs came third at 44%.
+        </p>
+        <p className="mt-4 text-justify">
+          Nobody&apos;s top request was categorise my transactions.
+        </p>
+        <p className="mt-4 text-justify">
+          This is worth sitting with, because it is practitioners describing their own week rather than a vendor describing a market. The thing they want a machine to take is not the accounting. It is the part of the job that involves asking a person for something and then asking again.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Because the Bottleneck Was Never the Categorising</h2>
+        <p className="mt-4 text-justify">
+          Look at the Tuesday again. The categorisation was minutes of machine time. Clearing thirty four exceptions was an hour of skilled work, and skilled work is what a bookkeeper is for.
+        </p>
+        <p className="mt-4 text-justify">
+          The six that need the client are a different kind of item entirely. They are not slow because they are hard. They are slow because the answer lives in a person&apos;s inbox, and that person runs a business, and your email is somewhere below a supplier dispute and a payroll question in their day.
+        </p>
+        <p className="mt-4 text-justify">
+          A firm can double the speed of everything on its own side of that line and the month still closes when the client replies. This is the arithmetic that makes so many automation pilots feel underwhelming from the inside. The measured task got faster. The elapsed time did not move, because the elapsed time was mostly waiting.
+        </p>
+        <p className="mt-4 text-justify">
+          The consequence for firm economics is specific. Work in progress ages while a query sits open. Staff context switch back into a file they had finished thinking about a week earlier, which is a real cost nobody bills. And in a fixed fee arrangement, every extra round trip comes straight out of the margin on that engagement.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Firms Will and Will Not Hand Over</h2>
+        <p className="mt-4 text-justify">
+          The same survey is blunt about the limits. Sixty two percent say trust requires a human to approve anything before it is sent or filed. Fifty three percent want their data kept private and never used to train models. Zero firms reported already fully trusting AI.
+        </p>
+        <p className="mt-4 text-justify">
+          Put those next to the delegation list and the position is coherent, not timid. Firms will hand over the chasing. They will not hand over the deciding. And they want the client&apos;s file to stay where they put it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Shape of the Fix</h2>
+        <p className="mt-4 text-justify">
+          The principle: reduce the number of times you have to ask the client anything at all. Every question you can answer from documents you already hold is a question that does not go into an email and does not come back in nine days.
+        </p>
+        <p className="mt-4 text-justify">
+          That is the half MetaWurks is built for. It ingests what the client has already sent, the statements, invoices, contracts and correspondence, and lets a bookkeeper query all of it in plain English, so an unrecognised payment is checked against what is already on file before anyone drafts a chase email. Role based access controls govern who can open which client&apos;s records, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          It will not make a client answer faster. It reduces how often you need them to.
+        </p>
+        <p className="mt-4 text-justify">
+          The pitch for AI in bookkeeping has been aimed at the ledger for years. The people doing the work keep pointing somewhere else.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Of the queries your team sent clients last month, how many could have been answered from documents the firm already had?
+        </p>
+      </>
+    ),
+  },
+  "close-got-faster-answers-did-not": {
+    title: "Your Close Got Faster. Your Answers Did Not.",
+    category: "Accounting",
+    date: "18 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-cyan to-ai-violet",
+    excerpt: "Sixty-three percent of finance leaders say they have fully deployed AI inside the function. Only 21% can point to clear, measurable value from it. The gap is not a technology problem. It is that the close metric everyone optimised stops at the financial statements, and the questions start the next morning.",
+    image: "/blog/day-six-questions.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/day-six-questions.png"
+            alt="Your Close Got Faster. Your Answers Did Not."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A controller sends the pack on day five. Clean close, everything tied out, a good month by any benchmark the firm tracks.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Metric Everyone Optimised</h2>
+        <p className="mt-4 text-justify">
+          On day six the questions start. Why is contractor spend up 22%. Which of those renewals actually landed in this period. Is that legal accrual the same matter we discussed in April. Each one takes twenty minutes to an hour, and the answer is never in the pack. It is in a contract, an invoice, an email thread and somebody&apos;s memory of a call.
+        </p>
+        <p className="mt-4 text-justify">
+          APQC defines monthly close cycle time as the calendar days between running the trial balance and completing the consolidated financial statements, measured across 2,300 organisations, with a median of 6.4 days and a top quartile of 4.8 days or less. It is a good metric. Firms have chased it hard and many have won.
+        </p>
+        <p className="mt-4 text-justify">
+          Look at where it stops. Trial balance to consolidated financial statements. The moment the statements exist, the measurement is over and the stopwatch goes back in the drawer.
+        </p>
+        <p className="mt-4 text-justify">
+          Everything after that line is real work that no benchmark counts. The variance explanations. The board pack narrative. The three follow-up emails from the client&apos;s operations lead. The question in a Thursday call about a number from two months ago. None of it appears in the close cycle time, so none of it appears in the case for automating anything.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Which Is Exactly Where the AI Went</h2>
+        <p className="mt-4 text-justify">
+          Deloitte&apos;s Finance Trends 2026 research, published in October 2025, found that 63% of surveyed finance leaders report they have fully deployed and actively use AI within the finance function. In the same research, only 21% say those investments are delivering clear, measurable value, and just 14% of the group seeing strong returns have fully integrated AI agents into specific areas of finance.
+        </p>
+        <p className="mt-4 text-justify">
+          A 42 point gap between having the technology and being able to show what it did.
+        </p>
+        <p className="mt-4 text-justify">
+          There are several explanations doing the rounds for that gap, most of them about model quality or change management. Here is a simpler one. Automation follows measurement. Everyone measured the close, so everyone automated the close: the reconciliations, the accruals, the consolidation, the parts that live inside the stopwatch. Those parts got faster. The part the client experiences as speed, which is how long it takes to get an answer to a question about the numbers, was never on the clock, so nothing was aimed at it.
+        </p>
+        <p className="mt-4 text-justify">
+          Faster arrival at the same unanswered questions is not nothing. It is also not what the investment case promised.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Day Six Is a Retrieval Problem</h2>
+        <p className="mt-4 text-justify">
+          Notice what answering a variance question actually requires. Not judgment first. Retrieval first.
+        </p>
+        <p className="mt-4 text-justify">
+          The contractor spend question needs the contract, the amendment, the two invoices that straddle the period and the email where scope changed. Only once those four documents are on the desk does the accounting question become answerable, and the accounting part usually takes about ninety seconds. The hour went to the hunt.
+        </p>
+        <p className="mt-4 text-justify">
+          That is why the work resists the tools aimed at the close. A close automation tool operates on the general ledger, and the answer to the question is not in the general ledger. It is in the documents behind the entries, scattered across a portal, a shared drive, an inbox and whatever the client sent over WhatsApp in March.
+        </p>
+        <p className="mt-4 text-justify">
+          The consequences land on firm economics in a way that no close metric will surface. Question turnaround is what a client calls responsiveness. A firm that answers in an hour and a firm that answers on Tuesday are selling different services at the same price. And an answer assembled from memory carries a risk the pack never did, because when it turns out to be wrong there is no record of how it was reached.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What the Fix Looks Like</h2>
+        <p className="mt-4 text-justify">
+          The principle first: the close produces numbers, and the month is not finished until the firm can support them. Support means the documents behind the entries are findable by whoever gets asked, in the time the asker is willing to wait.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built for that half. It ingests a client&apos;s contracts, invoices, statements and correspondence and lets an accountant query them in plain English, so the contractor spend question is a question rather than an afternoon. Role based access controls decide who can open which client&apos;s file, and audit logs record who opened what and when. Documents ingested into the platform are not used to train models and are not exposed to other users, so the client&apos;s file stays inside the firm&apos;s control while it is being used.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not close the books. It answers the questions that arrive once they are closed, which is the half of the month that never made it onto anyone&apos;s dashboard.
+        </p>
+        <p className="mt-4 text-justify">
+          The close got faster because it was measured. The rest of the month did not, for the same reason.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          How long does it currently take your team to answer a client&apos;s question about a number in last month&apos;s pack, and does anyone in your firm actually track that?
+        </p>
+      </>
+    ),
+  },
+  "ai-tax-research-section-7216": {
+    title: "Written in 1971: The Rule Your AI Tax Research Just Ran Into",
+    category: "Accounting",
+    date: "17 August, 2026",
+    readTime: "5 min read",
+    gradient: "from-ai-cyan to-ai-peach",
+    excerpt: "Sixty percent of tax professionals now use AI for tax research at least weekly, up from 33% a year ago. The rule that governs what may leave a firm carrying client tax data was written in 1971 and carries a criminal penalty. The exception most firms assume covers their software stops at the word analysis, which is the thing the software is for.",
+    image: "/blog/section-7216-threshold.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/section-7216-threshold.png"
+            alt="Written in 1971: The Rule Your AI Tax Research Just Ran Into"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A senior associate has a question about a client&apos;s K-1 on a Tuesday in March. She types it into the firm&apos;s AI research tool along with the relevant figures. Nine seconds later she has an answer and three citations. No policy was broken. The tool is on the approved list. IT signed off on it last year.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Shadow AI Story Is the Easy Half</h2>
+        <p className="mt-4 text-justify">
+          It may still have been a disclosure.
+        </p>
+        <p className="mt-4 text-justify">
+          The AI security conversation inside firms is almost entirely about staff pasting client data into a public chatbot. That risk is real and worth closing, and it is the easier half, because it is a behaviour problem with a behaviour fix: a written policy, a training session, a blocked domain, an approved alternative.
+        </p>
+        <p className="mt-4 text-justify">
+          The harder half is not behaviour. It sits inside the tools the firm chose, paid for and approved, and it is not governed only by the FTC Safeguards Rule or IRS Publication 4557. It is governed by section 7216 of the tax code, which is a criminal provision.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Section 7216 Actually Says</h2>
+        <p className="mt-4 text-justify">
+          Congress enacted it in 1971. Any person engaged in preparing tax returns for compensation who knowingly or recklessly discloses information furnished for the preparation of a return, or uses that information for any purpose other than preparing the return, faces a fine of up to $1,000, up to a year in prison, and the costs of prosecution. A parallel civil penalty under section 6713 runs $250 for each disclosure or use, capped at $10,000 in a calendar year.
+        </p>
+        <p className="mt-4 text-justify">
+          The regulations are deliberately broad about what counts. Treasury Regulation 301.7216-1(b)(5) defines disclosure as making tax return information known to another person in any manner whatever. A paste. An upload. An API call your practice management vendor makes on your behalf.
+        </p>
+        <p className="mt-4 text-justify">
+          Firms know this rule. They have complied with it for decades, mostly without thinking about it, because the disclosures involved were obvious ones: an e-file provider, an outsourced processing partner, a bank sending a verification.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Exception Everyone Assumes Covers Them</h2>
+        <p className="mt-4 text-justify">
+          There is an exception, and it is the reason nobody sweats the e-file provider. Treasury Regulation 301.7216-2(d) permits a preparer to disclose return information to another preparer located in the United States for the purpose of preparing the return, or obtaining or providing auxiliary services, without the taxpayer&apos;s consent.
+        </p>
+        <p className="mt-4 text-justify">
+          Then it draws the line. The exception holds only where those services do not involve substantive determinations or advice affecting the tax liability reported by taxpayers. And the regulation defines its terms: a substantive determination involves an analysis, interpretation, or application of the law.
+        </p>
+        <p className="mt-4 text-justify">
+          Read that twice, because it is the whole article. The exception covers processing. It stops at analysis.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Which Is Exactly What the Tools Are For Now</h2>
+        <p className="mt-4 text-justify">
+          Sixty percent of tax professionals use AI for tax research at least weekly, up from 33% a year earlier, according to the second annual Blue J and CPA.com outlook report published in June 2026, drawn from more than 1,000 US tax professionals. The same survey puts weekly use at 44% for advisory projects, 40% for tax planning and 39% for compliance research. Eighty-four percent cite time saved.
+        </p>
+        <p className="mt-4 text-justify">
+          Every one of those categories is analysis, interpretation or application of the law. The uses growing fastest inside firms are precisely the ones the auxiliary services exception was not written to cover.
+        </p>
+        <p className="mt-4 text-justify">
+          The geographic condition has moved too. Located in the United States used to be a question about where an outsourcing partner kept its office. It is now a question about where a model runs and where its logs sit, which a large number of firms cannot answer about their own approved stack.
+        </p>
+        <p className="mt-4 text-justify">
+          None of this makes AI tax research illegal. Consent exists as a route: Treasury Regulation 301.7216-3 sets out the requirements and Revenue Procedure 2013-14 gives the required language and format for 1040 clients. Obtained in advance, in writing, it is a solved problem. The difficulty is that very few firms obtained it, because very few framed the software as a disclosure in the first place. In August 2026 CNBC ran the question as a consumer story, asking whether your tax preparer can use AI without telling you. Clients are going to start asking it in the same words.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Three Questions Per Tool</h2>
+        <p className="mt-4 text-justify">
+          The practical version is not a ban and not a committee. For each tool the firm has approved, three questions. Does client return information leave the firm. If it does, where does it go and who can see it. And is the work that tool performs processing, or is it analysis.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks answers the first two rather than the third. It ingests a client&apos;s returns, statements, invoices and correspondence and lets an accountant query them in plain English, with role based access controls and audit logs recording who opened which file and when. Documents ingested into the platform are not used to train models and are not exposed to other users, so the client&apos;s file does not leave the firm&apos;s control to be useful.
+        </p>
+        <p className="mt-4 text-justify">
+          The audit log is the part that matters for this rule specifically. A section 7216 question is answered with a record of what went where, not with a partner&apos;s recollection of what the vendor said in a demo.
+        </p>
+        <p className="mt-4 text-justify">
+          What no software will do is answer the third question. Nothing decides for you whether the work was a substantive determination. That judgment stays where it has been since 1971, with the preparer who signed the return.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          For how many of your approved tools could you say today whether client return information leaves the building, and whether you have consent for it?
+        </p>
+      </>
+    ),
+  },
   "ten-apps-five-hours": {
     title: "Ten Apps, Five Hours a Week, and the Advisory Work That Never Starts",
     category: "Accounting",
-    date: "11 August, 2026",
+    date: "13 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-cyan to-ai-mint",
     excerpt: "725 accounting and bookkeeping professionals were asked what is blocking advisory work at their firms. Staffing shortages came second at 24%. First, at 30%, was manual data cleanup. The same firms run about ten software tools, spend $21,000 a year on them, and lose five hours a week moving data between them.",
@@ -105,7 +534,7 @@ export const blogPostsData: Record<
   "defensible-not-just-accurate": {
     title: "Tax Professionals Were Asked What AI Needs to Earn Their Trust. Accuracy Was Not the Answer.",
     category: "Accounting",
-    date: "11 August, 2026",
+    date: "12 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-blue to-ai-peach",
     excerpt: "When more than 600 tax professionals were asked what AI would need before they would trust it with client work, the top three answers were confidentiality at 96%, outputs grounded in authoritative content at 94%, and reasoning that is explainable and defensible at 90%. Not one of them is a question about whether the answer is right.",
