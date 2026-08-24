@@ -158,7 +158,7 @@ Edit `tailwind.config.ts` to customize the color palette:
 
 ```typescript
 colors: {
-  'ai-blue': 'hsl(220, 70%, 55%)',
+  'ai-blue': 'hsla(220, 61%, 36%, 1.00)',
   'ai-violet': 'hsl(220, 70%, 50%)',
   // ... more colors
 }
