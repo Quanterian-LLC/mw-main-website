@@ -17,7 +17,7 @@ export const blogPostsData: Record<
   "self-prepared-returns-grew-faster": {
     title: "Self-Prepared Returns Grew Four Times Faster Than Yours",
     category: "Accounting",
-    date: "24 August, 2026",
+    date: "21 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-mint to-ai-peach",
     excerpt: "By 17 April 2026 the IRS had received 72.8 million e-filed returns from tax professionals, up 0.4% on the prior year, and 64.8 million self-prepared returns, up 1.7%. Self-prepared grew more than four times faster, in a season when total returns fell and the free government filing option no longer existed. Firms are pointing AI at the half that is shrinking.",
@@ -98,7 +98,7 @@ export const blogPostsData: Record<
   "reviewers-on-day-one": {
     title: "Reviewers on Day One: The Part of the AI Plan Nobody Costed",
     category: "Accounting",
-    date: "24 August, 2026",
+    date: "20 August, 2026",
     readTime: "5 min read",
     gradient: "from-ai-mint to-ai-cyan",
     excerpt: "PwC plans to take junior associate hiring from 3,242 to 2,197 by fiscal 2028, a 32% cut, citing technological change. Its own AI assurance leader says new joiners will become reviewers almost instantly. Reviewing is a skill people acquired by doing the work that is being automated, and no plan yet explains where the replacement comes from.",
@@ -189,7 +189,7 @@ export const blogPostsData: Record<
   "job-bookkeepers-want-automated": {
     title: "The Job Bookkeepers Want Automated Is Not Bookkeeping",
     category: "Accounting",
-    date: "24 August, 2026",
+    date: "19 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-mint to-ai-blue",
     excerpt: "Asked which task they would most like to hand to an AI agent, 68% of accounting firms picked chasing clients for missing documents. It was the number one answer. Categorising transactions was not on the list, and only 24% currently use AI for data entry and reconciliation at all. The bottleneck in bookkeeping was never the bookkeeping.",
@@ -280,7 +280,7 @@ export const blogPostsData: Record<
   "close-got-faster-answers-did-not": {
     title: "Your Close Got Faster. Your Answers Did Not.",
     category: "Accounting",
-    date: "24 August, 2026",
+    date: "18 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-cyan to-ai-violet",
     excerpt: "Sixty-three percent of finance leaders say they have fully deployed AI inside the function. Only 21% can point to clear, measurable value from it. The gap is not a technology problem. It is that the close metric everyone optimised stops at the financial statements, and the questions start the next morning.",
@@ -361,7 +361,7 @@ export const blogPostsData: Record<
   "ai-tax-research-section-7216": {
     title: "Written in 1971: The Rule Your AI Tax Research Just Ran Into",
     category: "Accounting",
-    date: "24 August, 2026",
+    date: "17 August, 2026",
     readTime: "5 min read",
     gradient: "from-ai-cyan to-ai-peach",
     excerpt: "Sixty percent of tax professionals now use AI for tax research at least weekly, up from 33% a year ago. The rule that governs what may leave a firm carrying client tax data was written in 1971 and carries a criminal penalty. The exception most firms assume covers their software stops at the word analysis, which is the thing the software is for.",
@@ -446,7 +446,7 @@ export const blogPostsData: Record<
   "ten-apps-five-hours": {
     title: "Ten Apps, Five Hours a Week, and the Advisory Work That Never Starts",
     category: "Accounting",
-    date: "11 August, 2026",
+    date: "13 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-cyan to-ai-mint",
     excerpt: "725 accounting and bookkeeping professionals were asked what is blocking advisory work at their firms. Staffing shortages came second at 24%. First, at 30%, was manual data cleanup. The same firms run about ten software tools, spend $21,000 a year on them, and lose five hours a week moving data between them.",
@@ -534,7 +534,7 @@ export const blogPostsData: Record<
   "defensible-not-just-accurate": {
     title: "Tax Professionals Were Asked What AI Needs to Earn Their Trust. Accuracy Was Not the Answer.",
     category: "Accounting",
-    date: "11 August, 2026",
+    date: "12 August, 2026",
     readTime: "4 min read",
     gradient: "from-ai-blue to-ai-peach",
     excerpt: "When more than 600 tax professionals were asked what AI would need before they would trust it with client work, the top three answers were confidentiality at 96%, outputs grounded in authoritative content at 94%, and reasoning that is explainable and defensible at 90%. Not one of them is a question about whether the answer is right.",
