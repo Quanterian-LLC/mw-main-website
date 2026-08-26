@@ -173,10 +173,10 @@ now carried accurately by the verified model table and the verified file-type ta
 | Hosted on Google Cloud Platform | `app/privacy-policy/page.tsx:100` | Published |
 | Answers cite the source document | `app/docs/page.tsx:100`, `:460` | Published |
 | **End-to-end encryption** | **Nothing.** The policy claims encryption of tokens and sensitive data plus HTTPS — that is not E2EE | **Not published** |
-| **SSO** | **Nothing.** No occurrence anywhere in the repository | **Not published** |
+| **SSO** | **CORRECTION (re-audited 27 Aug):** claimed in `components/OrchestrationSection.tsx:23` — rendered live on the homepage — and in blog excerpts `app/blog/page.tsx:191,:317`. Absent from `/docs` and the privacy policy | **Not published on /product** — no operational source |
 | **Role-based access control** | Marketing copy only: `app/product/page.tsx:27`, `app/pricing/page.tsx:198`. Absent from `/docs` and the privacy policy | **Not published as a specific claim** — `/product` uses the privacy policy's "access controls" wording instead |
 | **Audit logs / full activity logs** | Marketing copy only: `app/product/page.tsx:27`, `app/pricing/page.tsx:198`. Absent from `/docs` and the privacy policy | **Not published** |
-| **SOC 2 / ISO 27001 / GDPR / HIPAA** | **Nothing.** No certification named anywhere in the repository | **Not published** — certifications are never inferred |
+| **SOC 2 / ISO 27001 / GDPR / HIPAA** | **CORRECTION (re-audited 27 Aug):** `components/TrustSection.tsx:12-15` asserts **SOC 2 Type II**, **End-to-End Encryption**, **Data Residency** and **99.99% Uptime / Enterprise SLA**. That component is **not imported anywhere**, so the claims are not currently rendered — but they would go live the moment it is used | **Not published** — certifications are never inferred |
 | "compliant with industry standards" (`app/pricing/page.tsx:198`) | Unfalsifiable; names no standard | **Not published** |
 
 The privacy policy also carries an explicit disclaimer — "no system is completely secure. We

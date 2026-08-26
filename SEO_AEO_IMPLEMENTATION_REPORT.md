@@ -82,7 +82,7 @@ All "After" values were read from the rendered production build (`next build` + 
 |---|---|
 | Local `/product` | **PASS** — HTTP 200 on production build (`next start`) |
 | Build | **PASS** — `npm run build`, compiled 9.4s, 54/54 static pages |
-| Lint | **FAIL — pre-existing, not caused by this work.** `eslint.config.js` imports `globals`, `@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `typescript-eslint`; none are in `package.json`. Fails identically at baseline. Not fixed (would require manifest changes) |
+| Lint | **PASS for SEO/AEO code — 0 errors, 0 warnings.** The repo script `npm run lint` cannot start (pre-existing: `eslint.config.js` imports `globals`, `eslint-plugin-react-refresh`, `typescript-eslint`, none of which are in `package.json`) and fails byte-identically at baseline. To get a real result the code was linted with a working config held outside the repo, under two rule sets. Both give **identical totals at baseline and on this branch**, so the SEO/AEO work introduced **zero** lint problems. See §5a |
 | Typecheck | **PASS for application code — 0 errors.** `tsc --noEmit` reports 6 errors, all `TS2306` inside generated `.next/types`, caused by two API route files that are entirely commented out at baseline. Verified identical on untouched `b7a84c9` |
 | Tests | **NOT RUN** — no test runner or test files exist in the repository |
 | Metadata | **PASS** — unique title + description on all 9 public routes; zero duplicate titles |
@@ -93,26 +93,41 @@ All "After" values were read from the rendered production build (`next build` + 
 | robots.txt | **PASS** — 9 AI agents named, `Sitemap:` declared, no conflicting static file |
 | Internal links | **PASS** — all 12 `/product` body links return 200 |
 
+### 5a. Lint detail
+
+| Rule set | Baseline `b7a84c9` | This branch | SEO/AEO files |
+|---|---|---|---|
+| Project's intended set (js recommended + typescript-eslint recommended + react-hooks recommended) | 4 errors | 4 errors | **0 errors, 0 warnings** |
+| Stricter Next.js set (adds react, jsx-a11y, @next/next core-web-vitals) | 151 errors, 1 warning | 151 errors, 1 warning | **0 errors, 0 warnings** |
+
+All pre-existing findings sit in files untouched by this work: 146 × `react/no-unescaped-entities`, 2 × `@typescript-eslint/no-empty-object-type`, 1 × `@typescript-eslint/no-explicit-any`, 1 × `react/no-unknown-property`, 1 × `no-redeclare`, 1 × `@next/next/no-img-element`. **None were modified.**
+
+One issue *was* attributable to this work and has been fixed: `components/JsonLd.tsx` carried an `eslint-disable-next-line react/no-danger` directive that no enabled rule needed, reported as an unused disable. Replaced with a plain explanatory comment (commit `356a9d8`). `eslint.config.js`, `package.json` and `package-lock.json` remain untouched; the temporary audit configs were deleted after use.
+
 Additional: no console errors on `/product`, `/pricing` or `/`; at 375 px viewport `document.scrollWidth === 375` (no horizontal scroll), all 3 tables scroll inside their own containers.
 
 ## 6. Factual items requiring confirmation
 
-Unresolved contradictions found **inside the repository**. Full evidence with file/line citations in `FACTUAL_CONFLICTS.md`.
+Ten unresolved contradictions found **inside the repository**, each with the file and the exact claim. Full evidence in `FACTUAL_CONFLICTS.md`.
 
-| Item | Issue | Handling on `/product` |
-|---|---|---|
-| AI model list | 3 conflicting lists: `/docs` names 6 providers with versions; `/pricing` FAQ adds Mistral, LLaMA + "30+ other models"; homepage graphics add Cohere | Published `/docs` list only (6 providers). No model count, no "30+", no Mistral/LLaMA/Cohere |
-| Free tier | Plan card says "free for 1 month"; FAQ says "1,000 messages per month" (ongoing) | Stated only that a free plan exists. CTA is `Start Free`, no duration asserted |
-| Annual discount | Toggle claims "Save 30%"; actual savings are 2.0%–10.5% | Not published |
-| `originalPrice` field | Below `price` on every plan (Enterprise `$39` vs `$99`); never rendered — dead, inverted data | Not published |
-| Enterprise / tier pricing | Only the $19 entry price is internally consistent | Published $19 entry price only, in copy and in `Offer` |
-| Security claims | RBAC and audit logs appear only in marketing copy, absent from `/docs` and privacy policy. SSO and E2EE appear nowhere. No certification named anywhere | Omitted. Only privacy-policy/docs-backed statements published |
-| OCR / scanned files | Image formats are accepted for upload, but nothing states text is extracted from scans | No OCR claim made |
-| `/for/*` vertical pages | Routes do not exist | Not linked (would 404). ICP cards ship unlinked |
-| Product screenshot | None exists in the repository | Documented placeholder; not fabricated |
-| "15-minute setup" / "2-minute demo" | Neither is supported by anything in the repository | Dropped; demo CTA points to the real Calendly booking |
+| # | Item | File — exact claim | Conflicts with | Handling on `/product` |
+|---|---|---|---|---|
+| 1 | AI model list | `app/pricing/page.tsx:179` and `:191` — "GPT-5, Claude, Gemini, DeepSeek, Grok, **Mistral, LLaMA**, and **30+ other AI models**" | `app/docs/page.tsx:399-404` lists 6 providers with versions (OpenAI, Anthropic, Google, xAI, DeepSeek, Perplexity) and never names Mistral or LLaMA | Published the `/docs` list only. No model count, no "30+" |
+| 2 | Third model list | `components/HeroSection.tsx:160` — decorative orbit label "**Cohere**"; `:155-159` add Llama, Mistral | Cohere appears nowhere else in the repository | Not published |
+| 3 | Free-tier duration | `app/pricing/page.tsx:19` — "Free plan for **1 month** with limited access" | `app/pricing/page.tsx:203` — "a free plan with limited basic models and **1,000 messages per month**" (implies ongoing) | Stated only that a free plan exists; no duration asserted. CTA is `Start Free` |
+| 4 | Free-tier allowance | `app/pricing/page.tsx:203` — "**1,000 messages** per month" | `app/pricing/page.tsx:33` — Messages: "Limited"; `:34` — Token limit "1M" | Not published |
+| 5 | Annual discount | `app/pricing/page.tsx:254` — badge "**Save 30%**" | Actual annual savings: $19→$17 (10.5%), $39→$37 (5.1%), $99→$97 (2.0%). No plan saves 30% | Not published |
+| 6 | `originalPrice` field | `app/pricing/page.tsx:49, :81, :114` — Starter "$8", Professional "$20", Enterprise "**$39**" | Every value is *below* its own `price` (Enterprise $39 vs $99) — inverted for a struck-through "was" price. Never rendered (`plan.price` is the only value read, `:305`) | Not published |
+| 7 | Enterprise / tier pricing | `app/pricing/page.tsx:113` — Enterprise "$99" monthly / "$97" annual | Only the $19 Starter entry price is internally consistent (items 5–6) | Published the $19 entry price only, in copy and in `Offer` |
+| 8 | RBAC / audit logs / SSO | `components/OrchestrationSection.tsx:23` — "**encryption, SSO, role-based access and audit logs**" (**rendered live on the homepage**); `app/pricing/page.tsx:199` — "role-based access control, and full audit logs … compliant with industry standards"; `app/blog/page.tsx:191, :317` | `/docs` and `app/privacy-policy/page.tsx:120-122` claim only: encryption of OAuth tokens and sensitive data, HTTPS, access controls. No SSO, no audit logs anywhere operational | Omitted. Only privacy-policy/docs-backed statements published |
+| 9 | Certifications & SLA | `components/TrustSection.tsx:12-15` — "**SOC 2 Type II**", "**End-to-End Encryption**", "**Data Residency**", "**99.99% Uptime / Enterprise SLA**" | No supporting evidence anywhere. **The component is not imported by any page**, so these are not currently rendered — but would go live the moment it is used | Not published. Certifications are never inferred |
+| 10 | OCR / scanned documents | `app/product/page.tsx:43` (baseline) — "PDFs, spreadsheets, **scanned files**, and more" | `app/docs/page.tsx:97` lists image formats as *accepted for upload*; nothing in the repository states text is extracted from scans. "OCR" appears nowhere | No OCR claim made; file-type table reproduced verbatim from `/docs` |
 
-Also observed, pre-existing and not fixed: `.env` is committed containing what appear to be live credentials (`SENDGRID_API_KEY`, `EMAIL_PASS`) — values were never read or printed; `/docs` emits 14 `<h1>` tags; the homepage H1 renders as one run-together token; two API route files are fully commented out.
+**Also unresolved, lower severity:** `components/OrchestrationSection.tsx:21` claims integration with "Google Drive, **Dropbox**, OneDrive, slack and more", but `app/docs/page.tsx:650-651` documents only Google Drive and OneDrive as storage connections — Dropbox appears nowhere else.
+
+**Not repository contradictions, but unsupported spec claims that were dropped:** "15-minute setup" (no setup-time figure exists) and "See a 2-Minute Demo" (no video or demo route exists; the only demo path is a Calendly 30-minute booking). The four `/for/*` vertical routes do not exist and were not linked. No product screenshot exists; a documented placeholder ships instead.
+
+**Pre-existing, observed, not fixed:** `.env` is committed containing what appear to be live credentials (`SENDGRID_API_KEY`, `EMAIL_PASS`) — values were never read or printed; `/docs` emits 14 `<h1>` tags; the homepage H1 renders as one run-together token; `app/api/early-access/route.ts` and `.../verify/route.ts` are entirely commented out.
 
 ## 7. Repository safety
 
@@ -123,4 +138,4 @@ Also observed, pre-existing and not fixed: `.env` is committed containing what a
 
 ## 8. Final status
 
-**Status: SEO/AEO implementation completed in the local replica and ready for human review — subject to the 10 factual items in §6, which require product-owner confirmation before publication, and a pre-existing lint failure that was left unfixed.**
+**Status: SEO/AEO implementation completed in the local replica and ready for human review. Lint is clean for all SEO/AEO code (0 errors, 0 warnings, identical totals to baseline); the repo's own lint script remains broken from a pre-existing config/dependency fault that was deliberately not modified. The 10 factual items in §6 require product-owner confirmation before this content is published.**
