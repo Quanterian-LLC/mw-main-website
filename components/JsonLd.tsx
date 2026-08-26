@@ -8,7 +8,9 @@ export default function JsonLd({ data }: { data: unknown }) {
   return (
     <script
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger
+      // dangerouslySetInnerHTML is the documented way to emit JSON-LD in React: the
+      // payload must reach the DOM unescaped. It is safe here because `data` is built
+      // from repository constants, never from user input, and `<` is escaped above.
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(data).replace(/</g, "\\u003c"),
       }}
