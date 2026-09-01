@@ -14,6 +14,431 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "1099-scramble-decided-in-march": {
+    title: "The January 1099 Scramble Was Decided Last March",
+    category: "Accounting",
+    date: "28 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-violet to-ai-blue",
+    excerpt: "A late or incorrect information return costs $60, $130 or $340 per form for returns due in 2026, and $680 with no annual maximum where the IRS finds intentional disregard. Two separate provisions can each apply to the same wrong form. None of that is decided in January. It is decided the day an invoice gets paid to a vendor nobody documented.",
+    image: "/blog/missing-field.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/missing-field.png"
+            alt="The January 1099 Scramble Was Decided Last March"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A client pays a new contractor in March. The invoice is right, the work is done, the payment goes out. Nobody asks for a W-9, because the person approving the payment is not thinking about January.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What a Missing Form Actually Costs</h2>
+        <p className="mt-4 text-justify">
+          Ten months later somebody has to produce a 1099-NEC with a taxpayer identification number on it, and the contractor has stopped answering emails.
+        </p>
+        <p className="mt-4 text-justify">
+          The IRS numbers for returns required to be filed in 2026 are specific. A correct return filed up to 30 days late is $60 per return. From 31 days late through 1 August it is $130. After 1 August, or not filed at all, it is $340. Where the IRS determines intentional disregard, the amount is $680 per return, and there is no maximum penalty for intentional disregard.
+        </p>
+        <p className="mt-4 text-justify">
+          Two details make that arithmetic worse than it first looks.
+        </p>
+        <p className="mt-4 text-justify">
+          First, the amounts moved. The equivalent figures for 2025 were $330 and $660. The scale rises with inflation every year, so the same lapse costs more each season.
+        </p>
+        <p className="mt-4 text-justify">
+          Second, two separate provisions are in play. Section 6721 covers failure to file a correct information return with the IRS. Section 6722 covers failure to furnish a correct payee statement to the recipient. They are different obligations, so one wrong form can draw a penalty under each.
+        </p>
+        <p className="mt-4 text-justify">
+          For a client with forty undocumented vendors, this stops being an administrative annoyance somewhere in the low tens of thousands.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Cost Is Set in March, Not January</h2>
+        <p className="mt-4 text-justify">
+          Here is the part that gets misread every year. Everything above is a function of a decision made months earlier and nowhere near the accounting team.
+        </p>
+        <p className="mt-4 text-justify">
+          At the moment of payment, the firm&apos;s client has maximum leverage. The vendor wants to be paid and will send whatever is asked for. That leverage decays to nothing the second the money moves. By January the request is a favour, and a contractor who has moved on has no reason to grant it.
+        </p>
+        <p className="mt-4 text-justify">
+          So the January workload is not really a January workload. It is the accumulated interest on twelve months of small omissions, all of which were free to prevent and expensive to fix.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why It Never Gets Fixed</h2>
+        <p className="mt-4 text-justify">
+          Firms know this. It still happens, for a structural reason rather than a careless one.
+        </p>
+        <p className="mt-4 text-justify">
+          The collection moment sits inside the client&apos;s accounts payable process, which the firm does not run and often cannot see. The firm shows up at the reporting deadline, which is the one point in the cycle where nothing can be corrected cheaply. Advice given in January about a process that failed in March is a post mortem.
+        </p>
+        <p className="mt-4 text-justify">
+          There is a second reason, less often admitted. Most firms cannot answer the question of which vendors are undocumented until they go looking, and going looking is itself the work. The absence of a form is invisible in a way the presence of one is not. A missing W-9 does not appear in any report. It appears as a gap that only surfaces when somebody tries to build the return.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Part a Firm Can Actually Control</h2>
+        <p className="mt-4 text-justify">
+          The principle: know at any point in the year which vendor relationships are missing documentation, rather than discovering it at the deadline. A quarterly answer to that question converts a January emergency into four small ones with leverage still intact.
+        </p>
+        <p className="mt-4 text-justify">
+          That is an inventory question about documents, and it is the kind of thing MetaWurks is built to answer. It ingests what the client has actually sent across the year, the invoices, statements, contracts and correspondence, and lets an accountant query the whole set in plain English, so asking which vendors have paperwork on file and which do not is a question rather than a reconstruction. Role based access controls decide who can open which client&apos;s records, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          It will not chase a contractor for a form. Nothing does that except a person with a reason to ask before the invoice clears. What it changes is when the firm finds out, and finding out in April rather than January is the entire difference between a phone call and a penalty.
+        </p>
+        <p className="mt-4 text-justify">
+          The forms are due in January. The exposure was created in March.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Right now, without opening anything, could you say how many of your largest client&apos;s vendors are missing documentation?
+        </p>
+      </>
+    ),
+  },
+  "ai-underwriting-changed-first": {
+    title: "Nobody Has Filed an AI Claim Against a CPA Firm Yet. Underwriting Already Changed.",
+    category: "Accounting",
+    date: "27 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-violet",
+    excerpt: "Aon's risk control lead for the AICPA Member Insurance Program says there really has not been a lot of claims involving AI at accounting firms. Underwriters are asking about it anyway: do you use it, do you police it, what are your protocols. The exclusions have started appearing too, in general liability forms filed for January 2026.",
+    image: "/blog/renewal-questions.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/renewal-questions.png"
+            alt="Nobody Has Filed an AI Claim Against a CPA Firm Yet. Underwriting Already Changed."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Stan Sterna, who leads risk control at Aon for the AICPA Member Insurance Program, put the current state plainly to Accounting Today in April. There really has not been a lot of claims, or large dollar amounts paid on claims, involving AI at accounting firms.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What They Are Already Asking</h2>
+        <p className="mt-4 text-justify">
+          That is the honest position, and it is worth holding on to when the topic gets breathless. No wave of AI malpractice suits has arrived.
+        </p>
+        <p className="mt-4 text-justify">
+          Now read the second half of the same reporting, which is where it gets interesting. Underwriters have changed what they ask anyway.
+        </p>
+        <p className="mt-4 text-justify">
+          The questions that came up in that reporting, across Aon, McGowan and Camico, are not abstract. Does the firm use AI. Does it police its usage. What protocols exist for oversight.
+        </p>
+        <p className="mt-4 text-justify">
+          The controls the same people recommend are equally concrete. Disclose AI usage in engagement letters. Give clients a way to opt out. Put a human review step over AI output. Verify what the tool produced against traditional research. Have data security protections around what goes in.
+        </p>
+        <p className="mt-4 text-justify">
+          None of that is a technology position. It is a governance checklist, and the firms that can answer it will be answering it from a document rather than from memory.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Exclusions Have Started, Just Not Here Yet</h2>
+        <p className="mt-4 text-justify">
+          The other thing moving is policy wording, and precision matters because this is where a lot of commentary gets it wrong.
+        </p>
+        <p className="mt-4 text-justify">
+          ISO filed forms effective January 2026 that let carriers exclude generative AI exposures, including CG 40 47 01 26, which removes bodily injury, property damage and personal or advertising injury arising out of or attributable to generative AI. Berkley has introduced what it calls an absolute AI exclusion in specialty liability lines, worded broadly enough to reach the use, deployment, development, integration or failure of AI.
+        </p>
+        <p className="mt-4 text-justify">
+          Those are commercial general liability and specialty forms. They are not accountants professional liability forms, and no equivalent exclusion has landed on the CPA program. Anyone telling you your professional liability policy already excludes AI is ahead of the facts.
+        </p>
+        <p className="mt-4 text-justify">
+          What they establish is direction. The market has built and filed the machinery. Whether it gets applied to professional liability for accountants is a question of loss experience, which brings us back to the first paragraph.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why This Runs Ahead of the Claims</h2>
+        <p className="mt-4 text-justify">
+          Professional liability is written on a claims made basis, and the gap between doing the work and being sued over it in this profession is routinely measured in years. A return prepared this spring can produce a claim in 2029.
+        </p>
+        <p className="mt-4 text-justify">
+          So underwriters cannot wait for the loss data before pricing. They price the exposure they think is accumulating, using the only observable signal available, which is how the firm behaves now. The renewal questionnaire is not curiosity. It is the underwriting file.
+        </p>
+        <p className="mt-4 text-justify">
+          That inverts the usual order of operations. A firm that plans to sort out its AI governance once the risk becomes real will be documenting that governance to a carrier who has already formed a view of it, at a price already set.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What This Asks a Firm to Be Able to Show</h2>
+        <p className="mt-4 text-justify">
+          Read the recommended controls again as evidence requirements rather than as policies, and a pattern falls out. Every one of them is a question about what the firm can demonstrate: which engagements disclosed AI use, which clients opted out, who reviewed what, and where the client data went while the tool was working on it.
+        </p>
+        <p className="mt-4 text-justify">
+          That last one is the least discussed and the most awkward to answer honestly, because it depends on infrastructure rather than intent. A firm can write a policy saying client data must not leave approved systems. Showing which files were opened, by whom, and in what tool is a different capability.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks covers part of that ground. Documents ingested into the platform are not used to train models and are not exposed to other users, so the client file stays inside the firm&apos;s control while an accountant queries it in plain English. Role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when, which is the artefact an underwriter, a client, or a plaintiff&apos;s lawyer eventually asks for.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not write the AI policy or the engagement letter clause. Those are the firm&apos;s to draft, and they are the cheapest part of the exercise.
+        </p>
+        <p className="mt-4 text-justify">
+          The claims have not arrived. The questions have. Firms tend to prepare for the first and get assessed on the second.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          When your professional liability renewal next asks whether your firm polices its use of AI, what document would you attach?
+        </p>
+      </>
+    ),
+  },
+  "cas-throughput-not-pricing": {
+    title: "CAS Is Not a Pricing Move. It Is a Throughput Problem.",
+    category: "Accounting",
+    date: "26 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-mint",
+    excerpt: "CAS practices that invest continuously in technology serve 100 clients. Everyone else serves 67. Same service, same monthly fee model, 50% more clients per practice. The advisory pivot is usually sold as a pricing decision, and the number that actually moves is a throughput number.",
+    image: "/blog/hundred-versus-sixtyseven.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/hundred-versus-sixtyseven.png"
+            alt="CAS Is Not a Pricing Move. It Is a Throughput Problem."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Two figures from the same benchmark survey. CAS practices that invest continuously in technology serve 100 clients. Across all respondents the figure is 67.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Growth Is Real</h2>
+        <p className="mt-4 text-justify">
+          Same service line. Same recurring fee model. One group carries half as many clients again as the other.
+        </p>
+        <p className="mt-4 text-justify">
+          Start with what is not in dispute. The AICPA and CPA.com CAS Benchmark Survey, covering 206 US practices, reported median CAS growth of 17%, median CAS revenue up 61% against the previous edition, and median net client fees per professional of $156,250, itself up 29%. Respondents projected 15% growth in the following year.
+        </p>
+        <p className="mt-4 text-justify">
+          Two caveats worth stating rather than burying. That survey was published in December 2024 and covers calendar 2023, and the 2026 edition is still collecting responses. So these are the most recent published figures in the profession, not this month&apos;s figures.
+        </p>
+        <p className="mt-4 text-justify">
+          Nothing about the direction is ambiguous though. Advisory work grew, it grew fast, and firms that got there early are earning more per person than firms selling compliance alone.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What It Costs to Deliver</h2>
+        <p className="mt-4 text-justify">
+          Now the part that gets less attention. In the same survey, 78% of CAS practices run dedicated CAS staff, and only 10% use hourly billing as their primary pricing method.
+        </p>
+        <p className="mt-4 text-justify">
+          Put those two facts together and the economics of the service line become plain. The client pays a fixed monthly fee. The firm assigns named people. Nothing about the fee flexes when a month turns out to be harder than expected.
+        </p>
+        <p className="mt-4 text-justify">
+          That is a good model for a client and a demanding one for a firm, because it converts a seasonal business into a monthly one. Tax work has one brutal stretch and a recovery period. CAS has twelve closes, twelve reporting packages, twelve rounds of chasing whatever the client did not send. The deadline never arrives and then leaves. It just comes round again.
+        </p>
+        <p className="mt-4 text-justify">
+          Under that model, margin is not primarily a function of the fee. It is a function of how many clients one professional can carry without the work degrading.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Which Is What the 100 and the 67 Are Measuring</h2>
+        <p className="mt-4 text-justify">
+          Read the technology finding again with that in mind. It is not a statement about software being nice to have. It is the same service delivered at a different clients-per-professional ratio, and 51% of practices in the survey said they invest in technology continuously rather than occasionally.
+        </p>
+        <p className="mt-4 text-justify">
+          Everything else in a CAS practice is roughly fixed. The scope is agreed, the fee is agreed, the staff are assigned. The variable that moves is how much of each monthly cycle gets spent producing the deliverable versus assembling the inputs for it.
+        </p>
+        <p className="mt-4 text-justify">
+          And that cost multiplies in a way compliance work does not. A retrieval problem that costs forty minutes on a tax return costs forty minutes once a year. The same problem inside a CAS engagement costs forty minutes twelve times, across every client in the portfolio. A practice with 67 clients and a twenty minute average hunt per client per month is spending something close to a full working week each month on finding things.
+        </p>
+        <p className="mt-4 text-justify">
+          That is where the missing 33 clients are. Not in the pricing, not in the sales process. In the delivery cycle, repeating monthly.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What This Changes About the Advisory Pivot</h2>
+        <p className="mt-4 text-justify">
+          The usual version of the advisory conversation is about positioning: package the service, name it, price it as a subscription, stop selling hours. All reasonable, and none of it touches the ratio.
+        </p>
+        <p className="mt-4 text-justify">
+          A firm that repositions without changing throughput has signed up for twelve deadlines a year at a fixed fee, with the same document handling it had before. That firm grows revenue and adds headcount at nearly the same rate, which is a treadmill rather than a pivot.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks works on the input side of that cycle. It ingests each client&apos;s statements, invoices, contracts and correspondence and lets the CAS team query the whole set in plain English, so the recurring monthly hunt for a supporting document becomes a question with an answer. Role based access controls decide who can open which client&apos;s records, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users, which matters more when the same platform holds thirty clients rather than one.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not produce the management accounts. It reduces the part of every monthly cycle that is spent getting to the point where someone can produce them, and that part is paid for once per client per month, forever.
+        </p>
+        <p className="mt-4 text-justify">
+          The advisory pivot is usually described as a decision about what a firm sells. The number that separates the practices in the survey is about what a firm can deliver.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          In your firm, how many monthly clients can one person carry before the quality starts to slip, and do you know what the ceiling is made of?
+        </p>
+      </>
+    ),
+  },
+  "rollup-inherits-filing-system": {
+    title: "900 Acquisitions Later, the Roll-Up Inherits Everyone's Filing System",
+    category: "Accounting",
+    date: "25 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-cyan",
+    excerpt: "Fewer than 200 initial private equity investments in accountancy firms have facilitated nearly 900 subsequent transactions worldwide. US deal counts went 22, then 65, then 104 across three years. The thesis behind all of it is margin through standardisation, and the thing that resists standardisation hardest is not the general ledger. It is the document estate.",
+    image: "/blog/mismatched-folders.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/mismatched-folders.png"
+            alt="900 Acquisitions Later, the Roll-Up Inherits Everyone&apos;s Filing System"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          IFAC published research in March 2026 with a number worth pausing on. More than 1,000 accountancy firms worldwide have taken private equity investment in the past decade, and fewer than 200 initial investments facilitated nearly 900 subsequent transactions.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Shape of the Money</h2>
+        <p className="mt-4 text-justify">
+          That ratio is the whole model. A sponsor buys a platform, then the platform buys everyone else.
+        </p>
+        <p className="mt-4 text-justify">
+          The US picture matches. The Cornerstone PE deal tracker, reported by CPA Trendlines in February 2026, counted 22 private equity backed accounting transactions in 2023, 65 in 2024 and 104 in 2025, with more than 250 recorded since 2019 and 52 distinct sponsors active since 2024. The top ten sponsors account for just under half of all deals.
+        </p>
+        <p className="mt-4 text-justify">
+          So it is not a broad market of many buyers making one acquisition each. It is a small number of platforms making a lot of them, quickly, and the pace has been rising every year.
+        </p>
+        <p className="mt-4 text-justify">
+          For a firm owner reading this, one of two things is true. Either you will get a call, or you are already competing with a firm that took one.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What the Model Assumes</h2>
+        <p className="mt-4 text-justify">
+          The investment case is not complicated and it is not sinister. Buy at one multiple, build something bigger, sell at a higher one. Between those two events, the return depends on margin, and in professional services margin comes from doing the same work with fewer hours.
+        </p>
+        <p className="mt-4 text-justify">
+          Which means standardising delivery across the group. One methodology, one tech stack, one way of running an engagement, so that the fortieth acquisition is cheaper to absorb than the fourth.
+        </p>
+        <p className="mt-4 text-justify">
+          That plan is written before the first deal closes. It survives contact with practice management software, which does migrate. It survives contact with a chart of accounts.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Actually Arrives With Each Firm</h2>
+        <p className="mt-4 text-justify">
+          Then there is the part nobody underwrites.
+        </p>
+        <p className="mt-4 text-justify">
+          Every acquired firm arrives with a document estate. Twenty years of engagement letters, workpapers, correspondence, prior returns and client files, distributed across a portal the firm bought in 2019, a shared drive organised by a bookkeeper who left, an email archive, and a room with actual cabinets in it. The naming conventions are local. The folder logic is local. The reason a particular client&apos;s file sits where it sits is usually a person, not a rule.
+        </p>
+        <p className="mt-4 text-justify">
+          You can migrate that in the sense of copying the bytes. What does not migrate is the ability to find anything in it.
+        </p>
+        <p className="mt-4 text-justify">
+          And underneath the files sits the part that was never filed at all: why this client&apos;s entity structure looks the way it does, what was agreed verbally in 2021, which position the firm has taken consistently for a decade and why. That knowledge belonged to the partner who signed the deal, and the deal usually starts that partner&apos;s countdown.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why This Is the Binding Constraint</h2>
+        <p className="mt-4 text-justify">
+          Watch what the platform wants to do next. Cross sell advisory into the acquired client base. Move clients onto the group&apos;s service model. Reprice. Every one of those moves requires knowing the client well enough to have the conversation, and the acquiring firm&apos;s knowledge of that client is exactly zero on day one.
+        </p>
+        <p className="mt-4 text-justify">
+          So the group does the only thing available. It routes the question back to the acquired firm&apos;s partners, who are the search index. That works, at a cost, until it does not, and the moment it stops working is roughly the moment the earn out ends.
+        </p>
+        <p className="mt-4 text-justify">
+          The same logic runs in reverse for firms that stay independent. A platform can outspend you on software and out-recruit you on salary. What it cannot buy quickly is a partner who remembers what happened with a client three years ago. That is a real and defensible advantage, and it has an expiry date attached to a specific human being unless the firm makes it something the firm holds rather than something a person holds.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Shape of the Fix</h2>
+        <p className="mt-4 text-justify">
+          Treat the document estate as an asset with a stated condition, the way you would treat a receivables ledger. If the answer to what did we do for this client in 2022 requires a phone call, the asset is not in the condition anyone assumed during diligence.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built for that half of the problem. It ingests each client&apos;s returns, statements, contracts, workpapers and correspondence, whatever conventions they arrived under, and lets someone query the whole set in plain English, so a question about a client acquired last quarter is a question rather than an archaeology project. Role based access controls decide who can open which client&apos;s records, which matters more when several firms are becoming one, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not merge two firms. It removes the assumption that the only working index of a client relationship is a partner who is now three years from the door.
+        </p>
+        <p className="mt-4 text-justify">
+          The deals are the visible part. Nearly 900 of them have already happened, and each one handed somebody a filing cabinet they did not design.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If your firm were acquired tomorrow, how much of what you know about your largest client exists anywhere other than in your own head?
+        </p>
+      </>
+    ),
+  },
+  "audit-deficiency-gap-eight-thirty-four": {
+    title: "8% and 34%: What Actually Separates Two Tiers of Audit Firm",
+    category: "Accounting",
+    date: "24 August, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-violet",
+    excerpt: "The PCAOB published its 2025 inspection results on 13 August 2026. The Big Four's combined Part I.A deficiency rate came in at 8%, down from 20% and 26% in the two prior years. BDO and Grant Thornton came in at 34% and 33%. The measure is not whether the opinion was wrong. It is whether the file could show it was right.",
+    image: "/blog/missing-supports.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/missing-supports.png"
+            alt="8% and 34%: What Actually Separates Two Tiers of Audit Firm"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          The PCAOB released inspection results for the six largest US firms on 13 August 2026. The Big Four&apos;s combined Part I.A deficiency rate was 8%, against 20% a year earlier and 26% the year before that. Deloitte and EY landed at 5%, PwC at 9%, KPMG at 13%.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What That Number Actually Measures</h2>
+        <p className="mt-4 text-justify">
+          One tier down, BDO came in at 34% and Grant Thornton at 33%.
+        </p>
+        <p className="mt-4 text-justify">
+          Worth being precise, because the label invites a misreading. A Part I.A deficiency identifies an instance where the auditor did not obtain sufficient and appropriate audit evidence to support its opinion on the financial statements and internal control over financial reporting.
+        </p>
+        <p className="mt-4 text-justify">
+          It is not a finding that the accounts were wrong. It is not a restatement. In most cases the opinion may be perfectly sound. What the inspection found is that the file did not demonstrate it.
+        </p>
+        <p className="mt-4 text-justify">
+          That distinction is the entire subject. The regulator is not marking the conclusion. It is marking whether the work behind the conclusion was obtained, documented and assembled well enough for a reviewer who was not there to follow it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">A Fourfold Collapse, and a Tier That Did Not Move</h2>
+        <p className="mt-4 text-justify">
+          Take the three year run at the top seriously: 26, then 20, then 8. That is not noise, and it is not one good year.
+        </p>
+        <p className="mt-4 text-justify">
+          Two honest caveats before drawing conclusions. Inspections are risk weighted rather than random, so the selections are not a neutral sample of each firm&apos;s work. And firms differ in client mix, which affects how hard the selected engagements are. Comparing 8% to 34% is not the same as comparing two identical firms.
+        </p>
+        <p className="mt-4 text-justify">
+          Even allowing for all of that, a gap of four times is not explained by sampling. Something structural separates the two groups.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Evidence Is an Operating System, Not a Talent</h2>
+        <p className="mt-4 text-justify">
+          Here is the part worth arguing about. Professional judgment is distributed across this profession far more evenly than the results suggest. There are excellent auditors at firms with a 34% rate and mediocre ones at firms with 5%.
+        </p>
+        <p className="mt-4 text-justify">
+          What is not evenly distributed is the machinery around the judgment: whether the methodology forces the evidence to be gathered before the conclusion is written, whether the workpaper shows what was examined rather than what was decided, whether a reviewer two levels up can reconstruct the reasoning without a conversation.
+        </p>
+        <p className="mt-4 text-justify">
+          That machinery is what the top tier has spent three years and a great deal of money rebuilding, under considerable public pressure. It is unglamorous work. It is also, on this evidence, the thing that moved the number.
+        </p>
+        <p className="mt-4 text-justify">
+          The tier below did not do less auditing. It did less of that.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Same Failure Mode Below the Inspection Line</h2>
+        <p className="mt-4 text-justify">
+          Most firms reading this will never see a PCAOB inspector. The mechanism does not care.
+        </p>
+        <p className="mt-4 text-justify">
+          Peer review asks a version of the same question. So does a professional liability claim, a fee dispute, a successor accountant, and a client who wants to know why a position was taken four years ago. Every one of those reduces to whether the file can carry the argument once the person who made it is unavailable, busy, or gone.
+        </p>
+        <p className="mt-4 text-justify">
+          And the stakes have moved recently. When the first draft of a workpaper, a memo or a research conclusion arrives from a tool rather than from a person, the reasoning behind it was never in anyone&apos;s head to begin with. A file that records what was concluded but not what was examined used to be recoverable, because someone remembered. That recovery route closes as more of the first pass gets automated.
+        </p>
+        <p className="mt-4 text-justify">
+          Which points somewhere specific. The constraint is rarely that people cannot document their reasoning. It is that assembling the evidence takes long enough that documenting it competes with finishing the job.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Where This Leaves the Evidence Base</h2>
+        <p className="mt-4 text-justify">
+          MetaWurks works on that half. It ingests the underlying material an engagement runs on, the client&apos;s statements, invoices, contracts, correspondence and prior filings, and lets an accountant query all of it in plain English, so establishing what supports a number is a question rather than a morning. Role based access controls govern who can open which client&apos;s records, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          No software writes the memo explaining why the evidence was sufficient. That remains a professional obligation and a professional judgment. What changes is how much of the working day is spent getting the evidence onto the desk, which is the part that quietly decides whether anyone has time to write the memo at all.
+        </p>
+        <p className="mt-4 text-justify">
+          The regulator published two numbers this month, 8% and 34%. The distance between them is not made of talent. It is made of what the file can show.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Pick your most complex engagement from last year. If a reviewer opened that file today with no access to the people who did the work, how much of the reasoning could they reconstruct?
+        </p>
+      </>
+    ),
+  },
   "self-prepared-returns-grew-faster": {
     title: "Self-Prepared Returns Grew Four Times Faster Than Yours",
     category: "Accounting",
