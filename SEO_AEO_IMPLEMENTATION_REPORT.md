@@ -82,7 +82,7 @@ All "After" values were read from the rendered production build (`next build` + 
 |---|---|
 | Local `/product` | **PASS** — HTTP 200 on production build (`next start`) |
 | Build | **PASS** — `npm run build`, compiled 9.4s, 54/54 static pages |
-| Lint | **PASS for SEO/AEO code — 0 errors, 0 warnings.** The repo script `npm run lint` cannot start (pre-existing: `eslint.config.js` imports `globals`, `eslint-plugin-react-refresh`, `typescript-eslint`, none of which are in `package.json`) and fails byte-identically at baseline. To get a real result the code was linted with a working config held outside the repo, under two rule sets. Both give **identical totals at baseline and on this branch**, so the SEO/AEO work introduced **zero** lint problems. See §5a |
+| Lint | **BLOCKED by a pre-existing repository configuration defect — unrelated to this work. See §5a.** `npm run lint` cannot execute at all, at baseline or on this branch. When the defect is worked around, the SEO/AEO code contributes **0 errors**: error counts are identical to baseline (3 vs 3) |
 | Typecheck | **PASS for application code — 0 errors.** `tsc --noEmit` reports 6 errors, all `TS2306` inside generated `.next/types`, caused by two API route files that are entirely commented out at baseline. Verified identical on untouched `b7a84c9` |
 | Tests | **NOT RUN** — no test runner or test files exist in the repository |
 | Metadata | **PASS** — unique title + description on all 9 public routes; zero duplicate titles |
@@ -93,18 +93,45 @@ All "After" values were read from the rendered production build (`next build` + 
 | robots.txt | **PASS** — 9 AI agents named, `Sitemap:` declared, no conflicting static file |
 | Internal links | **PASS** — all 12 `/product` body links return 200 |
 
-### 5a. Lint detail
+### 5a. Lint — two separate issues, kept apart
 
-| Rule set | Baseline `b7a84c9` | This branch | SEO/AEO files |
+**Issue A — pre-existing repository configuration defect. NOT part of the SEO/AEO work, and deliberately not fixed.**
+
+`npm run lint` does not run. It exits 1 before examining a single file:
+
+```
+Cannot find package 'globals' imported from .../eslint.config.js
+```
+
+`eslint.config.js` imports `globals`, `eslint-plugin-react-refresh` and `typescript-eslint`; none of the three is declared in `package.json`. The file is a leftover Vite/React scaffold config (note `ignores: ["dist"]` and the `react-refresh` plugin) sitting in a Next.js project.
+
+- Reproduces identically at baseline `b7a84c9` and on this branch.
+- `eslint.config.js`, `package.json` and `package-lock.json` are **byte-identical to baseline** — confirmed by `git diff --stat b7a84c9 HEAD` returning empty for all three.
+- **No dependency change was made.** Fixing this means adding three devDependencies, which is a change to pre-existing repository configuration and is out of scope for the SEO/AEO implementation. It is logged here as a separate repository maintenance item awaiting a decision.
+- The `node_modules` tree in this replica has been restored with `npm ci`, so it matches the committed lockfile exactly. Lint therefore fails here today, as it does for anyone who checks the repo out.
+
+*Audit method (reproducible, non-destructive):* the three packages were installed transiently with `npm install --no-save` at versions matching the installed toolchain — `globals@15.15.0`, `eslint-plugin-react-refresh@0.4.20`, `typescript-eslint@8.38.0`. That touches only `node_modules`, never the manifests, and lets the repo's own `npm run lint` execute for real. They were removed afterwards.
+
+**Issue B — lint findings attributable to the SEO/AEO work: zero errors.**
+
+With Issue A worked around, the repo's own lint command gives:
+
+| | Baseline `b7a84c9` | This branch `7f0e864` | Delta |
 |---|---|---|---|
-| Project's intended set (js recommended + typescript-eslint recommended + react-hooks recommended) | 4 errors | 4 errors | **0 errors, 0 warnings** |
-| Stricter Next.js set (adds react, jsx-a11y, @next/next core-web-vitals) | 151 errors, 1 warning | 151 errors, 1 warning | **0 errors, 0 warnings** |
+| **Errors** | 3 | 3 | **0** |
+| Warnings | 10 | 19 | +9 |
 
-All pre-existing findings sit in files untouched by this work: 146 × `react/no-unescaped-entities`, 2 × `@typescript-eslint/no-empty-object-type`, 1 × `@typescript-eslint/no-explicit-any`, 1 × `react/no-unknown-property`, 1 × `no-redeclare`, 1 × `@next/next/no-img-element`. **None were modified.**
+The 3 errors are the same three findings in the same three files at both points, none of which this work touched (`git diff` on all three paths is empty):
 
-One issue *was* attributable to this work and has been fixed: `components/JsonLd.tsx` carried an `eslint-disable-next-line react/no-danger` directive that no enabled rule needed, reported as an unused disable. Replaced with a plain explanatory comment (commit `356a9d8`). `eslint.config.js`, `package.json` and `package-lock.json` remain untouched; the temporary audit configs were deleted after use.
+| File | Rule |
+|---|---|
+| `app/api/send-email/route.ts:93` | `@typescript-eslint/no-explicit-any` |
+| `components/ui/command.tsx:24` | `@typescript-eslint/no-empty-object-type` |
+| `components/ui/textarea.tsx:5` | `@typescript-eslint/no-empty-object-type` |
 
-Additional: no console errors on `/product`, `/pricing` or `/`; at 375 px viewport `document.scrollWidth === 375` (no horizontal scroll), all 3 tables scroll inside their own containers.
+The +9 warnings are all one rule, `react-refresh/only-export-components`, in the nine files that export page metadata (`app/page.tsx`, `app/product/page.tsx`, and the seven route `layout.tsx` files). They are **not defects**: the rule comes from a Vite Fast-Refresh plugin and fires on any file exporting something alongside a component, and `export const metadata` is the Next.js App Router's required API for page metadata — the mechanism the entire SEO deliverable rests on. Two baseline files, `app/layout.tsx:5` and `app/blog/[id]/page.tsx:27,67`, emit the identical warning for the identical reason. Silencing them would mean deleting the metadata exports.
+
+**One lint issue was attributable to this work and was fixed:** `components/JsonLd.tsx` carried an `eslint-disable-next-line react/no-danger` directive that no enabled rule needed, reported as an unused disable. Replaced with a plain explanatory comment (commit `356a9d8`).
 
 ## 6. Factual items requiring confirmation
 
@@ -127,7 +154,7 @@ Ten unresolved contradictions found **inside the repository**, each with the fil
 
 **Not repository contradictions, but unsupported spec claims that were dropped:** "15-minute setup" (no setup-time figure exists) and "See a 2-Minute Demo" (no video or demo route exists; the only demo path is a Calendly 30-minute booking). The four `/for/*` vertical routes do not exist and were not linked. No product screenshot exists; a documented placeholder ships instead.
 
-**Pre-existing, observed, not fixed:** `.env` is committed containing what appear to be live credentials (`SENDGRID_API_KEY`, `EMAIL_PASS`) — values were never read or printed; `/docs` emits 14 `<h1>` tags; the homepage H1 renders as one run-together token; `app/api/early-access/route.ts` and `.../verify/route.ts` are entirely commented out.
+**Pre-existing, observed, not fixed** (repository maintenance items, none caused by or part of the SEO/AEO work): the **ESLint configuration defect that stops `npm run lint` running at all — see §5a Issue A**; `.env` is committed containing what appear to be live credentials (`SENDGRID_API_KEY`, `EMAIL_PASS`) — values were never read or printed; `/docs` emits 14 `<h1>` tags; the homepage H1 renders as one run-together token; `app/api/early-access/route.ts` and `.../verify/route.ts` are entirely commented out.
 
 ## 7. Repository safety
 
@@ -138,4 +165,147 @@ Ten unresolved contradictions found **inside the repository**, each with the fil
 
 ## 8. Final status
 
-**Status: SEO/AEO implementation completed in the local replica and ready for human review. Lint is clean for all SEO/AEO code (0 errors, 0 warnings, identical totals to baseline); the repo's own lint script remains broken from a pre-existing config/dependency fault that was deliberately not modified. The 10 factual items in §6 require product-owner confirmation before this content is published.**
+**Status: SEO/AEO implementation completed in the local replica and ready for human review. The SEO/AEO code introduces zero lint errors — error counts are identical to baseline. Two items sit outside this work and remain open: (1) a pre-existing ESLint configuration defect that prevents `npm run lint` from running at all, logged in §5a as a separate repository maintenance item with no dependency change made; and (2) the 10 factual items in §6, which require product-owner confirmation before this content is published.**
+
+---
+
+# Appendix A — Published blog claims inventory (findings only)
+
+**Status: REPORT ONLY. No blog content was modified.** `lib/blogPosts.tsx` is byte-identical
+to baseline; `app/blog/page.tsx` received additive schema only, with zero removed lines.
+Nothing below has been rewritten, removed, softened, or reused on another page.
+
+Audited 29 August 2026 across `lib/blogPosts.tsx` (37 article bodies + excerpts) and
+`app/blog/page.tsx` (37 independently maintained index excerpts). 34 flagged lines in the
+former, 3 in the latter.
+
+**Status key** — *Supported*: backed by `app/privacy-policy/page.tsx` or `app/docs/page.tsx`.
+*Contradicted*: conflicts with one of those sources. *Unverified*: no source either way.
+
+## A.1 ★ Model-training claim — 10 occurrences, ALL UNVERIFIED
+
+The claim that **"documents ingested into the platform are not used to train models or
+exposed to other users"**, or a close variant.
+
+Two verified facts frame it:
+
+1. The claim appears **nowhere outside the blog** — not in `/docs`, not on `/product`, not
+   on `/pricing`, not in any component.
+2. `app/privacy-policy/page.tsx` is **entirely silent on model training**. It neither
+   asserts nor denies it.
+
+Awaiting explicit product-owner confirmation before this is reused, strengthened, moved to
+`/product` or `/about-us`, or removed.
+
+| # | Post | Line | Form of the claim |
+|---|---|---|---|
+| 1 | Self-Prepared Returns Grew Four Times Faster Than Yours | `:83` | "not used to train models or exposed to other users" |
+| 2 | Reviewers on Day One | `:174` | same |
+| 3 | The Job Bookkeepers Want Automated Is Not Bookkeeping | `:265` | same |
+| 4 | Your Close Got Faster. Your Answers Did Not. | `:346` | "not used to train models and are not exposed to other users" |
+| 5 | Written in 1971: The Rule Your AI Tax Research Just Ran Into | `:431` | same |
+| 6 | Ten Apps, Five Hours a Week | `:522` | "not used to train models or exposed to other users" |
+| 7 | Tax Professionals Were Asked What AI Needs to Earn Their Trust | `:607` | same |
+| 8 | The Difference Between a Five-Day Close and a Ten-Day Close | `:698` | same |
+| 9 | Your Fixed Fee Was Priced on Effort That No Longer Exists | `:871` | same |
+| 10 | The Job Bookkeepers Want Automated Is Not Bookkeeping | `:255` | **Not a product claim** — reports a survey finding ("53% want their data … never used to train models"). Distinct from the nine above |
+
+Nine of the ten are product guarantees addressed to bookkeepers and CPAs. Occurrence 5 sits
+inside the IRC §7216 article, where it reads as compliance guidance.
+
+## A.2 Security and availability claims — `lib/blogPosts.tsx`
+
+| Post | Line | Claim | Status |
+|---|---|---|---|
+| Self-Prepared Returns… | `:83` | Role-based access, audit logs, training | Unverified |
+| Reviewers on Day One | `:174` | Role-based access, audit logs, training | Unverified |
+| Job Bookkeepers… | `:265` | Role-based access, audit logs, training | Unverified |
+| Close Got Faster… | `:346` | Role-based access, audit logs, training | Unverified |
+| Written in 1971 (§7216) | `:431` | Role-based access, audit logs, training | Unverified |
+| Written in 1971 (§7216) | `:434` | "The audit log is the part that matters for this rule" | Unverified |
+| Ten Apps, Five Hours | `:522` | End-to-end encryption, SSO, RBAC, audit logs, training | **Contradicted** (E2EE) |
+| Defensible Not Just Accurate | `:607` | End-to-end encryption, SSO, RBAC, audit logs, training | **Contradicted** (E2EE) |
+| Close Gap Is a Data Problem | `:698` | Role-based access, audit logs, training | Unverified |
+| AICPA Asked Small Firms | `:783` | End-to-end encryption, SSO, RBAC, audit logs | **Contradicted** (E2EE) |
+| Fixed Fee… | `:871` | Role-based access, audit logs, training | Unverified |
+| Why General-Purpose AI… | `:1396`, `:1411` | "regulated industries" framing | Unverified, generic industry commentary — not a MetaWurks guarantee |
+| Hidden Risk in Finance AI | `:1673` | "SSO with audit logs **by default**" (excerpt) | **Contradicted** |
+| Hidden Risk in Finance AI | `:1702` | "dedicated security layer per document"; "SSO and audit logs come standard by default" | **Contradicted** |
+| AI in Tax Research (CPA) | `:1845` | SOC 2 / SSAE 16 named as **industry selection criteria** | Not a MetaWurks claim |
+| AI in Tax Research (CPA) | `:1893` | ⚑ "compliance frameworks appropriate for financial services"; "encrypted data transmission and storage"; "comprehensive audit logging" | **Unverified** — names no framework |
+| MetaWurks — Redefining AI Collaboration | `:1959` | "enterprise-grade security… role-based access, and detailed audits" | Unverified |
+| Shaping Future AI Workflows | `:2052` | E2EE, RBAC, audit trails, "meets the strict requirements of regulated industries" | **Contradicted** |
+| AI Agents Transforming Productivity | `:2073` | SSO, RBAC, full audit logging (excerpt) | **Contradicted** |
+| AI Agents Transforming Productivity | `:2077` | Same claim in the body | **Contradicted** |
+| AI Agents Transforming Productivity | `:2115`, `:2121`–`:2124`, `:2127` | Explicit feature list: "End-to-end encryption: all data encrypted in transit and at rest", "Single Sign-On (SSO)", "Role-based access control", "Comprehensive audit logging", "suitable for regulated industries" | **Contradicted — highest-exposure passage found** |
+| Real-World Use Cases | `:2376` | ⚑ Audit trails and version history, cited "(metawurks.com)" | Unverified + circular citation |
+| Real-World Use Cases | `:2406` | ⚑ Audit logs, per-role access, cited "(metawurks.com)" | Unverified + circular citation |
+| Real-World Use Cases | `:2439` | ⚑ RBAC, encryption, audit logs, cited "(metawurks.com)" | Unverified + circular citation |
+| Custom Trained Private LLMs | `:2575`, `:2578`, `:2582` | GDPR/CCPA, data residency, RBAC — describing **private-LLM architecture in general** | Not MetaWurks claims |
+
+## A.3 Security claims — `app/blog/page.tsx` (index excerpts)
+
+| Post | Line | Claim | Mirrors |
+|---|---|---|---|
+| Hidden Risk in Finance AI | `:191` | "SSO with audit logs by default" | `lib/blogPosts.tsx:1673` |
+| Why General-Purpose AI… | `:227` | "regulated industries" framing | `lib/blogPosts.tsx:1396` |
+| AI Agents Transforming Productivity | `:317` | SSO, RBAC, full audit logging | `lib/blogPosts.tsx:2073` |
+
+## A.4 Duplicated excerpts — source-of-truth determination
+
+`app/blog/page.tsx` is **independently maintained, not generated.** It declares its own
+`const blogPosts = [...]` (line 7, 37 entries) and never imports `blogPostsData`.
+
+Measured 29 August 2026: **37 of 37 excerpts byte-identical, zero drift.** They are kept in
+sync by hand, so the first one-sided edit introduces divergence — the index and the post
+would then disagree, and the index excerpt is what feeds search snippets and social cards.
+
+Both copies left exactly as found. Consolidating to a single source is recommended
+**before** any excerpt is edited, and is a separate change.
+
+## A.5 Asset and content limitations (no images generated, replaced or altered)
+
+Recorded as limitations. No image was created, substituted or modified.
+
+**Seven images below Google's 1200px width recommendation for Article rich results.** They
+are emitted in schema with their true dimensions; they are simply smaller than the guidance.
+Resolving this needs approved replacement assets.
+
+| File | Actual size |
+|---|---|
+| `/blog/Finance-1.jpeg` | 1031 × 1280 |
+| `/blog/5_AI-Tools.jpeg` | 1031 × 1280 |
+| `/blog/blog1.jpg` | 1024 × 576 |
+| `/blog/blog2.jpg` | 1024 × 576 |
+| `/blog/blog3.png` | 1024 × 576 |
+| `/blog/blog4.jpg` | 1024 × 576 |
+| `/blog/blog5.jpg` | 1024 × 576 |
+
+**Seven posts declare no image.** Each emits **no** `image` property rather than a
+fabricated or borrowed one, which reduces Article rich-result eligibility for those URLs:
+
+`metawurks-redefining-ai-collaboration` · `shaping-future-ai-workflows` ·
+`ai-agents-transforming-productivity` · `multi-llm-systems-future` ·
+`drive-connectivity-document-uploads` · `real-world-use-cases-metawurks-industries` ·
+`creating-powerpoint-presentations-metawurks`
+
+## A.6 Blog technical integrity (verified clean)
+
+| Check | Result |
+|---|---|
+| Index links resolving to real post routes | **37 / 37** — no 404s |
+| Posts reachable from the index | **37 / 37** — no orphans |
+| Declared image files present on disk | **30 / 30** — no broken schema image URLs |
+| `datePublished` parseable from the stored date | **37 / 37** |
+| `description` available (excerpt present) | **37 / 37** |
+
+## A.7 Claims deliberately withheld from structured data
+
+Visible copy is unchanged in every case. These are only declined as machine-readable fact.
+
+| Surface | Withheld | Reason |
+|---|---|---|
+| `/pricing` FAQPage | 5 of 8 FAQs | Model list, free-tier terms, security claims and undocumented API access each contradict another source. All 8 remain visible |
+| `/blog` ItemList | `description` on all 37 items | Three excerpts carry contradicted security claims. Names and URLs are emitted; excerpts stay visible on the page |
+| `/product` | SSO, audit logs, E2EE, certifications | Never published — see §6 |
+| Blog `BlogPosting` | `dateModified`; a named Person author | No modification date and no author field exist in the data. Organization is the author of record |

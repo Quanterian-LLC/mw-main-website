@@ -1,7 +1,52 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import AboutAnswerSections, { aboutFaqs } from "@/components/AboutAnswerSections";
+import { SITE, organizationSchema, websiteSchema } from "@/lib/seo";
 import { Rocket, Users, Shield, TrendingUp } from "lucide-react";
 import Link from "next/link";
+
+
+// AboutPage + BreadcrumbList + FAQPage. Every FAQ below is rendered visibly by
+// <AboutAnswerSections />. No Person entities are emitted: the team records in this file
+// carry names and roles but no verified credentials, photos or profile URLs, and inventing
+// them is not an option. Add Person nodes only once real details are supplied.
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    organizationSchema,
+    websiteSchema,
+    {
+      "@type": "AboutPage",
+      "@id": `${SITE}/about-us#webpage`,
+      url: `${SITE}/about-us`,
+      name: "About MetaWurks",
+      description:
+        "MetaWurks is an AI document intelligence platform for document-heavy small businesses, built by SkyllMakers.",
+      isPartOf: { "@id": `${SITE}/#website` },
+      about: { "@id": `${SITE}/#organization` },
+      breadcrumb: { "@id": `${SITE}/about-us#breadcrumb` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE}/about-us#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "About", item: `${SITE}/about-us` },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE}/about-us#faq`,
+      isPartOf: { "@id": `${SITE}/about-us#webpage` },
+      mainEntity: aboutFaqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
 
 export default function AboutUs() {
   const coreValues = [
@@ -20,7 +65,7 @@ export default function AboutUs() {
     {
       icon: Shield,
       title: "Trust & Security",
-      description: "Your data is protected with enterprise-grade security.",
+      description: "OAuth tokens and sensitive data stored encrypted, HTTPS in transit, and access controls. Full terms in our privacy policy.",
       gradient: "from-ai-cyan to-ai-mint",
     },
     {
@@ -54,26 +99,11 @@ export default function AboutUs() {
     },
   ];
 
-  const processSteps = [
-    {
-      title: "Intelligent Setup",
-      description: "We begin by securely ingesting and organizing your business documents—PDFs, spreadsheets, scanned files, and more—readying them for real-time AI interaction.",
-      gradient: "from-ai-blue to-ai-cyan",
-    },
-    {
-      title: "Semantic Understanding",
-      description: "Our AI interprets your queries in plain English, leveraging advanced domain-specific models to understand your intent and surface highly accurate answers instantly.",
-      gradient: "from-ai-violet to-ai-peach",
-    },
-    {
-      title: "Personalized Insight Delivery",
-      description: "Over time, MetaWurks learns from your behavior and past queries—delivering increasingly tailored, context-aware insights across your workflows.",
-      gradient: "from-ai-cyan to-ai-mint",
-    },
-  ];
+
 
   return (
     <main className="min-h-screen bg-background">
+      <JsonLd data={aboutJsonLd} />
       <Navbar />
       
       {/* Hero Section */}
@@ -89,50 +119,23 @@ export default function AboutUs() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
-              Committed to People and the future
+              About MetaWurks
             </h1>
             <p className="text-xl text-muted-foreground mb-4">
-              AI-powered insights for your <strong className="text-foreground">business</strong>
+              MetaWurks is an{" "}
+              <strong className="text-foreground">AI document intelligence platform</strong>{" "}
+              for document-heavy small businesses.
             </p>
             <p className="text-lg text-muted-foreground">
-              Instantly analyze PDFs, spreadsheets, and more to answer domain-specific questions
+              Upload your PDFs, spreadsheets and other business files, or connect Google
+              Drive or OneDrive, then ask questions in plain English and get answers drawn
+              from your own documents &mdash; each one citing the passage it came from.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Empowering Business Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="inline-block text-sm font-medium text-ai-violet mb-4">EMPOWERING YOUR BUSINESS</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
-              Empowering your business{" "}
-              <span className="gradient-warm-text">with AI-driven insights</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Struggling with documents spread across PDFs, spreadsheets, and cloud drives? MetaWurks helps you organize, understand, and query your business data in natural language—no tech skills required. From legal teams to logistics, we make your day-to-day work friction-free and insight-driven.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {processSteps.map((step, index) => (
-              <div 
-                key={index}
-                className="group relative p-8 rounded-3xl backdrop-blur-xl bg-card/60 border border-border/50 hover:scale-[1.02] transition-all duration-500"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center text-primary-foreground font-display font-bold text-xl`}>
-                    {index + 1}
-                  </div>
-                  <h3 className="text-2xl font-display font-semibold tracking-tight">{step.title}</h3>
-                </div>
-                <p className="text-muted-foreground font-body font-normal leading-relaxed">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AboutAnswerSections />
 
       {/* Core Values Section */}
       <section className="py-32 relative overflow-hidden">
@@ -181,12 +184,16 @@ export default function AboutUs() {
       <section className="py-32 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="inline-block text-sm font-medium text-ai-violet mb-4">ABOUT OUR EXPERT</span>
+            <span className="inline-block text-sm font-medium text-ai-violet mb-4">TEAM</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
-              Entrust Your Project To Our Specialists
+              Who builds MetaWurks
             </h2>
+            {/* The names and roles below are the only team details recorded anywhere in this
+                repository. No credentials, photos, biographies or profile links exist, and
+                none were invented. Supply real details to expand this section — and only
+                then add Person schema. */}
             <p className="text-xl text-muted-foreground">
-              Our IT services converge business and technology experts to help to manage business categories
+              MetaWurks is built by SkyllMakers.
             </p>
           </div>
 
@@ -227,7 +234,7 @@ export default function AboutUs() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight leading-tight mb-6">
-              We will be glad to hear from you!
+              Questions about your documents or which plan fits?
             </h2>
             <Link href="/contact" className="group relative inline-flex items-center justify-center gap-2 h-14 px-10 rounded-2xl text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg">
               <div 

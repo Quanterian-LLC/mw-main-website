@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { SITE } from "@/lib/seo";
 
 export default function Blog() {
   const blogPosts = [
@@ -340,8 +342,50 @@ export default function Blog() {
     },
   ];
 
+  // Blog + ItemList for the index, built from the same `blogPosts` array rendered below.
+  //
+  // Only `name` and `url` are emitted per item. Excerpts are deliberately NOT included as
+  // schema `description`: several of them carry security claims that are unverified or
+  // contradicted by app/docs and app/privacy-policy (see the inventory in
+  // SEO_AEO_IMPLEMENTATION_REPORT.md). The excerpts remain visible on the page exactly as
+  // written — this only declines to restate them as machine-readable fact. Add
+  // `description: post.excerpt` once those claims are confirmed.
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": `${SITE}/blog#blog`,
+        name: "MetaWurks Blog",
+        url: `${SITE}/blog`,
+        publisher: { "@id": `${SITE}/#organization` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${SITE}/blog#itemlist`,
+        itemListOrder: "https://schema.org/ItemListOrderDescending",
+        numberOfItems: blogPosts.length,
+        itemListElement: blogPosts.map((post, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: post.title,
+          url: `${SITE}/blog/${post.id}`,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE}/blog#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-background">
+      <JsonLd data={blogSchema} />
       <Navbar />
       
       {/* Hero Section */}

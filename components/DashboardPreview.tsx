@@ -6,13 +6,24 @@ const DashboardPreview = () => {
     <section id="dashboard" className="py-32 relative overflow-hidden bg-card/30">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-medium text-ai-mint mb-4">DASHBOARD</span>
+          <span className="inline-block text-sm font-medium text-ai-mint mb-4">
+            INTERFACE PREVIEW
+          </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
             Your AI{" "}
             <span className="gradient-text">command center</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Monitor, manage, and optimize all your AI operations from a single, beautiful interface.
+          <p className="text-xl text-muted-foreground mb-4">
+            Manage your documents, conversations and model choice from one workspace.
+          </p>
+          {/* The figures inside this mockup ("1.2M", "124ms", "$4.2k") are NOT verified
+              product or company statistics — nothing in this repository substantiates them.
+              Rather than delete the mockup or invent replacement numbers, the section is
+              labelled for what it is. If the figures are confirmed real, replace this note
+              with the measured values and their source. */}
+          <p className="text-sm text-muted-foreground/80">
+            Illustrative interface mockup. Figures shown are example values, not measured
+            product statistics.
           </p>
         </div>
 

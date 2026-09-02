@@ -1,42 +1,53 @@
 import { MessageSquare, BarChart3, Zap, BookOpen, Workflow, Bot } from "lucide-react";
 
+// Card copy rewritten to describe what MetaWurks actually does with documents.
+//
+// The previous descriptions ("Multi-Agent Pipelines", "orchestrated AI agents", "workflows
+// that adapt and optimize in real-time") described a generic agent platform and were not
+// supported by app/docs/page.tsx. Each entry below cites its source.
 const environments = [
   {
     icon: MessageSquare,
-    title: "Conversational AI",
-    description: "Natural dialogue with context-aware responses across multiple models",
+    title: "Chat with your documents",
+    description:
+      "Ask a question in plain English and get an answer built from your uploaded files, citing the passage it came from.",
     gradient: "from-ai-blue to-ai-cyan",
-  },
-  {
-    icon: BarChart3,
-    title: "Deep Analysis",
-    description: "Complex data processing with reasoning chains and insights extraction",
-    gradient: "from-ai-violet to-ai-peach",
-  },
-  {
-    icon: Zap,
-    title: "Task Automation",
-    description: "Intelligent workflows that adapt and optimize in real-time",
-    gradient: "from-ai-cyan to-ai-mint",
-  },
+  }, // app/docs/page.tsx:447-460
   {
     icon: BookOpen,
-    title: "Knowledge Retrieval",
-    description: "Semantic search across your entire knowledge base with RAG",
+    title: "Retrieval across your whole set",
+    description:
+      "Retrieval-augmented generation searches every document you have added, so one question can span several files at once.",
     gradient: "from-ai-peach to-ai-violet",
-  },
-  {
-    icon: Workflow,
-    title: "Multi-Agent Pipelines",
-    description: "Orchestrated AI agents working together on complex tasks",
-    gradient: "from-ai-mint to-ai-blue",
-  },
+  }, // app/docs/page.tsx:100
   {
     icon: Bot,
-    title: "Custom Assistants",
-    description: "Build specialized AI assistants for your unique needs",
+    title: "Six model providers, one workspace",
+    description:
+      "OpenAI, Anthropic, Google, xAI, DeepSeek and Perplexity, switchable mid-conversation to suit the task.",
     gradient: "from-ai-blue to-ai-violet",
-  },
+  }, // app/docs/page.tsx:399-404, :119
+  {
+    icon: Workflow,
+    title: "Cloud storage connections",
+    description:
+      "Connect Google Drive or OneDrive over OAuth and import folders. Connections are per-user and private to you.",
+    gradient: "from-ai-mint to-ai-blue",
+  }, // app/docs/page.tsx:103, :619, :650-651
+  {
+    icon: Zap,
+    title: "Background tasks",
+    description:
+      "Longer jobs run in the background with a live progress card. Tasks can run up to 15 minutes, and up to 5 at once.",
+    gradient: "from-ai-cyan to-ai-mint",
+  }, // app/docs/page.tsx:485
+  {
+    icon: BarChart3,
+    title: "Export what you produce",
+    description:
+      "Send results out as PDF, Word, Excel, PowerPoint, CSV or plain text.",
+    gradient: "from-ai-violet to-ai-peach",
+  }, // app/docs/page.tsx:122, :512-516
 ];
 
 const EnvironmentsSection = () => {
@@ -59,7 +70,7 @@ const EnvironmentsSection = () => {
             <span className="gradient-warm-text">One platform.</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            Purpose-built environments for every use case. Each one powered by your choice of LLMs.
+            What you can do once your documents are in MetaWurks.
           </p>
         </div>
 
@@ -83,11 +94,7 @@ const EnvironmentsSection = () => {
               <h3 className="text-xl font-display font-semibold tracking-tight mb-3">{env.title}</h3>
               <p className="text-muted-foreground font-body font-normal leading-relaxed">{env.description}</p>
 
-              {/* Arrow indicator */}
-              <div className="mt-6 flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className={`bg-gradient-to-r ${env.gradient} bg-clip-text text-transparent`}>Explore</span>
-                <span className="text-ai-violet">→</span>
-              </div>
+
             </div>
           ))}
         </div>

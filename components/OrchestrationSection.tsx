@@ -12,15 +12,21 @@ const OrchestrationSection = () => {
               Why choose us
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Empowering your business with AI-driven insights. Connect, process, and query documents from Google Drive, OneDrive, Dropbox, or local files—all in natural language.
+              Connect Google Drive or OneDrive, or upload files directly, then query your documents in plain English. Answers come from your own files and cite the passage they came from.
             </p>
 
             <div className="space-y-6">
               {[
                 { title: "Proactive Task Assistance", description: "A true digital teammate, proactively providing insights, reminders, and summaries to keep projects on track." },
-                { title: "Enterprise Workflow Integration", description: "Connects with Google Drive, Dropbox, OneDrive, slack and more embedding into workflows rather than staying isolated." },
+                { title: "Works With Your Existing Storage", description: "Import folders from Google Drive or OneDrive over OAuth, or drag files in directly — no need to move your documents somewhere new." },
                 { title: "Intelligent Context Awareness", description: "Understands history, roles, and organizational knowledge to deliver evolving, context-aware support tailored to teams." },
-                { title: "Secure, Scalable Collaboration", description: "With encryption, SSO, role-based access and audit logs, it scales securely across teams for efficient AI collaboration." },
+                // SSO, role-based access and audit logs were removed from this description:
+                // none is supported by app/docs/page.tsx or app/privacy-policy/page.tsx, and
+                // this component renders live on the homepage. The replacement states only
+                // what app/privacy-policy/page.tsx:87,120-122 actually claims — it is not a
+                // softened version of the removed claims, and nothing was invented to fill
+                // the gap. Restore specifics here only once they are documented.
+                { title: "Secure, Scalable Collaboration", description: "OAuth tokens and sensitive data are stored encrypted, data is transmitted over HTTPS, and access controls prevent unauthorized use." },
               ].map((feature, index) => (
                 <div key={index} className="flex gap-4 group cursor-pointer">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-ai-blue to-ai-violet mt-3 group-hover:scale-150 transition-transform" />
@@ -44,11 +50,11 @@ const OrchestrationSection = () => {
 
               {/* Model nodes */}
               {[
-                { angle: 0, label: "GPT-5", color: "from-ai-blue to-ai-cyan" },
+                { angle: 0, label: "GPT", color: "from-ai-blue to-ai-cyan" },
                 { angle: 72, label: "Claude", color: "from-ai-violet to-ai-peach" },
                 { angle: 144, label: "Gemini", color: "from-ai-cyan to-ai-mint" },
-                { angle: 216, label: "Llama", color: "from-ai-peach to-ai-violet" },
-                { angle: 288, label: "Mistral", color: "from-ai-mint to-ai-blue" },
+                { angle: 216, label: "DeepSeek", color: "from-ai-peach to-ai-violet" },
+                { angle: 288, label: "Perplexity", color: "from-ai-mint to-ai-blue" },
               ].map((node, i) => {
                 const radius = 140;
                 const x = Math.cos((node.angle * Math.PI) / 180) * radius;

@@ -178,13 +178,16 @@ export default function Contact() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6">
-              Committed to People and the future
+              Contact MetaWurks
             </h1>
             <p className="text-xl text-muted-foreground mb-4">
-              AI-powered insights for your <strong className="text-foreground">business</strong>
+              Questions about plans, security, or getting your documents in? Reach the team by{" "}
+              <strong className="text-foreground">form, email or phone</strong>.
             </p>
             <p className="text-lg text-muted-foreground">
-              Instantly analyze PDFs, spreadsheets, and more to answer domain-specific questions
+              MetaWurks is an AI document intelligence platform. Upload your PDFs,
+              spreadsheets and other business files, then ask questions about them in plain
+              English and get answers drawn from your own documents.
             </p>
           </div>
         </div>

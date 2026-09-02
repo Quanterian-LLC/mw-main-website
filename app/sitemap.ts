@@ -37,11 +37,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/terms-of-service`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
+  // `images` emits <image:image> entries, which is how Google Images discovers post
+  // artwork. Only the 30 posts that declare an image get one; the other 7 declare none and
+  // get no image entry rather than a placeholder. Every referenced file was verified to
+  // exist on disk — a sitemap pointing at a missing image is a crawl error, not a gain.
   const posts: MetadataRoute.Sitemap = Object.entries(blogPostsData).map(([id, post]) => ({
     url: `${SITE}/blog/${id}`,
     lastModified: postDate(post.date),
     changeFrequency: "yearly",
     priority: 0.6,
+    ...(post.image ? { images: [`${SITE}${post.image}`] } : {}),
   }));
 
   return [...staticRoutes, ...posts];
