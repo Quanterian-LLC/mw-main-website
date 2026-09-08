@@ -372,7 +372,7 @@ export default function Pricing() {
                 <div className="mt-auto">
                   {plan.buttonVariant === "gradient" && (
                     <Link
-                      href={process.env.NEXT_PUBLIC_SIGNUP_URL || "/contact#early-access"}
+                      href={process.env.NEXT_PUBLIC_LOGIN_URL || "/contact#early-access"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium border border-border bg-transparent hover:bg-secondary transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full"
