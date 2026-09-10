@@ -6,6 +6,36 @@ import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { SITE } from "@/lib/seo";
+
+// FAQ answers held back from FAQPage structured data.
+//
+// The schema is built from the same faqs array that renders the visible FAQ, so the two
+// cannot drift. Only entries listed here are omitted from the schema; every FAQ stays
+// visible on the page.
+//
+// Three previously-withheld answers have now been RECONCILED against repository evidence
+// and are emitted:
+//   "What is MetaWurks?"                    rewritten to the document-intelligence
+//                                           positioning and the six providers documented
+//                                           at app/docs/page.tsx:399-404.
+//   "Which AI models does MetaWurks
+//    support?"                              now reproduces that same documented list.
+//   "Is MetaWurks secure for teams and
+//    businesses?"                           now states only what
+//                                           app/privacy-policy/page.tsx:87,100,104,111,
+//                                           120-122 and app/docs/page.tsx:619 claim.
+//   "Can I use MetaWurks for free?"         now matches the plan table in this file
+//                                           (:19, :24-29, :32-43) instead of contradicting it.
+//
+// STILL WITHHELD — one entry. "API access and integration capabilities" is documented
+// nowhere: not in app/docs/page.tsx, not elsewhere in the codebase. Per instruction it is
+// left visible and unaltered rather than rewritten, because no truthful replacement is
+// supported by repository evidence. Remove it from this set once API access is verified.
+const FAQ_WITHHELD_FROM_SCHEMA = new Set([
+  "Can developers integrate MetaWurks with their tools?",
+]);
 
 export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -39,7 +69,7 @@ export default function Pricing() {
         bringOwnKey: "No",
         liveWebSearch: "No",
         speed: "Fast",
-        dailyTokenLimit: "Limited",
+        storageLimit: "Limited",
         support: "Community Support",
       },
     },
@@ -71,7 +101,7 @@ export default function Pricing() {
         bringOwnKey: "Yes",
         liveWebSearch: "Yes",
         speed: "Faster",
-        dailyTokenLimit: "1GB",
+        storageLimit: "1GB",
         support: "Email Support",
       },
     },
@@ -104,7 +134,7 @@ export default function Pricing() {
         bringOwnKey: "Yes",
         liveWebSearch: "Yes",
         speed: "2x Faster",
-        dailyTokenLimit: "5GB",
+        storageLimit: "5GB",
         support: "Priority Email Support",
       },
     },
@@ -137,7 +167,7 @@ export default function Pricing() {
         bringOwnKey: "Yes",
         liveWebSearch: "Yes",
         speed: "Highest",
-        dailyTokenLimit: "15GB",
+        storageLimit: "15GB",
         support: "Priority Email Support",
       },
     },
@@ -167,7 +197,7 @@ export default function Pricing() {
         bringOwnKey: "Yes",
         liveWebSearch: "Yes",
         speed: "Custom",
-        dailyTokenLimit: "Custom",
+        storageLimit: "Custom",
         support: "Dedicated 24/7 Support",
       },
     },
@@ -176,7 +206,7 @@ export default function Pricing() {
   const faqs = [
     {
       question: "What is MetaWurks?",
-      answer: "MetaWurks is an all-in-one AI platform and powerful AI aggregator that combines GPT-5, Claude, Gemini, DeepSeek, Grok, Mistral, LLaMA, and 30+ other AI models in one collaborative workspace. It's built for teams, developers, and creators to brainstorm, code, and create without switching tools or managing multiple subscriptions.",
+      answer: "MetaWurks is an AI document intelligence platform. You upload your PDFs, spreadsheets, presentations and other business files — or connect Google Drive or OneDrive — and then ask questions about them in plain English. Answers are drawn from your own documents and cite the passage they came from. Six model providers are available in one workspace and you can switch between them mid-conversation.",
     },
     {
       question: "How does MetaWurks give access to all top AI models?",
@@ -188,7 +218,7 @@ export default function Pricing() {
     },
     {
       question: "Which AI models does MetaWurks support?",
-      answer: "MetaWurks supports GPT-5, Claude, Gemini, DeepSeek, Grok, Mistral, LLaMA, and 30+ other AI models. The exact models available depend on your plan tier.",
+      answer: "Six providers are available in one workspace: OpenAI (GPT-5.2, GPT-5.1, GPT-4), Anthropic (Claude 3.5 Sonnet, Claude 4.5), Google (Gemini 2.5 Flash), xAI (Grok 4.1 Fast Reasoning), DeepSeek (DeepSeek Chat) and Perplexity (Sonar Pro). You can switch model mid-conversation, and which models your plan includes depends on your tier. The documentation carries the current list.",
     },
     {
       question: "How is MetaWurks better than single AI tools?",
@@ -196,11 +226,11 @@ export default function Pricing() {
     },
     {
       question: "Is MetaWurks secure for teams and businesses?",
-      answer: "Yes, MetaWurks uses enterprise-grade security with encryption, role-based access control, and full audit logs. Your data is protected and compliant with industry standards.",
+      answer: "OAuth tokens and sensitive data are stored encrypted, data is transmitted over HTTPS, and access controls are applied to prevent unauthorized use. Cloud storage connects over OAuth, so your password is never shared or stored, and each connection is private to the user who created it. Hosting runs on Google Cloud Platform, deleting your account removes the associated data, and personal data is not sold or disclosed for advertising. The privacy policy sets out the full terms.",
     },
     {
       question: "Can I use MetaWurks for free?",
-      answer: "Yes, we offer a free plan with limited basic models and 1,000 messages per month. It's perfect for trying out the platform.",
+      answer: "Yes. The Free plan gives you one month of limited access: Standard Models, a 1M token limit, limited file upload and message history, one team member, and community support. The plan table above sets out exactly what is included. Paid plans start at $19/month.",
     },
     {
       question: "Can developers integrate MetaWurks with their tools?",
@@ -208,8 +238,24 @@ export default function Pricing() {
     },
   ];
 
+  // Built from the same `faqs` array rendered below, so visible copy and structured data
+  // cannot diverge. Withheld entries stay visible; they are only omitted from the schema.
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE}/pricing#faq`,
+    mainEntity: faqs
+      .filter((faq) => !FAQ_WITHHELD_FROM_SCHEMA.has(faq.question))
+      .map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+  };
+
   return (
     <main className="min-h-screen bg-background">
+      <JsonLd data={faqSchema} />
       <Navbar />
       
       {/* Hero Section */}
@@ -249,11 +295,13 @@ export default function Pricing() {
               <span className={`text-sm ${isAnnual ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
                 Annually
               </span>
-              {isAnnual && (
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-ai-blue/10 to-ai-violet/10 text-ai-violet border border-ai-violet/20">
-                  Save 30%
-                </span>
-              )}
+              {/* The "Save 30%" badge was removed. It is contradicted by this page's own
+                  displayed prices: $19 -> $17 is 10.5%, $39 -> $37 is 5.1%, and
+                  $99 -> $97 is 2.0%. No plan saves 30%.
+                  No corrected figure was substituted: the saving differs per plan, so a
+                  single badge cannot be accurate for all of them, and choosing which one to
+                  advertise is a business decision rather than a factual correction.
+                  The monthly/annual toggle itself is unchanged. */}
             </div>
           </div>
         </div>
@@ -324,7 +372,7 @@ export default function Pricing() {
                 <div className="mt-auto">
                   {plan.buttonVariant === "gradient" && (
                     <Link
-                      href={process.env.NEXT_PUBLIC_SIGNUP_URL || "/contact#early-access"}
+                      href={process.env.NEXT_PUBLIC_LOGIN_URL || "/contact#early-access"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl text-sm font-medium border border-border bg-transparent hover:bg-secondary transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full"
@@ -425,7 +473,7 @@ export default function Pricing() {
                     <td className="p-6 font-medium">Storage Limit</td>
                     {pricingPlans.map((plan, index) => (
                       <td key={index} className="p-6 text-center text-sm text-muted-foreground">
-                        {plan.details.dailyTokenLimit}
+                        {plan.details.storageLimit}
                       </td>
                     ))}
                   </tr>

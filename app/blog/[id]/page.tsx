@@ -5,6 +5,9 @@ import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { blogPostsData } from "@/lib/blogPosts";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/seo";
+import { getImageDimensions } from "@/lib/imageDimensions";
 
 const SITE = "https://metawurks.com";
 
@@ -68,6 +71,74 @@ export function generateStaticParams() {
   return Object.keys(blogPostsData).map((id) => ({ id }));
 }
 
+// BlogPosting + BreadcrumbList for every post. One template change covers all of them.
+//
+// Every field is read from the post record or derived from it — nothing is invented.
+// Two deliberate omissions:
+//
+//   author       Posts carry no author field (see the record type in lib/blogPosts.tsx),
+//                and no byline is rendered on the page. The Organization is therefore the
+//                author of record, which is accurate and verifiable. If a real Person
+//                should be credited, replace this with a Person node — do not guess a name.
+//   dateModified No modification date is stored anywhere. Emitting datePublished as
+//                dateModified would assert a fact the repository does not hold, so the
+//                property is omitted rather than fabricated.
+//
+// image is conditional: seven of the oldest posts have none, and a wrong image URL is
+// worse than an absent property. Same rule generateMetadata already applies above.
+function buildPostSchema(id: string, post: (typeof blogPostsData)[string]) {
+  const url = `${SITE}/blog/${id}`;
+  const published = isoDate(post.date);
+
+  // Prefer an ImageObject carrying real intrinsic dimensions, read from the file at build
+  // time. Falls back to a plain URL string when the file cannot be measured — still valid.
+  // 30 of the 37 posts declare an image; the other 7 emit no image property at all.
+  const dimensions = post.image ? getImageDimensions(post.image) : null;
+  const imageNode = post.image
+    ? dimensions
+      ? {
+          "@type": "ImageObject",
+          url: `${SITE}${post.image}`,
+          width: dimensions.width,
+          height: dimensions.height,
+        }
+      : `${SITE}${post.image}`
+    : null;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      // Emitted so the author/publisher @id references below resolve on this page.
+      // Same @id as every other page, so consumers treat it as one entity, not many.
+      // Once Organization moves into the root layout (Phase 1.2) this can be dropped.
+      organizationSchema,
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        headline: post.title,
+        description: post.excerpt,
+        url,
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        ...(published ? { datePublished: published } : {}),
+        ...(imageNode ? { image: imageNode } : {}),
+        articleSection: post.category,
+        author: { "@id": `${SITE}/#organization` },
+        publisher: { "@id": `${SITE}/#organization` },
+        isPartOf: { "@type": "Blog", "@id": `${SITE}/blog#blog`, name: "MetaWurks Blog" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
+          { "@type": "ListItem", position: 3, name: post.title, item: url },
+        ],
+      },
+    ],
+  };
+}
+
 export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const post = blogPostsData[id];
@@ -78,6 +149,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
 
   return (
     <main className="min-h-screen bg-background">
+      <JsonLd data={buildPostSchema(id, post)} />
       <Navbar />
       
       {/* Hero Section */}

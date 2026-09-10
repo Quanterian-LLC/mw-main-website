@@ -1,3 +1,32 @@
+// ############################################################################
+// #  DO NOT IMPORT THIS COMPONENT. UNVERIFIED SECURITY CLAIMS.               #
+// ############################################################################
+//
+// This component is intentionally not imported by any page. Rendering it would put
+// nine security and availability claims in front of customers, none of which is
+// supported anywhere in this repository:
+//
+//   :12  "SOC 2 Type II"                        no certification evidence exists
+//   :13  "End-to-End Encryption"                contradicts app/privacy-policy/page.tsx,
+//                                               which claims encryption of OAuth tokens
+//                                               and sensitive data plus HTTPS — that is
+//                                               not end-to-end encryption
+//   :14  "Data Residency — Choose your region"  no evidence
+//   :15  "99.99% Uptime — Enterprise SLA"       no evidence, no SLA document
+//   :43  "SSO with SAML, OIDC, and OAuth"       no evidence
+//   :44  "Granular role-based access control"   no evidence
+//   :45  "Audit logs and compliance reporting"  no evidence
+//   :46  "Dedicated support and custom SLAs"    no evidence
+//
+// Publishing an unearned certification claim such as SOC 2 Type II carries legal and
+// contractual exposure well beyond an SEO concern.
+//
+// The file is kept rather than deleted so the intended layout survives for whenever the
+// underlying capabilities are real and documented. Before importing it, each line above
+// must be independently verified and the unverifiable ones deleted — not reworded.
+//
+// See SEO_AEO_IMPLEMENTATION_REPORT.md §6 and FACTUAL_CONFLICTS.md §5.
+
 import { Shield, Lock, Server, Globe, CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
 
