@@ -14,6 +14,426 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "ai-posting-capability-ledger-controls": {
+    title: "Eight Kinds of AI Capability. Only One of Them Writes to Your Ledger.",
+    category: "AI",
+    date: "11 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-cyan",
+    excerpt: "COSO published its generative AI internal control guidance in February, and it breaks AI into eight capability types: ingestion, transformation, posting, orchestration, judgment, monitoring, regulatory intelligence and human-AI interaction. Most firm conversations treat all eight as a single question. Posting is the one that changes the books.",
+    image: "/blog/one-block-opens.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/one-block-opens.png"
+            alt="Eight Kinds of AI Capability. Only One of Them Writes to Your Ledger."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          In February 2026, COSO published Achieving Effective Internal Control Over Generative AI, written by Scott Emett, Marc Eulerich, Jason Guthrie, Jason Pikoos and David Wood, building on the Internal Control Integrated Framework.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why Splitting Them Up Matters</h2>
+        <p className="mt-4 text-justify">
+          The most immediately useful thing in it is not a control. It is a taxonomy. The guidance splits AI into eight capability types: ingestion, transformation, posting, orchestration, judgment, monitoring, regulatory intelligence and human-AI interaction, each with its own control considerations.
+        </p>
+        <p className="mt-4 text-justify">
+          Most firms are still evaluating AI as one thing. Are we using it, which tool, is it approved, what does the policy say.
+        </p>
+        <p className="mt-4 text-justify">
+          That framing hides the only distinction that matters for internal control, which is what the AI is allowed to touch.
+        </p>
+        <p className="mt-4 text-justify">
+          An AI that reads a bank statement and extracts figures for a person to use is doing ingestion. If it gets something wrong, a human looking at the output catches it, and the error never leaves the desk. An AI that posts a journal entry has changed the accounting records. If it gets that wrong, the error is in the books and the detection has to happen downstream, by someone who was not watching.
+        </p>
+        <p className="mt-4 text-justify">
+          Same technology. Same vendor, quite possibly the same product. Entirely different control requirement.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Posting Is the Line</h2>
+        <p className="mt-4 text-justify">
+          So the question worth asking about every tool in the firm is narrow: does this thing write, or does it only read and suggest.
+        </p>
+        <p className="mt-4 text-justify">
+          If it writes, the control cannot be a prompt. This is the part that gets fudged in practice. A system instruction saying ask before posting is a request to the model, and a request is not an authorisation control. The application has to prevent the write until an identified approver, authenticated as themselves, permits it. Anything softer is a preference that a model can fail to honour and that nobody can evidence afterwards.
+        </p>
+        <p className="mt-4 text-justify">
+          The accounting principles here are not new and did not need AI to invent them. Preparer and approver are different people. Authorisation is enforced by the system rather than requested by a note. Every posting carries a trail back to who approved it and on what basis. What is new is that the preparer is now a piece of software that will produce a confident, well-formatted entry whether or not it is right.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What the Record Has to Contain</h2>
+        <p className="mt-4 text-justify">
+          The second half of the guidance is about evidence, and this is where firms tend to discover their gap.
+        </p>
+        <p className="mt-4 text-justify">
+          Coverage of the COSO material describes capturing prompts, inputs, outputs, source references, model and configuration versions, and confidence scores, because all of them can bear on whether a control operated effectively. Read that as a practical requirement rather than a compliance list. If an entry posted in March is questioned in November, the questions will be what was this based on, which version of the tool produced it, and who approved it.
+        </p>
+        <p className="mt-4 text-justify">
+          A firm that can answer those three has an auditable process. A firm that cannot has an entry that appeared, and a story about how the software is usually reliable.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Practical Exercise</h2>
+        <p className="mt-4 text-justify">
+          None of this requires a project. It requires an afternoon and a list.
+        </p>
+        <p className="mt-4 text-justify">
+          Write down every tool in the firm that touches client financial data. Against each one, mark which of the eight capabilities it actually performs. Most will land in ingestion and transformation, which is the low-risk end and where the majority of real value currently sits.
+        </p>
+        <p className="mt-4 text-justify">
+          The ones that mark posting are the short list. Those need an enforced approval gate, separation between whatever prepares and whoever approves, and a retained record of what the entry was based on. If a tool posts and cannot give you that, it is not ready for your ledger regardless of how good its extraction is.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks sits deliberately on the reading side of that line. It ingests a client&apos;s invoices, contracts, statements and correspondence and lets an accountant query the whole set in plain English. It writes nothing to any ledger, which is a design decision rather than a missing feature. Role based access controls decide who can open which client&apos;s records, audit logs record who opened what and when, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <p className="mt-4 text-justify">
+          Where it helps on the posting side is the part COSO cares about: when someone reviews a proposed entry, the supporting material behind it is a question away rather than a hunt, which is the difference between an approval that means something and a click.
+        </p>
+        <p className="mt-4 text-justify">
+          Eight capabilities. One of them changes the numbers. Find out which of your tools is in that column before somebody asks you in November.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Of the AI tools your firm uses on client work, which ones can write to a ledger, and is the approval gate on those enforced by the software or by a sentence in a prompt?
+        </p>
+      </>
+    ),
+  },
+  "ai-fraud-detection-tips-still-win": {
+    title: "Tips Catch 43% of Fraud. Anomaly Detection Is Not Why It Gets Found.",
+    category: "AI",
+    date: "10 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-blue",
+    excerpt: "The ACFE studied 2,402 occupational fraud cases across 143 countries totalling more than $3.4 billion. Tips accounted for 43% of detections. The median scheme ran 12 months before anyone noticed, and schemes caught inside six months cost a median $40,000 against more than $1.1 million for those running past five years.",
+    image: "/blog/one-card-proud.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/one-card-proud.png"
+            alt="Tips Catch 43% of Fraud. Anomaly Detection Is Not Why It Gets Found."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          The Association of Certified Fraud Examiners published Occupational Fraud 2026: A Report to the Nations, covering 2,402 real cases investigated by certified fraud examiners across 143 countries, with total losses above $3.4 billion. Median loss per case was $104,000. The average was over $1.4 million.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Actually Finds It</h2>
+        <p className="mt-4 text-justify">
+          Now the number that should shape any conversation about AI and fraud. Tips accounted for 43% of detections, more than half of them from employees.
+        </p>
+        <p className="mt-4 text-justify">
+          Sit with that for a moment before reading a vendor page about continuous transaction monitoring.
+        </p>
+        <p className="mt-4 text-justify">
+          The single most productive detection mechanism in the profession is a person deciding to say something. Not a model, not a rule, not a reconciliation. A person.
+        </p>
+        <p className="mt-4 text-justify">
+          The report supports that with a second finding that is easy to skip: 84% of perpetrators displayed behavioural red flags. Living beyond their means, unusual closeness to a vendor, refusal to take leave, control issues around their own work. None of those appear in a general ledger. No amount of transaction analysis will surface them, because they are not transactions.
+        </p>
+        <p className="mt-4 text-justify">
+          More than half of cases involved internal control failures, which is a real finding about controls. It is not a finding that better analytics would have caught them.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Number That Should Reframe the Spend</h2>
+        <p className="mt-4 text-justify">
+          Here is where the economics sit.
+        </p>
+        <p className="mt-4 text-justify">
+          The median scheme ran 12 months before detection. Schemes caught inside six months had a median loss of $40,000. Schemes that ran past five years had median losses exceeding $1.1 million.
+        </p>
+        <p className="mt-4 text-justify">
+          That is a curve, and it means the expensive variable is duration rather than detection method. A fraud found in month four by a slightly awkward conversation costs a fraction of the same fraud found in year three by a beautifully engineered anomaly model.
+        </p>
+        <p className="mt-4 text-justify">
+          Which points at an uncomfortable question for anyone buying AI for this purpose. Does the tool shorten time to detection, or does it add a second detection channel that mostly duplicates what tips already catch?
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Where AI Genuinely Helps</h2>
+        <p className="mt-4 text-justify">
+          There is a real answer, and it is not the one in the marketing.
+        </p>
+        <p className="mt-4 text-justify">
+          Follow what happens after a tip. Somebody raises a concern about a vendor. Now a partner has to work out whether there is anything in it, which means assembling a trail: what has been paid to that vendor, over what period, against which approvals, with what supporting invoices, and whether the documents look like what they claim to be.
+        </p>
+        <p className="mt-4 text-justify">
+          Today that assembly takes days or weeks in most small firms. Because it takes days or weeks, small concerns do not get examined. They get noted, and the person who raised it watches nothing happen, which is a good way to ensure the next concern is never raised at all.
+        </p>
+        <p className="mt-4 text-justify">
+          Shortening that assembly from two weeks to an afternoon changes which concerns are worth checking. That does not make the software a detector. It makes it the thing that lets a detection turn into a conclusion while the loss is still in the $40,000 band rather than the $1.1 million one.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built for exactly that half. It ingests the client&apos;s invoices, contracts, statements and correspondence and lets an accountant query the whole set in plain English, so tracing everything connected to a vendor across three years is a question rather than a fortnight. Role based access controls decide who can open which client&apos;s records, audit logs record who opened what and when, which matters when the enquiry itself is sensitive, and documents ingested into the platform are not used to train models or exposed to other users.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Cheapest Control Is Still Not Software</h2>
+        <p className="mt-4 text-justify">
+          One more figure, and it deserves to be said plainly by a company that sells software.
+        </p>
+        <p className="mt-4 text-justify">
+          Organisations with fraud awareness training for staff and management had a median loss of $84,000 per case. Those without had $150,000. Employees who received training generated more than twice as many tips.
+        </p>
+        <p className="mt-4 text-justify">
+          Nothing in any product catalogue beats that on cost or evidence. If a firm is choosing this quarter between a fraud analytics subscription for a client and an hour of training for that client&apos;s staff, the study is not ambiguous about which one moves the number.
+        </p>
+        <p className="mt-4 text-justify">
+          Buy the software for the investigation. Run the training for the detection. Do not let a vendor persuade you that the second is what the first is for.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          The last time someone in a client&apos;s business raised a quiet concern about a payment, how long did it take your firm to establish whether there was anything in it?
+        </p>
+      </>
+    ),
+  },
+  "ai-washing-substantiation": {
+    title: "If Your Firm Says AI Does It, Be Ready to Show That AI Does It",
+    category: "AI",
+    date: "9 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-cyan to-ai-violet",
+    excerpt: "The SEC's first two AI washing cases cost $225,000 and $175,000. Neither firm was accused of a bad model. They were accused of describing capabilities they did not have. Six cases later, the operating principle is clear enough to apply to your own marketing page.",
+    image: "/blog/thin-from-the-side.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/thin-from-the-side.png"
+            alt="If Your Firm Says AI Does It, Be Ready to Show That AI Does It"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          On 18 March 2024 the SEC charged two investment advisers, Delphia and Global Predictions, over statements about their use of AI. Delphia had claimed it used AI and machine learning on client data to predict which companies and trends would succeed. Global Predictions had marketed itself as the first regulated AI financial advisor and said its platform gave expert AI-driven forecasts.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Part That Travels</h2>
+        <p className="mt-4 text-justify">
+          The penalties were $225,000 and $175,000. Gary Gensler, then SEC chair, put the principle in one sentence: advisers should not mislead the public by saying they are using an AI model when they are not.
+        </p>
+        <p className="mt-4 text-justify">
+          It is easy to file that under securities enforcement and move on, and most accounting coverage did.
+        </p>
+        <p className="mt-4 text-justify">
+          Look at what the cases actually turned on. Neither firm was penalised for a model that performed badly. Neither was penalised for using AI in a way that harmed anyone. They were penalised for the gap between a description and a capability.
+        </p>
+        <p className="mt-4 text-justify">
+          That is not a securities concept. It is the ordinary rule that a factual claim in commercial speech has to be true and supportable, and it applies to anyone who writes marketing copy. Legal commentary now counts six AI washing matters brought since March 2024 across the SEC, DOJ and FTC, involving more than $44 million in alleged fraud, and in several of them the claims were accurate in outline but overstated in substance.
+        </p>
+        <p className="mt-4 text-justify">
+          Overstated in substance is where most professional services marketing lives.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Read Your Own Website</h2>
+        <p className="mt-4 text-justify">
+          So the useful exercise is not to follow the enforcement docket. It is to open your firm&apos;s site and read the AI sentences as if somebody intended to check them.
+        </p>
+        <p className="mt-4 text-justify">
+          AI-powered tax research. Our AI reviews every return. Intelligent automation handles your bookkeeping. AI-driven insights for your business.
+        </p>
+        <p className="mt-4 text-justify">
+          For each one, ask what would satisfy a sceptical reader. Which tool. On which engagements. Doing what, exactly, and reviewed by whom. If the honest answer is that a senior associate sometimes uses an assistant for first drafts, then the sentence claiming AI reviews every return is not a stretch. It is wrong, and it is wrong in a way that is trivially disprovable by any client who asks a follow-up question.
+        </p>
+        <p className="mt-4 text-justify">
+          There is a second, quieter cost to that. A firm that oversells AI in its marketing then has to manage a client expectation it cannot meet, and the first difficult conversation is with the client who assumed the speed was automated and cannot understand why the bill reflects hours.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Same Test Applies on the Other Side of the Desk</h2>
+        <p className="mt-4 text-justify">
+          The reverse case is arriving too, and it is the one with fee income attached.
+        </p>
+        <p className="mt-4 text-justify">
+          Clients now describe themselves as AI companies. Some of them are. For those that are not quite, the claim starts appearing in places with consequences: pitch decks, lender packs, grant applications, revenue recognition assumptions that depend on a product actually existing.
+        </p>
+        <p className="mt-4 text-justify">
+          An accountant preparing or reviewing that material is not the guarantor of a client&apos;s marketing. But the professional instinct that applies to any other unsupported assertion applies here too, which is to ask what the claim rests on before it rides along in something with your firm&apos;s name on it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Substantiation Actually Looks Like</h2>
+        <p className="mt-4 text-justify">
+          The good news is that this is a documentation problem rather than a philosophical one, and the artefacts are small.
+        </p>
+        <p className="mt-4 text-justify">
+          Which tools are in use, on what kind of work, with what human review step, evidenced by something other than memory. A firm that keeps that record can describe its AI use precisely and defend every word. A firm that does not ends up writing marketing copy from an impression of what people in the office are probably doing.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks covers one corner of that. Documents ingested into the platform are not used to train models and are not exposed to other users, role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when. Those logs are the unglamorous evidence that a stated practice is the actual practice.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not write your marketing, and it cannot make a claim true. What it removes is the situation where the only support for a sentence on your website is that it sounded right when somebody wrote it.
+        </p>
+        <p className="mt-4 text-justify">
+          Six enforcement matters is not a wave. The principle behind them is not new and was never limited to registered advisers. If the site says AI does it, be able to show that AI does it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Open your firm&apos;s website and find the sentences that mention AI. Could you evidence every one of them this afternoon?
+        </p>
+      </>
+    ),
+  },
+  "ai-professional-liability-underwriting": {
+    title: "Insurers Have No AI Claims Data on Accounting Firms. They Are Underwriting You Anyway.",
+    category: "AI",
+    date: "8 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-cyan to-ai-peach",
+    excerpt: "Aon's risk control lead says there has been no substantive claim activity linked to AI use at accounting firms. Meanwhile the questions have already started: do you use it, do you police it, do you have protocols. A firm with no answer is not neutral on that form. It is the risk the underwriter cannot size.",
+    image: "/blog/untouched-and-measured.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/untouched-and-measured.png"
+            alt="Insurers Have No AI Claims Data on Accounting Firms. They Are Underwriting You Anyway."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Ask a professional liability underwriter what AI has cost accounting firms in claims so far and the answer is close to nothing.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Gets Priced When There Is Nothing to Price</h2>
+        <p className="mt-4 text-justify">
+          Stan Sterna, senior vice president and risk control lead at Aon, put it plainly in a September piece in Accounting Today: there has been no substantive claim activity linked to the use of AI at accounting firms, and it takes years to understand a new risk. Not many claims, not much paid.
+        </p>
+        <p className="mt-4 text-justify">
+          Read that as good news for about five seconds, then look at what insurers are doing in the absence of loss data.
+        </p>
+        <p className="mt-4 text-justify">
+          Underwriters cannot wait for a decade of claims before writing next year&apos;s policy. So they substitute the thing they can observe.
+        </p>
+        <p className="mt-4 text-justify">
+          Sterna describes the current line of questioning as three questions. Do you use AI. Do you police it. Do you have protocols in place. He expects more detailed questions and guidelines within one to two years, most likely built around human review as the primary control.
+        </p>
+        <p className="mt-4 text-justify">
+          Gary Florian, senior vice president of underwriting at Camico, frames the same point from the carrier side: the concern is not whether a firm uses AI but how, with data security central and results treated as something to verify before relying on them.
+        </p>
+        <p className="mt-4 text-justify">
+          None of that is a loss ratio. It is a proxy, and the proxy is documentation. A firm that can describe which tools it uses, on what work, with what review step, is answering the question. A firm that says everyone uses it a bit for drafting is describing an unmeasured exposure, and unmeasured exposures get priced conservatively.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Exclusions Are Already Moving Elsewhere</h2>
+        <p className="mt-4 text-justify">
+          There is a second thing happening on adjacent paper, and it is worth watching because it shows the direction.
+        </p>
+        <p className="mt-4 text-justify">
+          In January 2026 the Insurance Services Office introduced a generative AI exclusion for commercial general liability policies, cutting coverage for bodily injury, property damage and personal or advertising injury arising out of or attributable to generative AI. Legal commentary tracking the shift reports AI exclusions and endorsements now appearing across directors and officers, employment practices, fiduciary and technology errors and omissions policies too.
+        </p>
+        <p className="mt-4 text-justify">
+          Accountants&apos; professional liability has not gone that way. It is still in the questionnaire phase. But the gap between a market that asks questions and a market that writes exclusions has historically been a few renewal cycles, and it closes faster when the first large claim lands.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Cheapest Move Is in the Engagement Letter</h2>
+        <p className="mt-4 text-justify">
+          John Raspante, director of risk management at McGowan, recommends something small enough to do this month: put AI disclosure language in the engagement letter and give the client an opt-out. He also suggests a strong compliance programme around AI might reduce premiums rather than merely satisfy a form.
+        </p>
+        <p className="mt-4 text-justify">
+          That is an unusual position for a risk manager to take, and it is worth taking seriously for a reason beyond insurance. A client who learns from the engagement letter that AI may be used on their work, and who is offered the choice, cannot later say they were not told. A client who finds out some other way has a grievance that did not need to exist.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What the Evidence Actually Has to Be</h2>
+        <p className="mt-4 text-justify">
+          The gap between a firm that has a policy and a firm that can evidence one is where this gets uncomfortable, because the second is a system question rather than a writing exercise.
+        </p>
+        <p className="mt-4 text-justify">
+          A policy document says what should happen. An underwriter asking whether you police it is asking what did happen, and answering that means records: which tools were used, on whose work, who reviewed the output, who could see the client data and when.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built with that side in mind. Documents ingested into the platform are not used to train models and are not exposed to other users, role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when. Those logs are unremarkable until somebody asks a question about March, at which point they are the difference between a record and a recollection.
+        </p>
+        <p className="mt-4 text-justify">
+          It is not a governance programme and it does not fill in a renewal form. What it does is make the firm&apos;s stated practice checkable, which is precisely what the questions are reaching for.
+        </p>
+        <p className="mt-4 text-justify">
+          No claims yet is a window, not a verdict. The firms that use it will renew as a documented risk. The rest will renew as an unknown one, and unknown is the more expensive category in every insurance market there has ever been.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If your carrier asked today which AI tools touched client work this quarter and who reviewed the output, could your firm answer from records rather than memory?
+        </p>
+      </>
+    ),
+  },
+  "ai-competence-due-care-ethics": {
+    title: "Competence Now Means Knowing the Limits of a Tool You Did Not Build",
+    category: "AI",
+    date: "7 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-cyan to-ai-mint",
+    excerpt: "The AICPA's Professional Ethics Division published its position in August: the General Standards Rule and the Confidential Client Information Rule apply to AI-assisted work unchanged. Meanwhile firms spent an average of $19,000 on technology in 2025 and plan $20,000 this year. One of those two numbers has been rising faster than the other.",
+    image: "/blog/one-tool-two-hands.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/one-tool-two-hands.png"
+            alt="Competence Now Means Knowing the Limits of a Tool You Did Not Build"
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Intuit&apos;s figures, reported by Accounting Today, put average firm technology investment at $19,000 in 2025 with $20,000 planned for 2026, and 64% of firms planning specific AI investment this year.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Rules Already on the Books</h2>
+        <p className="mt-4 text-justify">
+          Set next to that a much quieter publication. On 5 August 2026 the AICPA&apos;s Professional Ethics Division published a piece by Kelly D. Mullins, its communications manager, on accounting ethics in the age of AI. It contains no new rule.
+        </p>
+        <p className="mt-4 text-justify">
+          What it contains is a reminder that the existing ones never had a technology exemption.
+        </p>
+        <p className="mt-4 text-justify">
+          Two sections do most of the work here, and neither was written with software in mind.
+        </p>
+        <p className="mt-4 text-justify">
+          The General Standards Rule, ET sections 1.300.001 and 2.300.001, requires a member to undertake only services they can complete competently and with due professional care. The Confidential Client Information Rule, ET section 1.700.001, governs what a member in public practice may do with client data.
+        </p>
+        <p className="mt-4 text-justify">
+          The Ethics Division&apos;s reading is direct. Competence and due care mean that before using AI a member has to understand its strengths, limitations and risks in the specific context of the work, which may require additional research, training, or testing the tool on non-sensitive data first. Confidentiality means asking whether what is being typed into a tool is confidential client information and whether consent is required before it goes in.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why That Is Harder Than It Sounds</h2>
+        <p className="mt-4 text-justify">
+          Here is the part that does not survive contact with how firms actually buy software.
+        </p>
+        <p className="mt-4 text-justify">
+          Understanding a tool&apos;s limitations in a specific context is not the same as watching a demo or reading a vendor page. It means knowing what the thing is bad at, on your work, with your documents. A partner who could not say where a tool&apos;s output degrades has not met the standard, and no amount of vendor documentation supplies that knowledge, because the vendor does not have your client files.
+        </p>
+        <p className="mt-4 text-justify">
+          The article names the failure modes precisely, and they are cognitive rather than technical: automation bias, overconfidence bias, anchoring bias. The tendency to accept a machine&apos;s answer because it came from a machine. The tendency to trust your own review of it more than it deserves. The tendency to let the first figure you saw set the range for everything after.
+        </p>
+        <p className="mt-4 text-justify">
+          Those three are not fixed by a policy document. They are fixed by a review step somebody actually performs, on a schedule somebody actually keeps.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Consent Question Most Firms Have Not Asked</h2>
+        <p className="mt-4 text-justify">
+          Confidentiality is the cleaner test, and the one more likely to be failed quietly.
+        </p>
+        <p className="mt-4 text-justify">
+          A staff member pasting a client&apos;s trial balance into a general purpose chatbot to ask what looks odd has moved confidential client information into a third party system. Whether that needs consent depends on the tool, the terms and the jurisdiction, but the question has to be asked before the paste rather than after somebody notices.
+        </p>
+        <p className="mt-4 text-justify">
+          The Ethics Division also flags independence, which is easy to miss. Providing AI-related nonattest services to an attest client can raise independence concerns in the ordinary way any other nonattest service does. A firm helping an audit client select or implement an AI system is doing something that needs thinking about, not something new.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Answering Actually Requires</h2>
+        <p className="mt-4 text-justify">
+          Every one of those obligations resolves into a record.
+        </p>
+        <p className="mt-4 text-justify">
+          Which tool, on what engagement, with what review. Whether the client data went somewhere it should not have, and who could see it. A firm that has the answers has met a standard that predates all of this. A firm that has an impression has an ethics exposure sitting inside a productivity story.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built so that half is answerable. Documents ingested into the platform are not used to train models and are not exposed to other users, which removes one of the confidentiality questions rather than requiring it to be managed. Role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when.
+        </p>
+        <p className="mt-4 text-justify">
+          It does not supply competence. Nothing does except learning where a tool fails on your own work. What it supplies is the evidence that the practice you describe is the practice you run.
+        </p>
+        <p className="mt-4 text-justify">
+          No new rule is coming because none is needed. The obligations that apply to an AI-assisted engagement are the ones a member accepted on the day they joined, and the only thing AI changed is how quickly a lapse can scale.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Could someone in your firm state, specifically, what the AI tool you use most is bad at on your own client work?
+        </p>
+      </>
+    ),
+  },
   "ai-policy-clients-cannot-see": {
     title: "Half Your Clients Want You Using AI. Fewer Than a Third Know Whether You Are.",
     category: "AI",
