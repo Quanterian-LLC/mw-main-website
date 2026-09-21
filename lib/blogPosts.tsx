@@ -14,6 +14,426 @@ export const blogPostsData: Record<
     content: React.ReactElement;
   }
 > = {
+  "ai-voice-clone-payment-verification": {
+    title: "The FBI's Anti-Fraud Advice Says Verify by Phone. Voice Cloning Broke That.",
+    category: "AI",
+    date: "18 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-mint",
+    excerpt: "The FBI puts global exposed losses from business email compromise at $55.5 billion across 305,033 incidents between October 2013 and December 2023. Its recommended defence is to verify payment changes through a secondary channel. That advice still works. The version most firms actually run does not.",
+    image: "/blog/one-line-cut.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/one-line-cut.png"
+            alt="The FBI&apos;s Anti-Fraud Advice Says Verify by Phone. Voice Cloning Broke That."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Between October 2013 and December 2023 the FBI&apos;s Internet Crime Complaint Center recorded 305,033 business email compromise incidents with global exposed losses of $55,499,915,582. The scheme reached all 50 states and 186 countries, with more than 140 countries receiving fraudulent transfers.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Control Everyone Already Knows</h2>
+        <p className="mt-4 text-justify">
+          The 2024 figures alone: 21,442 BEC complaints and $2.77 billion in losses, out of $16.6 billion reported to the centre across all crime types. BEC was seventh by complaint volume and second by dollars.
+        </p>
+        <p className="mt-4 text-justify">
+          These are not novelty numbers. Payment redirection is the most expensive thing that happens to ordinary businesses, and most accountants have a client it has happened to.
+        </p>
+        <p className="mt-4 text-justify">
+          The FBI&apos;s guidance on this is unglamorous and specific: use secondary channels or two-factor authentication to verify requests for changes in account information. Check the sending address carefully, especially on a phone. Watch for lookalike domains. Review accounts regularly.
+        </p>
+        <p className="mt-4 text-justify">
+          That advice is sound and it predates any of this. An instruction arriving by one channel gets confirmed through a different one. A bank detail change emailed by a supplier gets confirmed by phoning the supplier.
+        </p>
+        <p className="mt-4 text-justify">
+          Which is where the problem starts, because for most small businesses the second channel has always been a phone call, and a phone call is a voice.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Changed, Precisely</h2>
+        <p className="mt-4 text-justify">
+          It is worth being exact about this, because the vague version leads to useless advice.
+        </p>
+        <p className="mt-4 text-justify">
+          AI did not make fraudsters more persuasive in general. What it did was remove two specific assumptions that a callback quietly relied on. The first is that a familiar voice identifies a familiar person. The second is that producing that voice takes effort a fraudster would not bother with for a mid-sized invoice.
+        </p>
+        <p className="mt-4 text-justify">
+          Both of those were reasonable in 2019. Neither survives a technology that clones a voice from a short sample of publicly available audio, and most finance directors have a podcast appearance, a webinar recording or a conference video somewhere online.
+        </p>
+        <p className="mt-4 text-justify">
+          So the callback still works as a control. Voice recognition inside the callback does not. Those are different things, and the second is what most procedures were actually depending on.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What a Rewritten Control Looks Like</h2>
+        <p className="mt-4 text-justify">
+          The fix is not more suspicion. Suspicion does not scale and it makes people worse at their jobs. The fix is a rule about where the verification number comes from.
+        </p>
+        <p className="mt-4 text-justify">
+          Verification has to run to a contact detail the firm already held before the request arrived, not one supplied in it. A number in the email signature, in the new invoice, or given by the caller is not a second channel. It is the same channel wearing a different hat. That single distinction catches most of these attacks regardless of how convincing the voice is, because the fraudster controls the message and not the vendor file.
+        </p>
+        <p className="mt-4 text-justify">
+          Two additions worth making while the procedure is open. Any bank detail change goes to a named approver who is not the person who received the request. And the confirmation is written down, with who called, which number, and what was confirmed, because a control nobody recorded is a control nobody can prove operated.
+        </p>
+        <p className="mt-4 text-justify">
+          None of this requires technology. It requires the vendor file to be current and reachable, which is where it usually falls apart.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why This Lands on the Accountant</h2>
+        <p className="mt-4 text-justify">
+          Clients do not have a controls function. They have a bookkeeper, an owner and whoever answers the phone, and the person who tells them how payments should be authorised is their accountant.
+        </p>
+        <p className="mt-4 text-justify">
+          That advisory conversation is now genuinely different from the one that was correct two years ago, and the firms having it early are the ones clients remember.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks helps with the part that makes verification actually happen rather than get skipped. It ingests a client&apos;s invoices, contracts, statements and correspondence and lets an accountant query the whole set in plain English, so establishing what this vendor has been paid, to which account, under which contract, is a question rather than an afternoon in a filing system. Documents ingested into the platform are not used to train models and are not exposed to other users, role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when.
+        </p>
+        <p className="mt-4 text-justify">
+          Controls get skipped when they are slow. A verification step that takes four minutes gets done every time. One that takes forty gets done until the week it matters.
+        </p>
+        <p className="mt-4 text-justify">
+          The FBI&apos;s advice did not become wrong. One convenient shortcut inside it did, and it is worth telling your clients which one before somebody finds out the expensive way.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If a supplier emailed one of your clients today with new bank details, what number would get called to check, and where would that number come from?
+        </p>
+      </>
+    ),
+  },
+  "ai-vendor-contract-clauses": {
+    title: "Your AI Vendor's Security Page Is Marketing. The Contract Is the Control.",
+    category: "AI",
+    date: "17 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-cyan",
+    excerpt: "A September 2026 compliance piece sets out the clauses worth negotiating with an AI vendor. Almost none of them appear on a trust centre page: a prohibition on training that reaches the underlying foundation model, audit rights over the controls the vendor says it runs, and a guaranteed deletion process that extends to subprocessors.",
+    image: "/blog/one-clause-lifted.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/one-clause-lifted.png"
+            alt="Your AI Vendor&apos;s Security Page Is Marketing. The Contract Is the Control."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Ask a firm how it evaluated its AI tool and you usually get a version of the same answer. Somebody read the security page, confirmed the vendor was SOC 2 compliant, and signed.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Training Clause Has to Reach Further Than You Think</h2>
+        <p className="mt-4 text-justify">
+          Michael Volkov, writing on 17 September 2026, sets out what the agreement should actually say. Read as a diligence list it is uncomfortable, because most of it is absent from the contracts firms have already signed.
+        </p>
+        <p className="mt-4 text-justify">
+          Start with the clause everyone thinks they have.
+        </p>
+        <p className="mt-4 text-justify">
+          A prohibition on training needs to be an explicit, affirmative bar on using your inputs, your outputs and any data submitted through the tool to train, retrain, fine-tune or otherwise improve any commercial or publicly available model. The word doing the work there is any.
+        </p>
+        <p className="mt-4 text-justify">
+          Most AI products sit on somebody else&apos;s foundation model. A vendor can honestly say it does not train on your data while the model underneath it operates on different terms, and a clause naming only the vendor&apos;s own models leaves that gap wide open. The clause has to cover the models beneath the product, not just the product.
+        </p>
+        <p className="mt-4 text-justify">
+          For an accounting firm this is not a privacy abstraction. Client financial records moving into a training set is a confidentiality question, and the client never agreed to it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Clause Nobody Asks For</h2>
+        <p className="mt-4 text-justify">
+          Here is the one that is almost never negotiated and costs nothing to ask for.
+        </p>
+        <p className="mt-4 text-justify">
+          Audit rights. A contractual right to request compliance documentation and evidence of the technical controls the vendor claims to run: that training is actually disabled on your tenant, what the retention settings actually are, how access controls are actually configured. Without that, as Volkov puts it, the assurance rests entirely on the vendor&apos;s self-reporting.
+        </p>
+        <p className="mt-4 text-justify">
+          That is worth sitting with. A firm that has no audit right has a promise, and a promise is what you have instead of evidence when a client or an underwriter asks how you know.
+        </p>
+        <p className="mt-4 text-justify">
+          Alongside it, a requirement for advance notice before material model changes affecting data handling. Products get upgraded underneath you, and a change you were not told about is a change you cannot document.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Deletion Is Not a Setting</h2>
+        <p className="mt-4 text-justify">
+          The exit terms are where the real exposure sits, and they are the most commonly skipped.
+        </p>
+        <p className="mt-4 text-justify">
+          The contract should name data residency and processing locations, identify every subprocessor, and keep that disclosure current rather than treating it as a one-time schedule attached at signing. Retention should be the shortest period consistent with actual business need, with a defined deletion process at termination.
+        </p>
+        <p className="mt-4 text-justify">
+          Then the part that makes it real: a contractually guaranteed process for retrieving your data and confirming deletion from the vendor&apos;s systems, including from any subprocessors. Deleting your account is not deletion. Confirming deletion is a different act, and only one of them is something you can show somebody.
+        </p>
+        <p className="mt-4 text-justify">
+          Indemnification deserves one line too. It should extend to model outputs and predictions rather than only the underlying platform, and it should be read against the liability cap in the same agreement, because an indemnity sitting under a cap equal to three months of fees is decoration.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What This Costs to Fix</h2>
+        <p className="mt-4 text-justify">
+          Not much, and that is the point.
+        </p>
+        <p className="mt-4 text-justify">
+          None of these are exotic asks. They are standard in enterprise software negotiation and unusual only because professional services firms buying a per-seat AI tool rarely negotiate at all. A firm with ten staff has less bargaining power than a bank, but it also has a simple option nobody uses: ask, in writing, and keep the answer.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks answers several of these in the product rather than leaving them to a negotiation. Documents ingested into the platform are not used to train models and are not exposed to other users. Role based access controls decide who can open which client&apos;s records. Audit logs record who opened what and when, which is the evidence layer the audit-rights clause exists to reach.
+        </p>
+        <p className="mt-4 text-justify">
+          That does not remove the need to read your agreements. It removes one tool from the list of things you have to take on trust.
+        </p>
+        <p className="mt-4 text-justify">
+          Pull the contracts for every AI product touching client data and find the training clause. If there is not one, you do not have a position. You have a security page.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          For the AI tool your firm relies on most, can you point to the sentence in the contract that stops your client data reaching a model, or only to the page on the website that says it does not?
+        </p>
+      </>
+    ),
+  },
+  "ai-model-version-control-change": {
+    title: "You Tested the Tool in March. The Model Behind It Is Not the One You Tested.",
+    category: "AI",
+    date: "16 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-peach to-ai-blue",
+    excerpt: "COSO's internal control guidance for generative AI expects the record to capture model and configuration versions, because each can affect whether a control operated. That expectation only makes sense if the version can change. It can, without notice, and nothing in the product tells you.",
+    image: "/blog/two-keys-not-alike.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/two-keys-not-alike.png"
+            alt="You Tested the Tool in March. The Model Behind It Is Not the One You Tested."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          A firm evaluates a document extraction tool in March. Someone runs fifty real invoices through it, checks the output line by line, finds an acceptable error rate, writes up the test and turns it on for the team.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Assumption That Stopped Holding</h2>
+        <p className="mt-4 text-justify">
+          That is a good process. It is better than most firms manage. And it has a quiet assumption inside it that used to be safe.
+        </p>
+        <p className="mt-4 text-justify">
+          Software you buy stays the software you tested until you update it. That was true of desktop accounting packages, and it is mostly true of the web applications that replaced them, because a visible feature change gets announced and noticed.
+        </p>
+        <p className="mt-4 text-justify">
+          A hosted AI product is different in a specific way. The behaviour you tested is produced by a model the vendor calls out to, and that model can be swapped, re-pointed or re-versioned without any change to the product you look at. The interface is identical. The buttons are where they were. The thing generating the answers is not the thing that generated the answers in March.
+        </p>
+        <p className="mt-4 text-justify">
+          Coverage of COSO&apos;s February 2026 internal control guidance for generative AI describes capturing prompts, inputs, outputs, source references, model and configuration versions, and confidence scores, on the basis that each can bear on whether a control operated effectively.
+        </p>
+        <p className="mt-4 text-justify">
+          Read the words model and configuration versions again. That requirement is only meaningful because versions move. The guidance is telling you something about the technology, not just about paperwork.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why This Is a Control Problem and Not an IT One</h2>
+        <p className="mt-4 text-justify">
+          It would be easy to file this as somebody else&apos;s job. It is not, because of what the test was for.
+        </p>
+        <p className="mt-4 text-justify">
+          A firm that tested a tool and documented the result has created a control: output from this tool is reliable for this purpose, evidenced by this testing. That statement has a silent clause attached, which is as tested on this version. If the version changes and nobody records it, the documentation now describes a test of something that is no longer running.
+        </p>
+        <p className="mt-4 text-justify">
+          That is not a theoretical failure. It is the ordinary way a control goes stale, and it is the kind an inspection or a peer review is built to find. The awkward part is that the tool will not degrade visibly. Output that is slightly worse still looks like output. There is no error message for a model that got a little less careful with dates.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Three Things That Make This Manageable</h2>
+        <p className="mt-4 text-justify">
+          None of this justifies avoiding AI, and none of it needs a project. It needs three small habits.
+        </p>
+        <p className="mt-4 text-justify">
+          Record the version. Whatever the product shows about the model or release it is running, write it into the test documentation alongside the date. A test with no version attached cannot tell you later whether it still applies.
+        </p>
+        <p className="mt-4 text-justify">
+          Ask for notice in the contract. Advance notice of material model changes is a clause worth negotiating, and vendors give it more readily than people expect because it costs them an email. Without it you are relying on noticing.
+        </p>
+        <p className="mt-4 text-justify">
+          Re-test on a schedule, briefly. Not the full fifty-invoice exercise. Ten documents, quarterly, against known answers, taking an hour. That is the difference between a control that operates and a control that operated once.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Record Is the Part That Survives</h2>
+        <p className="mt-4 text-justify">
+          All three collapse into the same requirement, which is a record somebody can read in November about something that happened in March.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks keeps the evidence layer for its own side of that. Documents ingested into the platform are not used to train models and are not exposed to other users, role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when. When the question is what was this based on and who looked at it, the answer is retrievable rather than reconstructed.
+        </p>
+        <p className="mt-4 text-justify">
+          It cannot tell you that some other vendor changed a model last Tuesday. Nothing can, except that vendor and your own habit of writing down what you were running when you tested it.
+        </p>
+        <p className="mt-4 text-justify">
+          The firms that will struggle with this are not the ones that skipped testing. They are the ones that tested carefully, once, and filed it.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          For the AI tool your firm tested most rigorously, does the documentation say which model version it was tested against, and would you know if that changed?
+        </p>
+      </>
+    ),
+  },
+  "state-ai-laws-client-questions": {
+    title: "Colorado Repealed Its AI Law and Wrote a Different One. Your Clients Will Ask You About It.",
+    category: "AI",
+    date: "15 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-violet",
+    excerpt: "Texas has had an AI statute in force since 1 January 2026, with penalties from $10,000 to $200,000. Colorado's original AI Act was stayed by a federal court in April, repealed in May and replaced with a narrower law taking effect 1 January 2027. Neither is aimed at accountants. Both land on their clients.",
+    image: "/blog/two-lines-one-turns.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/two-lines-one-turns.png"
+            alt="Colorado Repealed Its AI Law and Wrote a Different One. Your Clients Will Ask You About It."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Two states, two different answers, eighteen months apart.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What Colorado Now Requires</h2>
+        <p className="mt-4 text-justify">
+          The Texas Responsible Artificial Intelligence Governance Act took effect on 1 January 2026. It restricts specific uses of AI the state treats as high risk, is enforced by the Texas Attorney General with civil penalties between $10,000 and $200,000 per violation, and carries no private right of action. It is intent-based: the question it asks is whether a system was deployed intentionally to discriminate, manipulate or harm.
+        </p>
+        <p className="mt-4 text-justify">
+          Colorado went the other way and then changed its mind. A federal judge stayed enforcement of the original AI Act on 27 April 2026 after a legal challenge. On 14 May 2026 Governor Polis signed SB 26-189, repealing and replacing it with a narrower framework that takes effect on 1 January 2027.
+        </p>
+        <p className="mt-4 text-justify">
+          The replacement is worth knowing in outline, because its shape is the one other states are likely to copy.
+        </p>
+        <p className="mt-4 text-justify">
+          It covers automated decision-making technology used in consequential decisions, defined across education, employment, housing, financial services, insurance, health care and government services. Developers must give deployers documentation on intended uses, training data categories, limitations and instructions for meaningful human review. Deployers must give consumers clear and conspicuous notice, explain an adverse decision within 30 days, and provide meaningful human review on request. The Colorado Attorney General has exclusive enforcement authority and there is no private right of action.
+        </p>
+        <p className="mt-4 text-justify">
+          Note what that is. It is not an accuracy standard and it is not a ban. It is a disclosure and explanation regime, and disclosure regimes are the ones small businesses fail by accident.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Client Who Does Not Know They Are In Scope</h2>
+        <p className="mt-4 text-justify">
+          Here is the conversation that is coming.
+        </p>
+        <p className="mt-4 text-justify">
+          A client with forty employees uses a hiring platform with automated screening. Another uses a lending product that scores applicants. A third has a property manager running tenant applications through something. None of them describe what they do as deploying automated decision-making technology. All of them are, and none of them have read a word of this.
+        </p>
+        <p className="mt-4 text-justify">
+          They will not call a law firm. They will ask their accountant, usually sideways, usually in the middle of a conversation about something else, and usually in the form of is this going to be a problem for us.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What to Actually Say</h2>
+        <p className="mt-4 text-justify">
+          The honest answer has three parts and the first one matters most.
+        </p>
+        <p className="mt-4 text-justify">
+          You are not their lawyer and this is not legal advice. Say it plainly and early, because the gap between a helpful observation and an advisory service they relied on is exactly where professional liability lives.
+        </p>
+        <p className="mt-4 text-justify">
+          What you can do is help them find out whether the question applies. Which states do they operate in or hire in. Do they use any tool that makes or materially informs a decision about a person in employment, credit, housing, insurance or health care. Do they know whether a human reviews those decisions in a way that could be described as meaningful, and could they show it.
+        </p>
+        <p className="mt-4 text-justify">
+          Then hand it on. A client who arrives at counsel with those answers gets a cheaper and better result than one who arrives with a question.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why This Sits Close to the Books</h2>
+        <p className="mt-4 text-justify">
+          The reason accountants get asked is not an accident of proximity.
+        </p>
+        <p className="mt-4 text-justify">
+          The tools that make consequential decisions are usually the ones plumbed into payroll, billing and the general ledger, and the accountant is often the only outside professional who knows what software the business actually runs. That knowledge is the scarce part.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built around that kind of retrieval. It ingests a client&apos;s contracts, invoices, statements and correspondence and lets an accountant query the whole set in plain English, so establishing which vendor agreements are in place and what they say is a question rather than a hunt through a shared drive. Documents ingested into the platform are not used to train models and are not exposed to other users, role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when.
+        </p>
+        <p className="mt-4 text-justify">
+          It will not tell anyone whether a statute applies. It shortens the part where nobody can find the contract.
+        </p>
+        <p className="mt-4 text-justify">
+          Two states have moved, one of them twice, and the federal position is unsettled. The value is not in knowing the statutes. It is in being the professional who noticed the client might be in one.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          Do you know which of your clients uses software that makes or scores a decision about a person, and would they know to tell you?
+        </p>
+      </>
+    ),
+  },
+  "ai-prompts-are-records": {
+    title: "Courts Are Treating AI Prompts as Discoverable. Your Retention Policy Does Not Mention Them.",
+    category: "AI",
+    date: "14 September, 2026",
+    readTime: "4 min read",
+    gradient: "from-ai-mint to-ai-peach",
+    excerpt: "A July 2026 litigation alert collects the decisions. AI logs evaluated under the standard relevance framework for electronically stored information. Employee prompt spreadsheets held discoverable. The practical consequence is small and immediate: litigation holds now have to name prompts and outputs, and most retention schedules do not know they exist.",
+    image: "/blog/one-drawer-open.png",
+    content: (
+      <>
+        <div className="my-12 flex justify-center">
+          <Image
+            src="/blog/one-drawer-open.png"
+            alt="Courts Are Treating AI Prompts as Discoverable. Your Retention Policy Does Not Mention Them."
+            width={1200}
+            height={800}
+            className="rounded-lg shadow-lg w-full max-w-5xl h-auto"
+          />
+        </div>
+        <p className="text-xl text-foreground text-justify">
+          Joel D. Bush, writing on 21 July 2026, sets out where discovery of generative AI material has landed, and the answer is less dramatic and more inconvenient than the headlines suggest.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Why This Reaches an Accounting Firm</h2>
+        <p className="mt-4 text-justify">
+          There is no special rule. Prompts, outputs, conversation logs and the metadata around them are being handled under the ordinary framework for electronically stored information. In a 2025 decision involving OpenAI in the Southern District of New York, AI logs were evaluated under the standard relevance analysis. In an October 2025 ruling in the same matter, employee prompt spreadsheets that carried no privilege markings were held discoverable.
+        </p>
+        <p className="mt-4 text-justify">
+          Not exempt because they are new. That is the whole holding, and it is the one that matters.
+        </p>
+        <p className="mt-4 text-justify">
+          A CPA firm is not a party to an AI copyright case. It is, routinely, a party or a witness in something else.
+        </p>
+        <p className="mt-4 text-justify">
+          Malpractice claims. An IRS examination. A partnership dispute where the firm prepared the returns. A client insolvency where somebody wants to know what the accountant knew. In all of those, the firm&apos;s working material is in scope, and the question of what was this conclusion based on has a new possible answer that did not exist three years ago.
+        </p>
+        <p className="mt-4 text-justify">
+          If a staff member asked an AI tool to summarise a set of contracts and that summary informed a position taken on an engagement, the prompt and the response are part of how the work was done. A retention policy that covers email, workpapers and the document management system but says nothing about the AI tool is describing a firm that no longer exists.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Part That Is Genuinely Hard</h2>
+        <p className="mt-4 text-justify">
+          The difficulty is not the rule. It is where the material lives.
+        </p>
+        <p className="mt-4 text-justify">
+          A lot of AI use in professional firms happens outside firm systems. A public chatbot in a browser. A personal account. A tool somebody expensed. Often in breach of a policy that exists, which is its own problem, but the records issue is separate from the discipline issue: material the firm may have to preserve is sitting somewhere the firm cannot see and cannot hold.
+        </p>
+        <p className="mt-4 text-justify">
+          Bush&apos;s practical guidance is unglamorous and worth copying. Define covered material expressly, naming prompts, outputs, logs and metadata rather than relying on a general reference to electronic records. Map where it is stored, including third party platforms. Suspend automatic deletion as soon as a duty attaches. Distinguish tools the firm controls from tools it does not. Audit what is actually in use, and reissue holds as platforms change, because they change often.
+        </p>
+        <p className="mt-4 text-justify">
+          That duty attaches earlier than most people assume: when a claim is identified, a complaint arrives, a subpoena lands, or litigation becomes reasonably foreseeable. Not when proceedings start.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">What to Do This Quarter</h2>
+        <p className="mt-4 text-justify">
+          Two small things, neither of which requires a policy rewrite.
+        </p>
+        <p className="mt-4 text-justify">
+          Add prompts and outputs to the retention schedule explicitly, with a period, even if that period is short. A short stated period defensibly applied is a far better position than silence, because silence is what makes routine deletion look like something else after the fact.
+        </p>
+        <p className="mt-4 text-justify">
+          Then find out where AI is actually being used. Not what the policy permits, what is happening. That list is the map, and no hold can cover what nobody has written down.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">The Argument for Keeping It Inside</h2>
+        <p className="mt-4 text-justify">
+          This is the strongest practical case for using tools that sit inside the firm&apos;s own boundary rather than whatever is open in a browser tab.
+        </p>
+        <p className="mt-4 text-justify">
+          MetaWurks is built that way. Documents ingested into the platform are not used to train models and are not exposed to other users, role based access controls decide who can open which client&apos;s records, and audit logs record who opened what and when. The point for this purpose is not privacy. It is that the activity happens somewhere the firm can see, in a place a retention schedule can name and a hold can actually reach.
+        </p>
+        <p className="mt-4 text-justify">
+          Material scattered across personal accounts cannot be preserved, cannot be produced, and cannot be shown to have been deleted in the ordinary course.
+        </p>
+        <p className="mt-4 text-justify">
+          Courts did not decide that AI records are special. They decided they are normal. Normal records are the ones a firm is expected to be able to find.
+        </p>
+        <h2 className="text-3xl font-display font-bold tracking-tight mb-4 mt-8 text-foreground">Join the Conversation</h2>
+        <p className="text-justify">
+          If a hold landed on your firm tomorrow naming AI prompts and outputs, could you list every tool your people have used on client work this year?
+        </p>
+      </>
+    ),
+  },
   "ai-posting-capability-ledger-controls": {
     title: "Eight Kinds of AI Capability. Only One of Them Writes to Your Ledger.",
     category: "AI",
